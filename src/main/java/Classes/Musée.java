@@ -1,20 +1,20 @@
 package Classes;
 
 public class Musée {
-    public String nomMusée;
+    public String nomMusee;
     public String Ville;
 
-    public Musée(String nomMusée, String ville) {
-        this.nomMusée = nomMusée;
+    public Musée(String nomMusee, String ville) {
+        this.nomMusee = nomMusee;
         Ville = ville;
     }
 
-    public String getNomMusée() {
-        return nomMusée;
+    public String getNomMusee() {
+        return nomMusee;
     }
 
-    public void setNomMusée(String nomMusée) {
-        this.nomMusée = nomMusée;
+    public void setNomMusee(String nomMusee) {
+        this.nomMusee = nomMusee;
     }
 
     public String getVille() {
