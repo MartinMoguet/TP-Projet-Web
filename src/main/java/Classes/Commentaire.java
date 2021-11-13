@@ -4,13 +4,13 @@ public class Commentaire {
     public int id;
     public String contenu;
     public String date;
-    public Oeuvre Oeuvre;
+    public Oeuvre oeuvre;
 
-    public Commentaire(int id, String contenu, String date, Classes.Oeuvre oeuvre) {
+    public Commentaire(int id, String contenu, String date, Oeuvre oeuvre) {
         this.id = id;
         this.contenu = contenu;
         this.date = date;
-        Oeuvre = oeuvre;
+        this.oeuvre = oeuvre;
     }
 
     public int getId() {
@@ -37,11 +37,11 @@ public class Commentaire {
         this.date = date;
     }
 
-    public Classes.Oeuvre getOeuvre() {
-        return Oeuvre;
+    public Oeuvre getOeuvre() {
+        return oeuvre;
     }
 
-    public void setOeuvre(Classes.Oeuvre oeuvre) {
-        Oeuvre = oeuvre;
+    public void setOeuvre(Oeuvre oeuvre) {
+        this.oeuvre = oeuvre;
     }
 }
