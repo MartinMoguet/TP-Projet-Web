@@ -1,5 +1,7 @@
 package Classes;
+import javax.persistence.Entity;
 
+@Entity
 public class Oeuvre {
 
     String nom;
