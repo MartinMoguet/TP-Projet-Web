@@ -1,10 +1,10 @@
 package Classes;
 
-public class Musée {
+public class Musee {
     public String nomMusee;
     public String Ville;
 
-    public Musée(String nomMusee, String ville) {
+    public Musee(String nomMusee, String ville) {
         this.nomMusee = nomMusee;
         Ville = ville;
     }
