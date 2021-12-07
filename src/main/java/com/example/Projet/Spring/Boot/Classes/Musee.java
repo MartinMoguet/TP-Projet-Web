@@ -1,4 +1,4 @@
-package Classes;
+package com.example.Projet.Spring.Boot.Classes;
 
 public class Musee {
     public String nomMusee;
