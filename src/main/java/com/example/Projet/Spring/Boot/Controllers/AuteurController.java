@@ -18,4 +18,10 @@ public class AuteurController {
         //auteurList.add();
         return auteurList;
     }
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void addAuteur(Auteur a) {
+        auteurList.add(a);
+    }
 }
