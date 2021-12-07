@@ -15,7 +15,7 @@ public class AuteurController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Auteur> getAllAuteur() {
-        //auteurList.add(n);
+        //auteurList.add();
         return auteurList;
     }
 }
