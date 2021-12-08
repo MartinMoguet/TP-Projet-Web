@@ -1,19 +1,39 @@
 package com.example.Projet.Spring.Boot.Classes;
 
-public class Commentaire {
-    public int id;
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+
+public class Commentaire implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public long id;
     public String contenu;
     public String date;
-    public Oeuvre oeuvre;
 
-    public Commentaire(int id, String contenu, String date, Oeuvre oeuvre) {
+    @ManyToOne( cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Oeuvre oeuvre;
+
+
+
+    public Commentaire(long id, String contenu, String date, Oeuvre oeuvre) {
         this.id = id;
         this.contenu = contenu;
         this.date = date;
         this.oeuvre = oeuvre;
     }
 
-    public int getId() {
+    public Commentaire() {
+
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getId() {
         return id;
     }
 

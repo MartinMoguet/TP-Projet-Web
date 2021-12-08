@@ -41,6 +41,22 @@ public class Auteur implements Serializable{
 
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Collection<Oeuvre> getOeuvreList() {
+        return oeuvreList;
+    }
+
+    public void setOeuvreList(Collection<Oeuvre> oeuvreList) {
+        this.oeuvreList = oeuvreList;
+    }
+
     public String getNomAuteur() {
         return nomAuteur;
     }

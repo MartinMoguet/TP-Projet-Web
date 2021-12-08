@@ -1,11 +1,12 @@
 package com.example.Projet.Spring.Boot.Classes;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
 @Entity
-public class Musee {
+public class Musee implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,6 +22,26 @@ public class Musee {
     public Musee(String nomMusee, String ville) {
         this.nomMusee = nomMusee;
         Ville = ville;
+    }
+
+    public Musee() {
+
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Collection<Oeuvre> getOeuvreList() {
+        return oeuvreList;
+    }
+
+    public void setOeuvreList(Collection<Oeuvre> oeuvreList) {
+        this.oeuvreList = oeuvreList;
     }
 
     public String getNomMusee() {

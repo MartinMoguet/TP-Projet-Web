@@ -1,10 +1,13 @@
 package com.example.Projet.Spring.Boot.Classes;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 
 @Entity
 
-public class Oeuvre {
+public class Oeuvre implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,6 +23,9 @@ public class Oeuvre {
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Musee musee;
+
+    @OneToMany(mappedBy = "Oeuvre", fetch = FetchType.EAGER)
+    private Collection<Commentaire> commentaireList = new ArrayList<>();
 
 
     public Oeuvre(String nom, String description, Musee musee, Auteur auteur, String dateExposition, String dateCreation) {
@@ -61,6 +67,22 @@ public class Oeuvre {
 
     public Auteur getAuteur() {
         return auteur;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Collection<Commentaire> getCommentaireList() {
+        return commentaireList;
+    }
+
+    public void setCommentaireList(Collection<Commentaire> commentaireList) {
+        this.commentaireList = commentaireList;
     }
 
     public void setAuteur(Auteur auteur) {
