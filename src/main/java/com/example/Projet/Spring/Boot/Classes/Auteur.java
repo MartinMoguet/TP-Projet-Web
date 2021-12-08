@@ -1,7 +1,19 @@
 package com.example.Projet.Spring.Boot.Classes;
 
-public class Auteur {
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
 
+@Entity
+public class Auteur implements Serializable{
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     public String nomAuteur;
     public String prenomAuteur;
     public String dateDeNaissance;
@@ -9,6 +21,10 @@ public class Auteur {
     public String nationalite;
     public String mouvement;
     public String biographie;
+
+    @OneToMany(mappedBy = "auteur", fetch = FetchType.EAGER)
+    private Collection<Oeuvre> oeuvreList = new ArrayList<>();
+
 
     public Auteur(String nomAuteur, String prenomAuteur, String dateDeNaissance, String dateDeMort, String nationalite, String mouvement, String biographie)
     {
@@ -19,6 +35,10 @@ public class Auteur {
         this.nationalite = nationalite;
         this.mouvement = mouvement;
         this.biographie = biographie;
+    }
+
+    public Auteur() {
+
     }
 
     public String getNomAuteur() {

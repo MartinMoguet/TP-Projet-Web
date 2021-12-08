@@ -1,13 +1,26 @@
 package com.example.Projet.Spring.Boot.Classes;
 
+import javax.persistence.*;
+
+@Entity
+
 public class Oeuvre {
 
-    String nom;
-    String description;
-    Musee musee;
-    Auteur auteur;
-    String dateExposition;
-    String dateCreation;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    private String nom;
+    private String description;
+
+    private String dateExposition;
+    private String dateCreation;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Auteur auteur;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Musee musee;
+
 
     public Oeuvre(String nom, String description, Musee musee, Auteur auteur, String dateExposition, String dateCreation) {
         this.nom = nom;
@@ -16,6 +29,10 @@ public class Oeuvre {
         this.auteur = auteur;
         this.dateExposition = dateExposition;
         this.dateCreation = dateCreation;
+    }
+
+    public Oeuvre() {
+
     }
 
     public String getNom() {

@@ -1,8 +1,22 @@
 package com.example.Projet.Spring.Boot.Classes;
 
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
+
+@Entity
 public class Musee {
-    public String nomMusee;
-    public String Ville;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+    private String nomMusee;
+    private String Ville;
+
+    @OneToMany(mappedBy= "Musee", fetch = FetchType.EAGER)
+    private Collection<Oeuvre> oeuvreList = new ArrayList<>();
+
+
 
     public Musee(String nomMusee, String ville) {
         this.nomMusee = nomMusee;
