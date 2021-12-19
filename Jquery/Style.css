@@ -99,7 +99,7 @@ nav .Menu li a:hover{
     border-radius: 10px;
     margin: 0px 20px 10px 20px;
     overflow: hidden;
-
+    background-color: transparent;
     
 }
 
@@ -108,6 +108,7 @@ nav .Menu li a:hover{
     height: 100%;
     object-fit: cover;
     object-position: top;
+    border-radius: 10px;
 }
 
 .Rubrique-a-la-une{
@@ -117,3 +118,4 @@ nav .Menu li a:hover{
     text-transform: uppercase;
     color: #1a1a1a;
 }
+
