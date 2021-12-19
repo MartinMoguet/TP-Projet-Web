@@ -42,7 +42,7 @@ nav .Menu li a{
     height: 40px;
     line-height: 43px;
     margin: 12px;
-    padding: Opx 22px;
+    padding: 0px 22px;
     display: flex;
     font-size: 1rem;
     text-transform: uppercase;
@@ -94,12 +94,13 @@ nav .Menu li a:hover{
 
 .Boite-a-la-une{
     width: fit-content;
-    height: 250px;
+    height: 370px;
     box-shadow: 5px 15px 20px black;
     border-radius: 10px;
     margin: 0px 20px 10px 20px;
     overflow: hidden;
     background-color: transparent;
+
     
 }
 
@@ -108,7 +109,7 @@ nav .Menu li a:hover{
     height: 100%;
     object-fit: cover;
     object-position: top;
-    border-radius: 10px;
+
 }
 
 .Rubrique-a-la-une{
