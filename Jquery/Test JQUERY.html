@@ -4,9 +4,12 @@
 <meta charset="utf-8">
 <script src="jquery-3.6.0.min.js"></script>
 <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" data-auto-replace-svg="nest"></script>
+<script src="lightslider.js"></script>
 <title>WikiClassic</title>
 <link rel="stylesheet" href="Style.css"/>
 <link rel="shortcut icon" href="Musique Classique.jpg"/>
+<link rel="stylesheet" href="lightslider.css">
+
 
 
 </head>
@@ -31,10 +34,30 @@
   </nav>
   <section id="main">
     <h1 class="Rubrique-à-la-une"> À la une </h1>
-    <div class="Boîte-à-la-une">
-      <img src="Chopin.jfif"/>
-    </div>
+
+    <ul id="autoWidth" class="cs-hidden">
+      <li class="item-a">
+        <div class="Boîte-à-la-une">
+          <img src="Chopin.jfif"/>
+        </div>
+      </li>
+    </ul>
+
+
+    
   </section>
+
+  <script>
+    $(document).ready(function() {
+    $('#autoWidth').lightSlider({
+        autoWidth:true,
+        loop:true,
+        onSliderLoad: function() {
+            $('#autoWidth').removeClass('cS-hidden');
+        } 
+    });  
+  });
+  </script>
   
 
   
