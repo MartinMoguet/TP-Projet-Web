@@ -31,10 +31,10 @@ public class OeuvreController {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Path("/{ajoutMultiple}")
+    @Path("/{ajoutMultipleOeuvre}")
     public void ajouteOeuvresMultiples(List<Oeuvre> oeuvreList){ oeuvreList.forEach(oeuvre -> oeuvreRepository.save(oeuvre));}
 
     @DELETE
-    @Path("/{removeAll:}")
+    @Path("/{removeAllOeuvre}")
     public void removeAllOeuvre(){ oeuvreRepository.deleteAll();}
 }

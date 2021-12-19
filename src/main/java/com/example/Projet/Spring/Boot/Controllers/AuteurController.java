@@ -34,10 +34,10 @@ public class AuteurController {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Path("/{ajoutMultiple}")
+    @Path("/{ajoutMultipleAuteur}")
     public void ajouteAuteurMultiples(List<Auteur> auteurList){ auteurList.forEach(auteur -> auteurRepository.save(auteur));}
 
     @DELETE
-    @Path("/{removeAll:}")
+    @Path("/{removeAllAuteur}")
     public void removeAllAuteur(){ auteurRepository.deleteAll();}
 }

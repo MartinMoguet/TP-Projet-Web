@@ -16,6 +16,9 @@ public class Commentaire implements Serializable {
     @ManyToOne( cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Oeuvre oeuvre;
 
+    @ManyToOne( cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Utilisateur utilisateur;
+
 
 
     public Commentaire(long id, String contenu, String date, Oeuvre oeuvre) {
