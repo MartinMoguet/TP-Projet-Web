@@ -4,7 +4,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-
 public class Commentaire implements Serializable {
 
     @Id

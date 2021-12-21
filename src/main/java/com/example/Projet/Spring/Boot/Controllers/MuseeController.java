@@ -3,6 +3,7 @@ package com.example.Projet.Spring.Boot.Controllers;
 import com.example.Projet.Spring.Boot.Classes.Auteur;
 import com.example.Projet.Spring.Boot.Classes.Musee;
 import com.example.Projet.Spring.Boot.Repositories.MuseeRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import javax.ws.rs.*;
@@ -14,6 +15,7 @@ import java.util.Optional;
 
 public class MuseeController {
 
+    @Autowired
     public MuseeRepository museeRepository;
 
     @GET

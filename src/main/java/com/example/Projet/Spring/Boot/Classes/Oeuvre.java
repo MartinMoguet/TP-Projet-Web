@@ -24,7 +24,7 @@ public class Oeuvre implements Serializable {
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Musee musee;
 
-    @OneToMany(mappedBy = "Oeuvre", fetch = FetchType.EAGER)
+    @OneToMany( fetch = FetchType.EAGER)
     private Collection<Commentaire> commentaireList = new ArrayList<>();
 
 

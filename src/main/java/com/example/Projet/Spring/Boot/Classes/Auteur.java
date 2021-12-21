@@ -22,7 +22,7 @@ public class Auteur implements Serializable{
     public String mouvement;
     public String biographie;
 
-    @OneToMany(mappedBy = "auteur", fetch = FetchType.EAGER)
+    @OneToMany( fetch = FetchType.EAGER)
     private Collection<Oeuvre> oeuvreList = new ArrayList<>();
 
 

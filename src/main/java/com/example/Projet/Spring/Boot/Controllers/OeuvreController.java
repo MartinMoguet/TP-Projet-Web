@@ -3,6 +3,7 @@ package com.example.Projet.Spring.Boot.Controllers;
 import com.example.Projet.Spring.Boot.Classes.Oeuvre;
 import com.example.Projet.Spring.Boot.Repositories.AuteurRepository;
 import com.example.Projet.Spring.Boot.Repositories.OeuvreRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -11,6 +12,8 @@ import java.util.Optional;
 
 @Path("oeuvre")
 public class OeuvreController {
+
+    @Autowired
     public OeuvreRepository oeuvreRepository;
     @GET
     @Produces(MediaType.APPLICATION_JSON)

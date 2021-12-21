@@ -15,7 +15,7 @@ public class Utilisateur implements Serializable {
     private String username;
     private String password;
 
-    @OneToMany( mappedBy = "Utilisateur", fetch = FetchType.EAGER)
+    @OneToMany(  fetch = FetchType.EAGER)
     private Collection<Commentaire> commentaireList = new ArrayList<>();
 
     public Utilisateur(String username, String password){

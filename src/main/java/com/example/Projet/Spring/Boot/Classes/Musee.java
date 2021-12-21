@@ -14,8 +14,8 @@ public class Musee implements Serializable {
     private String nomMusee;
     private String Ville;
 
-    @OneToMany(mappedBy= "Musee", fetch = FetchType.EAGER)
-    private Collection<Oeuvre> oeuvreList = new ArrayList<>();
+    @OneToMany( fetch = FetchType.EAGER)
+    public Collection<Oeuvre> oeuvreList = new ArrayList<>();
 
 
 

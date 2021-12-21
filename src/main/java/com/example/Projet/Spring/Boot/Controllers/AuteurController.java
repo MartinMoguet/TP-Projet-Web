@@ -3,6 +3,7 @@ package com.example.Projet.Spring.Boot.Controllers;
 import com.example.Projet.Spring.Boot.Classes.Auteur;
 import com.example.Projet.Spring.Boot.Repositories.AuteurRepository;
 import com.fasterxml.jackson.databind.jsontype.impl.ClassNameIdResolver;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -14,6 +15,7 @@ import java.util.Optional;
 @Path("auteur")
 public class AuteurController {
 
+    @Autowired
     public AuteurRepository auteurRepository;
     @GET
     @Produces(MediaType.APPLICATION_JSON)
