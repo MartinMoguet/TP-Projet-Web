@@ -13,18 +13,18 @@ public class Commentaire implements Serializable {
     public String date;
 
     @ManyToOne( cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Oeuvre oeuvre;
+    private Morceau morceau;
 
     @ManyToOne( cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Utilisateur utilisateur;
 
 
 
-    public Commentaire(long id, String contenu, String date, Oeuvre oeuvre) {
+    public Commentaire(long id, String contenu, String date, Morceau morceau) {
         this.id = id;
         this.contenu = contenu;
         this.date = date;
-        this.oeuvre = oeuvre;
+        this.morceau = morceau;
     }
 
     public Commentaire() {
@@ -37,10 +37,6 @@ public class Commentaire implements Serializable {
 
     public long getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getContenu() {
@@ -59,11 +55,19 @@ public class Commentaire implements Serializable {
         this.date = date;
     }
 
-    public Oeuvre getOeuvre() {
-        return oeuvre;
+    public Morceau getMorceau() {
+        return morceau;
     }
 
-    public void setOeuvre(Oeuvre oeuvre) {
-        this.oeuvre = oeuvre;
+    public void setMorceau(Morceau morceau) {
+        this.morceau = morceau;
+    }
+
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
     }
 }

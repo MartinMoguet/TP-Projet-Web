@@ -8,28 +8,27 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-public class Auteur implements Serializable{
+public class Compositeur implements Serializable {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    public String nomAuteur;
-    public String prenomAuteur;
+    public String nomCompositeur;
+    public String prenomCompositeur;
     public String dateDeNaissance;
     public String dateDeMort;
     public String nationalite;
     public String mouvement;
     public String biographie;
 
-    @OneToMany( fetch = FetchType.EAGER)
-    private Collection<Oeuvre> oeuvreList = new ArrayList<>();
+    @OneToMany(mappedBy = "compositeur", fetch = FetchType.EAGER)
+    private Collection<Morceau> morceauList = new ArrayList<>();
 
 
-    public Auteur(String nomAuteur, String prenomAuteur, String dateDeNaissance, String dateDeMort, String nationalite, String mouvement, String biographie)
-    {
-        this.nomAuteur = nomAuteur;
-        this.prenomAuteur = prenomAuteur;
+    public Compositeur(String nomCompositeur, String prenomCompositeur, String dateDeNaissance, String dateDeMort, String nationalite, String mouvement, String biographie) {
+        this.nomCompositeur = nomCompositeur;
+        this.prenomCompositeur = prenomCompositeur;
         this.dateDeNaissance = dateDeNaissance;
         this.dateDeMort = dateDeMort;
         this.nationalite = nationalite;
@@ -37,7 +36,7 @@ public class Auteur implements Serializable{
         this.biographie = biographie;
     }
 
-    public Auteur() {
+    public Compositeur() {
 
     }
 
@@ -49,28 +48,20 @@ public class Auteur implements Serializable{
         this.id = id;
     }
 
-    public Collection<Oeuvre> getOeuvreList() {
-        return oeuvreList;
+    public String getNomCompositeur() {
+        return nomCompositeur;
     }
 
-    public void setOeuvreList(Collection<Oeuvre> oeuvreList) {
-        this.oeuvreList = oeuvreList;
+    public void setNomCompositeur(String nomCompositeur) {
+        this.nomCompositeur = nomCompositeur;
     }
 
-    public String getNomAuteur() {
-        return nomAuteur;
+    public String getPrenomCompositeur() {
+        return prenomCompositeur;
     }
 
-    public void setNomAuteur(String nomAuteur) {
-        this.nomAuteur = nomAuteur;
-    }
-
-    public String getPrenomAuteur() {
-        return prenomAuteur;
-    }
-
-    public void setPrenomAuteur(String prenomAuteur) {
-        this.prenomAuteur = prenomAuteur;
+    public void setPrenomCompositeur(String prenomCompositeur) {
+        this.prenomCompositeur = prenomCompositeur;
     }
 
     public String getDateDeNaissance() {
@@ -112,4 +103,14 @@ public class Auteur implements Serializable{
     public void setBiographie(String biographie) {
         this.biographie = biographie;
     }
+
+    public Collection<Morceau> getMorceauList() {
+        return morceauList;
+    }
+
+    public void setMorceauList(Collection<Morceau> morceauList) {
+        this.morceauList = morceauList;
+    }
 }
+
+
