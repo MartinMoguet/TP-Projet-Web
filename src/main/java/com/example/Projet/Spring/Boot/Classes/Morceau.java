@@ -1,9 +1,12 @@
 package com.example.Projet.Spring.Boot.Classes;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Optional;
 
 @Entity
 public class Morceau implements Serializable {
@@ -82,7 +85,7 @@ public class Morceau implements Serializable {
     }
 
     public void setCompositeur(Compositeur compositeur) {
-        this.compositeur = compositeur;
+        this.compositeur = compositeur; //.orElse(null);
     }
 
     public Collection<Commentaire> getCommentaireList() {

@@ -18,7 +18,7 @@ public class CompositeurController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Compositeur> getAllCompositeur() {
-        return (List<Compositeur>) compositeurRepository.findAll();
+        return compositeurRepository.findAll();
     }
 
     @POST

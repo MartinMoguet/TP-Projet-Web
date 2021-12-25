@@ -1,5 +1,7 @@
 package com.example.Projet.Spring.Boot.Classes;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -104,8 +106,10 @@ public class Compositeur implements Serializable {
         this.biographie = biographie;
     }
 
-    public Collection<Morceau> getMorceauList() {
-        return morceauList;
+    public List<String> getMorceauList() {
+        List<String> nomMorceaux = new ArrayList<>();
+        morceauList.forEach(morceau -> nomMorceaux.add(morceau.getNom()));
+        return nomMorceaux;
     }
 
     public void setMorceauList(Collection<Morceau> morceauList) {
