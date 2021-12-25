@@ -45,10 +45,11 @@ public class MorceauController {
                         //compositeurRepository.delete(compositeurAEnlever);
                         m.setCompositeur(compositeur);
                         //morceauRepository.save(m);
-                        compositeurRepository.deleteById(compositeurAEnlever.getId());
+                        //compositeurRepository.deleteById(compositeurAEnlever.getId());
                         System.out.println(compositeurAEnlever.getId());
                         compositeur.getMorceauList().add(m.getNom());
                         morceauRepository.save(m);
+                        compositeurRepository.deleteById(compositeurAEnlever.getId());
 
 
                     }});
