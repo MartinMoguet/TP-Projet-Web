@@ -92,16 +92,14 @@ nav .Menu li a:hover{
 }
 
 
-.Boite-a-la-une{
+.Boite-a-la-une-img{
     width: fit-content;
-    height: 370px;
+    height: 300px;
     box-shadow: 5px 15px 20px black;
     border-radius: 10px;
     margin: 0px 20px 10px 20px;
     overflow: hidden;
     background-color: transparent;
-
-    
 }
 
 .Boîte-a-la-une img{
@@ -109,14 +107,17 @@ nav .Menu li a:hover{
     height: 100%;
     object-fit: cover;
     object-position: top;
-
 }
-
+.Boite-a-la-une-text{
+    color: white;
+    text-align: center;
+}
 .Rubrique-a-la-une{
     padding-left: 30px;
     font-weight: 500;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: #1a1a1a;
+    height: 15px;
 }
 

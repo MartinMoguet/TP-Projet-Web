@@ -5,4 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CompositeurRepository extends JpaRepository<Compositeur, Long> {
 
+    Compositeur findCompositeurByNomCompositeur(String nom);
 }

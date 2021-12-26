@@ -62,5 +62,20 @@ public class MorceauController {
     @GET
     @Produces(MediaType.TEXT_HTML)
     @Path("nom/{nom}")
-    public String getMoceauByNom(@PathParam("nom") String nom){return morceauRepository.findMorceauByNom(nom).getNom();}
+    public String getMoceauByNom(@PathParam("nom") String nom){return morceauRepository.findMorceauByNom(nom).getNom() ;}
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("liste")
+    public List<String> getAllMorceauNom(){
+        List<Morceau> morceauList = morceauRepository.findAll();
+        List<String> nomMorceauList = new ArrayList<>();
+        int i=0;
+        morceauList.forEach(morceau -> {
+            nomMorceauList.add(morceau.getNom());
+        });
+        return nomMorceauList;
+    }
+
+
 }

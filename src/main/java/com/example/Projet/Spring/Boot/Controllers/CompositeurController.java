@@ -40,4 +40,9 @@ public class CompositeurController {
     @DELETE
     @Path("/{removeAllCompositeur}")
     public void removeAllCompositeur(){ compositeurRepository.deleteAll();}
+
+    @GET
+    @Produces(MediaType.TEXT_HTML)
+    @Path("nom/{nom}")
+    public String getMoceauByNomPrenomCompositeur(@PathParam("nom") String nom){return compositeurRepository.findCompositeurByNomCompositeur(nom).getPrenomCompositeur()+" "+ compositeurRepository.findCompositeurByNomCompositeur(nom).getNomCompositeur();}
 }
