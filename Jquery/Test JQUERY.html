@@ -42,6 +42,7 @@
         <div class="Boite-a-la-une">
           <a href="#" class="Rach 2">
             <img src="Evgeny Kissin Rachmaninoff.JPG" height="300"/>
+            <p id="test">slt</p>
           </a>
         </div>
       </li>
@@ -100,7 +101,11 @@
         onSliderLoad: function() {
             $('#autoWidth').removeClass('cS-hidden');
         } 
-    });  
+    });
+    $.get("http://localhost:8080/classic/morceau/nom/Ballade%20No.%201%20in%20G%20minor,%20Op.%2023", function (data, status){
+      $("#test").html(data);
+      alert(status);
+    })
   });
   </script>
   
