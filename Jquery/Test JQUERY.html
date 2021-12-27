@@ -7,7 +7,7 @@
 <script src="lightslider.js"></script>
 <title>WikiClassic</title>
 <link rel="stylesheet" href="Style.css"/>
-<link rel="shortcut icon" href="Images/Musique%20Classique.jpg"/>
+<link rel="shortcut icon" href="img/Musique%20Classique.jpg"/>
 <link rel="stylesheet" href="lightslider.css">
 
 
@@ -16,7 +16,7 @@
 <body>
   <nav>
     <a href="#" class="logo">
-      <img src="Images/Musique%20Classique.jpg">
+      <img src="img/Musique%20Classique.jpg">
     </a>
     <ul class="Menu">
       <li><i class="fas fa-music"></i></li>
@@ -42,7 +42,7 @@
         <a href="#" class="Rach 2">
           <div class="Boite-a-la-une">
           <div class="Boite-a-la-une-img">
-              <img src="Images/Ballade%20No.%201%20in%20G%20minor,%20Op.%2023.png" height="300"/>
+              <img src="img/Ballade%20No.%201%20in%20G%20minor,%20Op.%2023.png" height="300"/>
           </div>
           <div class="Boite-a-la-une-text">
             <strong class="Ballade"></strong>
@@ -54,20 +54,22 @@
 
       <li class="item-b">
         <a href="#" class="Cello-Suite-Bach">
+        <div class="Boite-a-la-une">
         <div class="Boite-a-la-une-img">
-          <img src="Images/Cello%20Suite%20Bach.JPG">
+          <img src="img/Cello%20Suite%20Bach.JPG" height="300">
         </div>
           <div class="Boite-a-la-une-text">
             <strong class="Ballade"></strong>
             <p class="Chopin"></p>
           </div>
+        </div>
         </a>
       </li>
 
       <li class="item-c">
         <div class="Boite-a-la-une">
           <a href="#" class="Experience">
-            <img src="Images/Experience.PNG" height="300"/>
+            <img src="img/Experience.PNG" height="300"/>
           </a>
         </div>
       </li>
@@ -75,7 +77,7 @@
       <li class="item-d">
         <div class="Boite-a-la-une">
           <a href="#" class="Train">
-            <img src="Images/Train.PNG" height="300"/>
+            <img src="img/Train.PNG" height="300"/>
           </a>
         </div>
       </li>
@@ -83,7 +85,7 @@
       <li class="item-e">
         <div class="Boite-a-la-une">
           <a href="#" class="Canon-in-d">
-            <img src="Images/Canon%20in%20d.PNG" height="300"/>
+            <img src="img/Canon%20in%20d.PNG" height="300"/>
           </a>
         </div>
       </li>
@@ -91,7 +93,7 @@
       <li class="item-f">
         <div class="Boite-a-la-une">
           <a href="#" class="Clair-de-Lune">
-            <img src="Images/Clair%20de%20Lune.PNG" height="300"/>
+            <img src="img/Clair%20de%20Lune.PNG" height="300"/>
           </a>
         </div>
       </li>
@@ -104,19 +106,70 @@
 
   <script>
     $(document).ready(function() {
-    $('#autoWidth').lightSlider({
+      $('#autoWidth').lightSlider({
         autoWidth:true,
         loop:true,
         onSliderLoad: function() {
             $('#autoWidth').removeClass('cS-hidden');
         }
     });
+      var filenames=[], foldernames=[];
+
+      $.get("img",function(response){
+        document.write(response);
+        getNames();
+      });
+
+      function getNames()
+      {
+        var files = document.querySelectorAll("a.icon.file");
+        var folders = document.querySelectorAll("a.icon.dir");
+        files.forEach(function(item){filenames.push(item.textContent)})
+        folders.forEach(function(item){foldernames.push(item.textContent.slice(0,-1))})
+        console.log(filenames);
+        console.log(foldernames);
+      }
+      $.get("img/Clair%20de%20Lune.PNG", function (data){
+        console.log(data);
+      });
     $.get("http://localhost:8080/classic/morceau/nom/Ballade%20No.%201%20in%20G%20minor,%20Op.%2023", function (data, status){
       $(".Ballade").html(data);
     })
     $.get("http://localhost:8080/classic/compositeur/nom/Chopin", function(data){
       $(".Chopin").html(data);
     })
+      var fileNames = new Array();
+      $.ajax({
+        url: "img",
+        success: function(data){
+          $(data).find(name).each(function(){
+            if(openFile($(this).attr("href"))){
+              fileNames.push($(this).attr("href"));
+            }
+          });
+        }
+      });
+      console.log(fileNames);
+      function openFile(file) {
+        var extension = file.substr( (file.lastIndexOf('.') +1) );
+        switch(extension) {
+          case 'jpg':
+          case 'png':
+          case 'gif':   // the alert ended with pdf instead of gif.
+          case 'zip':
+          case 'rar':
+          case 'pdf':
+          case 'php':
+          case 'doc':
+          case 'docx':
+          case 'xls':
+          case 'xlsx':
+            return true;
+          default:
+            return false;
+        }
+      };
+
   });
 
   </script>
