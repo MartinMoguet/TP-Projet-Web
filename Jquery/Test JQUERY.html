@@ -39,7 +39,7 @@
     <ul id="autoWidth" class="cs-hidden">
 
       <li class="item-a">
-        <a href="#" class="Rach 2">
+        <a href="#">
           <div class="Boite-a-la-une">
           <div class="Boite-a-la-une-img">
               <img src="img/Ballade%20No.%201%20in%20G%20minor,%20Op.%2023.png" height="300"/>
@@ -77,7 +77,7 @@
       <li class="item-d">
         <div class="Boite-a-la-une">
           <a href="#" class="Train">
-            <img src="img/Train.PNG" height="300"/>
+            <img src="img/The%20Sixth%20Station.PNG" height="300"/>
           </a>
         </div>
       </li>
@@ -90,87 +90,71 @@
         </div>
       </li>
 
-      <li class="item-f">
-        <div class="Boite-a-la-une">
-          <a href="#" class="Clair-de-Lune">
-            <img src="img/Clair%20de%20Lune.PNG" height="300"/>
-          </a>
-        </div>
-      </li>
-
-
-
-
+      <li class="item-0"></li>
+      <li class="item-1"></li>
+      <li class="item-2"></li>
     </ul> 
   </section>
 
   <script>
     $(document).ready(function() {
+      var i=-1
+      var k=i
+      for (k=0;k<3;k++){
+        $.ajax({
+          type: "GET",
+          url: "http://localhost:8080/classic/morceau/liste",
+          contentType: "application/json",
+          dataType: "json",
+          success: function (data) {
+            if(this.success){
+              console.log("oui")
+            i=i+1
+              console.log(i)}
+              var nomMorceauAvecEspace = data[i];
+              var nomMorceau = nomMorceauAvecEspace.replace(/ /g, "%20");
+              console.log(nomMorceau)
+              var nomCompositeur
+
+              $.get("http://localhost:8080/classic/morceau/compositeur/" + nomMorceau, function (data, success) {
+                if (success){
+                  console.log("^^")
+                }
+                  nomCompositeur = data
+                  console.log(nomCompositeur);
+                  $("." + k).append(nomCompositeur)
+                  console.log(k);
+                  k=k+1
+              });
+              $(".item-" + i).append(
+                      "<a href=#>" +
+                      "<div class =Boite-a-la-une>" +
+                      "<div class=Boite-a-la-une-img>" +
+                      "<img src=img/" + nomMorceau + ".png height = 300/>" +
+                      "</div>" +
+                      "<div class=Boite-a-la-une-text>" +
+                      "<strong>" + nomMorceauAvecEspace + "</strong>" +
+                      "<p class="+i+"></p>" +
+                      "</div>" +
+                      "</div>" +
+                      "</a>");
+          }
+        })}
+      k=0
+
       $('#autoWidth').lightSlider({
         autoWidth:true,
         loop:true,
         onSliderLoad: function() {
             $('#autoWidth').removeClass('cS-hidden');
         }
-    });
-      var filenames=[], foldernames=[];
+    })
 
-      $.get("img",function(response){
-        document.write(response);
-        getNames();
-      });
-
-      function getNames()
-      {
-        var files = document.querySelectorAll("a.icon.file");
-        var folders = document.querySelectorAll("a.icon.dir");
-        files.forEach(function(item){filenames.push(item.textContent)})
-        folders.forEach(function(item){foldernames.push(item.textContent.slice(0,-1))})
-        console.log(filenames);
-        console.log(foldernames);
-      }
-      $.get("img/Clair%20de%20Lune.PNG", function (data){
-        console.log(data);
-      });
-    $.get("http://localhost:8080/classic/morceau/nom/Ballade%20No.%201%20in%20G%20minor,%20Op.%2023", function (data, status){
+    $.get("http://localhost:8080/classic/morceau/nom/Ballade%20No.%201%20in%20G%20minor,%20Op.%2023", function (data, status) {
       $(".Ballade").html(data);
     })
-    $.get("http://localhost:8080/classic/compositeur/nom/Chopin", function(data){
-      $(".Chopin").html(data);
-    })
-      var fileNames = new Array();
-      $.ajax({
-        url: "img",
-        success: function(data){
-          $(data).find(name).each(function(){
-            if(openFile($(this).attr("href"))){
-              fileNames.push($(this).attr("href"));
-            }
-          });
-        }
-      });
-      console.log(fileNames);
-      function openFile(file) {
-        var extension = file.substr( (file.lastIndexOf('.') +1) );
-        switch(extension) {
-          case 'jpg':
-          case 'png':
-          case 'gif':   // the alert ended with pdf instead of gif.
-          case 'zip':
-          case 'rar':
-          case 'pdf':
-          case 'php':
-          case 'doc':
-          case 'docx':
-          case 'xls':
-          case 'xlsx':
-            return true;
-          default:
-            return false;
-        }
-      };
 
-  });
+    })
 
   </script>
   

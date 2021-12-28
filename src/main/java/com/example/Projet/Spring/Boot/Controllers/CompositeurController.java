@@ -34,7 +34,7 @@ public class CompositeurController {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Path("/{ajoutMultipleCompositeur}")
+    @Path("/ajoutMultipleCompositeur")
     public void ajouteCompositeurMultiples(List<Compositeur> compositeurList){ compositeurList.forEach(auteur -> compositeurRepository.save(auteur));}
 
     @DELETE
@@ -45,4 +45,6 @@ public class CompositeurController {
     @Produces(MediaType.TEXT_HTML)
     @Path("nom/{nom}")
     public String getMoceauByNomPrenomCompositeur(@PathParam("nom") String nom){return compositeurRepository.findCompositeurByNomCompositeur(nom).getPrenomCompositeur()+" "+ compositeurRepository.findCompositeurByNomCompositeur(nom).getNomCompositeur();}
+
+
 }

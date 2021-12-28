@@ -25,16 +25,12 @@ public class MorceauController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public void addMorceau(Morceau m){
-        String compo = String.valueOf(m.getCompositeur().getNomCompositeur());
         List<Compositeur> compositeurList = compositeurRepository.findAll();
         morceauRepository.save(m);
-
         compositeurList.forEach(compositeur -> {
             if (m.getCompositeur().getNomCompositeur().equals(compositeur.getNomCompositeur()) && m.getCompositeur().getPrenomCompositeur().equals(compositeur.getPrenomCompositeur()) ) {
-                System.out.println(m.getCompositeur().getId());
                 Compositeur compositeurAEnlever = m.getCompositeur();
                 m.setCompositeur(compositeur);
-                System.out.println(compositeurAEnlever.getId());
                 compositeur.getMorceauList().add(m.getNom());
                 morceauRepository.save(m);
                 compositeurRepository.deleteById(compositeurAEnlever.getId());
@@ -52,8 +48,20 @@ public class MorceauController {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Path("/{ajoutMultipleMorceaux}")
-    public void ajouteMorceauxMultiples(List<Morceau> morceauList){ morceauList.forEach(morceau -> morceauRepository.save(morceau));}
+    @Path("/ajoutMultipleMorceaux")
+    public void ajouteMorceauxMultiples(List<Morceau> morceauList){
+        List<Compositeur> compositeurList = compositeurRepository.findAll();
+        morceauList.forEach(m ->{
+        morceauRepository.save(m);
+        compositeurList.forEach(compositeur -> {
+            if (m.getCompositeur().getNomCompositeur().equals(compositeur.getNomCompositeur()) && m.getCompositeur().getPrenomCompositeur().equals(compositeur.getPrenomCompositeur()) ) {
+                Compositeur compositeurAEnlever = m.getCompositeur();
+                m.setCompositeur(compositeur);
+                compositeur.getMorceauList().add(m.getNom());
+                morceauRepository.save(m);
+                compositeurRepository.deleteById(compositeurAEnlever.getId());
+            }}); });
+    }
 
     @DELETE
     @Path("/{removeAllMorceau}")
@@ -70,12 +78,19 @@ public class MorceauController {
     public List<String> getAllMorceauNom(){
         List<Morceau> morceauList = morceauRepository.findAll();
         List<String> nomMorceauList = new ArrayList<>();
-        int i=0;
         morceauList.forEach(morceau -> {
             nomMorceauList.add(morceau.getNom());
         });
         return nomMorceauList;
     }
 
+    @GET
+    @Produces(MediaType.TEXT_HTML)
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("compositeur/{nom}")
+    public String getMorceauCompositeur(@PathParam("nom") String nom){
+        Morceau m = morceauRepository.findMorceauByNom(nom);
+        return m.getCompositeur().prenomCompositeur + " " +m.getCompositeur().getNomCompositeur();
+    }
 
 }

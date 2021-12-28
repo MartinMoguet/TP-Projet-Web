@@ -115,6 +115,8 @@ public class Compositeur implements Serializable {
     public void setMorceauList(Collection<Morceau> morceauList) {
         this.morceauList = morceauList;
     }
+
+
 }
 
 
