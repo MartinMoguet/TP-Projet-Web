@@ -35,64 +35,18 @@
   </nav>
 
   <section id="main">
-    <h1 class="Rubrique-a-la-une"> À la une </h1>
+    <h1 class="Rubrique-a-la-une"> Nos Coups de Coeur </h1>
     <ul id="autoWidth" class="cs-hidden">
 
-      <li class="item-a">
-        <a href="#">
-          <div class="Boite-a-la-une">
-          <div class="Boite-a-la-une-img">
-              <img src="img/Ballade%20No.%201%20in%20G%20minor,%20Op.%2023.png" height="300"/>
-          </div>
-          <div class="Boite-a-la-une-text">
-            <strong class="Ballade"></strong>
-            <p class="Chopin"></p>
-          </div>
-          </div>
-        </a>
-      </li>
 
-      <li class="item-b">
-        <a href="#" class="Cello-Suite-Bach">
-        <div class="Boite-a-la-une">
-        <div class="Boite-a-la-une-img">
-          <img src="img/Cello%20Suite%20Bach.JPG" height="300">
-        </div>
-          <div class="Boite-a-la-une-text">
-            <strong class="Ballade"></strong>
-            <p class="Chopin"></p>
-          </div>
-        </div>
-        </a>
-      </li>
-
-      <li class="item-c">
-        <div class="Boite-a-la-une">
-          <a href="#" class="Experience">
-            <img src="img/Experience.PNG" height="300"/>
-          </a>
-        </div>
-      </li>
-
-      <li class="item-d">
-        <div class="Boite-a-la-une">
-          <a href="#" class="Train">
-            <img src="img/The%20Sixth%20Station.PNG" height="300"/>
-          </a>
-        </div>
-      </li>
-
-      <li class="item-e">
-        <div class="Boite-a-la-une">
-          <a href="#" class="Canon-in-d">
-            <img src="img/Canon%20in%20d.PNG" height="300"/>
-          </a>
-        </div>
-      </li>
 
       <li class="item-0"></li>
       <li class="item-1"></li>
       <li class="item-2"></li>
+      <li class="item-3"></li>
+      <li class="item-4"></li>
+      <li class="item-5"></li>
+
     </ul> 
   </section>
 
@@ -100,7 +54,7 @@
     $(document).ready(function() {
       var i=-1
       var k=i
-      for (k=0;k<3;k++){
+      for (k=0;k<6;k++){
         $.ajax({
           type: "GET",
           url: "http://localhost:8080/classic/morceau/liste",
@@ -140,6 +94,7 @@
                       "</a>");
           }
         })}
+      console.log(i)
       k=0
 
       $('#autoWidth').lightSlider({
@@ -149,11 +104,6 @@
             $('#autoWidth').removeClass('cS-hidden');
         }
     })
-
-    $.get("http://localhost:8080/classic/morceau/nom/Ballade%20No.%201%20in%20G%20minor,%20Op.%2023", function (data, status) {
-      $(".Ballade").html(data);
-    })
-
     })
 
   </script>
