@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 @Entity
@@ -88,8 +89,10 @@ public class Morceau implements Serializable {
         this.compositeur = compositeur; //.orElse(null);
     }
 
-    public Collection<Commentaire> getCommentaireList() {
-        return commentaireList;
+    public List<String> getCommentaireList() {
+        List<String> commentaires = new ArrayList<>();
+        commentaireList.forEach(commentaire -> commentaires.add(commentaire.getContenu()));
+        return commentaires;
     }
 
     public void setCommentaireList(Collection<Commentaire> commentaireList) {

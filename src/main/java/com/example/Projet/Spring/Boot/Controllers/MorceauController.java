@@ -48,6 +48,7 @@ public class MorceauController {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     @Path("/ajoutMultipleMorceaux")
     public void ajouteMorceauxMultiples(List<Morceau> morceauList){
         List<Compositeur> compositeurList = compositeurRepository.findAll();

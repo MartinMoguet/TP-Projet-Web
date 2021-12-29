@@ -49,34 +49,15 @@
 
   <script>
     $(document).ready(function() {
-      var i=-1
-      var k=i
-      for (k=0;k<8;k++){
         $.ajax({
           type: "GET",
           url: "http://localhost:8080/classic/morceau/liste",
           contentType: "application/json",
           dataType: "json",
           success: function (data) {
-            if(this.success){
-              console.log("oui")
-            i=i+1
-              console.log(i)}
+            for (i=0;i<8;i++){
               var nomMorceauAvecEspace = data[i];
               var nomMorceau = nomMorceauAvecEspace.replace(/ /g, "%20");
-              console.log(nomMorceau)
-              var nomCompositeur
-
-              $.get("http://localhost:8080/classic/morceau/compositeur/" + nomMorceau, function (data, success) {
-                if (success){
-                  console.log("^^")
-                }
-                  nomCompositeur = data
-                  console.log(nomCompositeur);
-                  $("." + k).append(nomCompositeur)
-                  console.log(k);
-                  k=k+1
-              });
               $(".item-" + i).append(
                       "<a href="+nomMorceau+".html>" +
                       "<div class =Boite-a-la-une>" +
@@ -89,10 +70,10 @@
                       "</div>" +
                       "</div>" +
                       "</a>");
-          }
-        })}
-      console.log(i)
-      k=0
+              $("."+i).load("http://localhost:8080/classic/morceau/compositeur/" + nomMorceau)
+          }}
+        })
+
 
       $('#autoWidth').lightSlider({
         autoWidth:true,
