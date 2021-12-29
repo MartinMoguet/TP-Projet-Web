@@ -24,7 +24,6 @@
       <li><a href="#">Baroque</a></li>
       <li><a href="#">Romantisme</a></li>
       <li><a href="#">Moderne</a></li>
-      <li><a href="#">Contemporain</a></li>
     </ul>
   
     <div class ="rechercher">
@@ -44,6 +43,7 @@
       <li class="item-4"></li>
       <li class="item-5"></li>
       <li class="item-6"></li>
+      <li class="item-7"></li>
 
     </ul> 
   </section>
@@ -52,7 +52,7 @@
     $(document).ready(function() {
       var i=-1
       var k=i
-      for (k=0;k<7;k++){
+      for (k=0;k<8;k++){
         $.ajax({
           type: "GET",
           url: "http://localhost:8080/classic/morceau/liste",
