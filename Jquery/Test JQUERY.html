@@ -21,7 +21,6 @@
     <ul class="Menu">
       <li><i class="fas fa-music"></i></li>
       <li><a href="#">Menu Principal</a></li>
-      <li><a href="#">Classique</a></li>
       <li><a href="#">Baroque</a></li>
       <li><a href="#">Romantisme</a></li>
       <li><a href="#">Moderne</a></li>
@@ -38,14 +37,13 @@
     <h1 class="Rubrique-a-la-une"> Nos Coups de Coeur </h1>
     <ul id="autoWidth" class="cs-hidden">
 
-
-
       <li class="item-0"></li>
       <li class="item-1"></li>
       <li class="item-2"></li>
       <li class="item-3"></li>
       <li class="item-4"></li>
       <li class="item-5"></li>
+      <li class="item-6"></li>
 
     </ul> 
   </section>
@@ -54,7 +52,7 @@
     $(document).ready(function() {
       var i=-1
       var k=i
-      for (k=0;k<6;k++){
+      for (k=0;k<7;k++){
         $.ajax({
           type: "GET",
           url: "http://localhost:8080/classic/morceau/liste",
@@ -81,7 +79,7 @@
                   k=k+1
               });
               $(".item-" + i).append(
-                      "<a href=#>" +
+                      "<a href="+nomMorceau+".html>" +
                       "<div class =Boite-a-la-une>" +
                       "<div class=Boite-a-la-une-img>" +
                       "<img src=img/" + nomMorceau + ".png height = 300/>" +

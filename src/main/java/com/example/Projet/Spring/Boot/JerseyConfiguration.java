@@ -18,10 +18,9 @@ public class JerseyConfiguration extends ResourceConfig {
     public JerseyConfiguration() {
 
         register(CompositeurController.class);
-        register(CommentaireRepository.class);
-
+        //register(CommentaireRepository.class);
         register(MorceauController.class);
-        register(UtilisateurRepository.class);
+        //register(UtilisateurRepository.class);
         register(CorsFilter.class);
     }
 
