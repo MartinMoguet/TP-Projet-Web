@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 public class Utilisateur implements Serializable {
@@ -51,8 +52,10 @@ public class Utilisateur implements Serializable {
         this.password = password;
     }
 
-    public Collection<Commentaire> getCommentaireList() {
-        return commentaireList;
+    public List<String> getCommentaireList() {
+        List<String> commentaires = new ArrayList<>();
+        commentaireList.forEach(commentaire -> commentaires.add(commentaire.getContenu()));
+        return commentaires;
     }
 
     public void setCommentaireList(Collection<Commentaire> commentaireList) {
