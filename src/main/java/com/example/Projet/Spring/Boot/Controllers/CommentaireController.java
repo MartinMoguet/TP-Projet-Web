@@ -72,6 +72,6 @@ public class CommentaireController {
     }
 
     @DELETE
-    @Path("/{removeAllCommentaire}")
+    @Path("/removeAllCommentaire")
     public void removeAllCommentaire(){ commentaireRepository.deleteAll();}
 }

@@ -65,7 +65,7 @@ public class MorceauController {
     }
 
     @DELETE
-    @Path("/{removeAllMorceau}")
+    @Path("/removeAllMorceau")
     public void removeAllMorceau(){ morceauRepository.deleteAll();}
 
     @GET

@@ -5,4 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 
 public interface CommentaireRepository extends JpaRepository<Commentaire, Long> {
+
+    void deleteAllByMorceau_Nom(String nom);
+    void findAllByMorceau_Nom(String nom);
 }
