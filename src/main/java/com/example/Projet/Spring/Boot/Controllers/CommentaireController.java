@@ -26,6 +26,9 @@ public class CommentaireController {
     @Autowired
     public UtilisateurRepository utilisateurRepository;
 
+    @Autowired
+    public MorceauRepository morceauRepository;
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Commentaire> getAllCommentaire(){ return (List<Commentaire>) commentaireRepository.findAll();}
@@ -35,6 +38,7 @@ public class CommentaireController {
     @Produces(MediaType.APPLICATION_JSON)
     public void addCommentaire(Commentaire c){
         List<Utilisateur> utilisateurList = utilisateurRepository.findAll();
+        List<Morceau> morceauList = morceauRepository.findAll();
         commentaireRepository.save(c);
         utilisateurList.forEach(utilisateur -> {
             if (c.getUtilisateur().equals(utilisateur.getUsername())) {
@@ -44,6 +48,15 @@ public class CommentaireController {
                 commentaireRepository.save(c);
                 commentaireRepository.deleteById(utilisateurAEnlever.getId());
             }});
+        morceauList.forEach(morceau -> {
+            if (c.getUtilisateur().equals(morceau.getNom())) {
+                Morceau morceauAEnlever = c.getMorceau();
+                c.setMorceau(morceau);
+                morceau.getCommentaireList().add(c.getContenu());
+                commentaireRepository.save(c);
+                commentaireRepository.deleteById(morceauAEnlever.getId());
+            }});
+
     }
 
 
@@ -58,6 +71,7 @@ public class CommentaireController {
     @Path("ajoutMultipleCommentaire")
     public void addCommentaire(List<Commentaire> commentaireList){
         List<Utilisateur> utilisateurList = utilisateurRepository.findAll();
+        List<Morceau> morceauList = morceauRepository.findAll();
         commentaireList.forEach( c -> {
         commentaireRepository.save(c);
         utilisateurList.forEach(utilisateur -> {
@@ -68,10 +82,36 @@ public class CommentaireController {
                 commentaireRepository.save(c);
                 commentaireRepository.deleteById(utilisateurAEnlever.getId());
             }});
+            morceauList.forEach(morceau -> {
+                if (c.getUtilisateur().equals(morceau.getNom())) {
+                    Morceau morceauAEnlever = c.getMorceau();
+                    c.setMorceau(morceau);
+                    morceau.getCommentaireList().add(c.getContenu());
+                    commentaireRepository.save(c);
+                    commentaireRepository.deleteById(morceauAEnlever.getId());
+                }});
         });
     }
 
     @DELETE
-    @Path("/removeAllCommentaire")
+    @Path("removeAllCommentaire")
     public void removeAllCommentaire(){ commentaireRepository.deleteAll();}
+
+    @DELETE
+    @Path("remove/{morceau}")
+    public void removeAllCommentaireByMorceau(@PathParam("morceau") String morceau){
+        commentaireRepository.deleteAllByMorceau_Nom(morceau);
+    }
+
+    @GET
+    @Path("liste/{morceau}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<String> getAllCommentaireByMorceau(@PathParam("morceau") String morceau){
+        List<Commentaire> commentaireList = commentaireRepository.findAllByMorceau_Nom(morceau);
+        List<String> listCommentaire = new ArrayList<String>();
+        commentaireList.forEach(commentaire -> {
+             listCommentaire.add(commentaire.getContenu());
+        });
+        return listCommentaire;
+    }
 }

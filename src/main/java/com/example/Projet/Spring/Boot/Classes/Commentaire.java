@@ -20,11 +20,11 @@ public class Commentaire implements Serializable {
 
 
 
-    public Commentaire(long id, String contenu, String date, Morceau morceau) {
-        this.id = id;
+    public Commentaire(String contenu, String date, Morceau morceau, Utilisateur utilisateur) {
         this.contenu = contenu;
         this.date = date;
         this.morceau = morceau;
+        this.utilisateur = utilisateur;
     }
 
     public Commentaire() {

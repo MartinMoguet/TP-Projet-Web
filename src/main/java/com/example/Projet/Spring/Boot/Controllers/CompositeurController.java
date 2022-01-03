@@ -38,7 +38,7 @@ public class CompositeurController {
     public void ajouteCompositeurMultiples(List<Compositeur> compositeurList){ compositeurList.forEach(auteur -> compositeurRepository.save(auteur));}
 
     @DELETE
-    @Path("/{removeAllCompositeur}")
+    @Path("/removeAllCompositeur")
     public void removeAllCompositeur(){ compositeurRepository.deleteAll();}
 
     @GET
