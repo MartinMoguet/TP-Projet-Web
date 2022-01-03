@@ -41,20 +41,23 @@ public class CommentaireController {
         List<Morceau> morceauList = morceauRepository.findAll();
         commentaireRepository.save(c);
         utilisateurList.forEach(utilisateur -> {
-            if (c.getUtilisateur().equals(utilisateur.getUsername())) {
+            if (c.getUtilisateur().getUsername().equals(utilisateur.getUsername())) {
                 Utilisateur utilisateurAEnlever = c.getUtilisateur();
                 c.setUtilisateur(utilisateur);
                 utilisateur.getCommentaireList().add(c.getContenu());
                 commentaireRepository.save(c);
-                commentaireRepository.deleteById(utilisateurAEnlever.getId());
+                utilisateurRepository.deleteById(utilisateurAEnlever.getId());
             }});
         morceauList.forEach(morceau -> {
-            if (c.getUtilisateur().equals(morceau.getNom())) {
-                Morceau morceauAEnlever = c.getMorceau();
+            //System.out.println(c.getMorceau());
+            //System.out.println(morceau.getNom());
+            if (c.getMorceau().equals(morceau.getNom())) {
+                Morceau morceauAEnlever = c.getRealMorceau();
                 c.setMorceau(morceau);
                 morceau.getCommentaireList().add(c.getContenu());
                 commentaireRepository.save(c);
-                commentaireRepository.deleteById(morceauAEnlever.getId());
+                morceauRepository.deleteById(morceauAEnlever.getId());
+
             }});
 
     }
@@ -75,20 +78,20 @@ public class CommentaireController {
         commentaireList.forEach( c -> {
         commentaireRepository.save(c);
         utilisateurList.forEach(utilisateur -> {
-            if (c.getUtilisateur().equals(utilisateur.getUsername())) {
+            if (c.getUtilisateur().getUsername().equals(utilisateur.getUsername())) {
                 Utilisateur utilisateurAEnlever = c.getUtilisateur();
                 c.setUtilisateur(utilisateur);
                 utilisateur.getCommentaireList().add(c.getContenu());
                 commentaireRepository.save(c);
-                commentaireRepository.deleteById(utilisateurAEnlever.getId());
+                utilisateurRepository.deleteById(utilisateurAEnlever.getId());
             }});
             morceauList.forEach(morceau -> {
-                if (c.getUtilisateur().equals(morceau.getNom())) {
-                    Morceau morceauAEnlever = c.getMorceau();
+                if (c.getMorceau().equals(morceau.getNom())) {
+                    String morceauAEnlever = c.getMorceau();
                     c.setMorceau(morceau);
                     morceau.getCommentaireList().add(c.getContenu());
                     commentaireRepository.save(c);
-                    commentaireRepository.deleteById(morceauAEnlever.getId());
+                    morceauRepository.deleteById(morceauRepository.findMorceauByNom(morceauAEnlever).getId());
                 }});
         });
     }

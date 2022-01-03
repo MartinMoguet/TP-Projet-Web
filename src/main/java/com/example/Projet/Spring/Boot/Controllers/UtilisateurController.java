@@ -38,7 +38,7 @@ public class UtilisateurController {
     public void ajouteUtilisateurMultiples(List<Utilisateur> utilisateurList){ utilisateurList.forEach(utilisateur -> utilisateurRepository.save(utilisateur));}
 
     @DELETE
-    @Path("/{removeAllUtilisateur}")
+    @Path("/removeAllUtilisateur")
     public void removeAllUtilisateur(){ utilisateurRepository.deleteAll();}
 
 }

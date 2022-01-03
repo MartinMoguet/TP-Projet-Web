@@ -2,6 +2,7 @@ package com.example.Projet.Spring.Boot.Classes;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Optional;
 
 @Entity
 public class Commentaire implements Serializable {
@@ -55,8 +56,8 @@ public class Commentaire implements Serializable {
         this.date = date;
     }
 
-    public Morceau getMorceau() {
-        return morceau;
+    public String getMorceau() {
+        return morceau.getNom();
     }
 
     public void setMorceau(Morceau morceau) {
@@ -70,4 +71,8 @@ public class Commentaire implements Serializable {
     public void setUtilisateur(Utilisateur utilisateur) {
         this.utilisateur = utilisateur;
     }
+
+    public Morceau getRealMorceau(){return  morceau;}
+
+
 }

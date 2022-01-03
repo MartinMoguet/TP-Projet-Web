@@ -142,3 +142,1050 @@ DISCONNECT
 DISCONNECT
 /*C75*/SET SCHEMA PUBLIC
 DISCONNECT
+/*C76*/SET SCHEMA PUBLIC
+INSERT INTO MORCEAU VALUES(185,NULL,NULL,NULL,'Ballade No. 1 in G minor, Op. 23',NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(186,NULL,'Khalil')
+INSERT INTO COMMENTAIRE VALUES(184,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',185,186)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 187
+COMMIT
+DISCONNECT
+/*C77*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C78*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C79*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C80*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C81*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C82*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C83*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C84*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C85*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C86*/SET SCHEMA PUBLIC
+INSERT INTO MORCEAU VALUES(188,NULL,NULL,NULL,'Ballade No. 1 in G minor, Op. 23',NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(189,NULL,'Khalil')
+INSERT INTO COMMENTAIRE VALUES(187,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',188,189)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 190
+COMMIT
+DISCONNECT
+/*C87*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C88*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C89*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C90*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C91*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C92*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C93*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C94*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C95*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C96*/SET SCHEMA PUBLIC
+INSERT INTO MORCEAU VALUES(191,NULL,NULL,NULL,'Ballade No. 1 in G minor, Op. 23',NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(192,NULL,'Khalil')
+INSERT INTO COMMENTAIRE VALUES(190,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',191,192)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 193
+COMMIT
+INSERT INTO MORCEAU VALUES(194,NULL,NULL,NULL,'Ballade No. 1 in G minor, Op. 23',NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(195,NULL,'Khalil')
+INSERT INTO COMMENTAIRE VALUES(193,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',194,195)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 196
+COMMIT
+DISCONNECT
+/*C97*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C98*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C99*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C100*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C101*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C102*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C103*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C104*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C105*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C106*/SET SCHEMA PUBLIC
+INSERT INTO MORCEAU VALUES(197,NULL,NULL,NULL,'Ballade No. 1 in G minor, Op. 23',NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(198,NULL,'Khalil')
+INSERT INTO COMMENTAIRE VALUES(196,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',197,198)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 199
+COMMIT
+DISCONNECT
+/*C107*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C108*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C109*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C110*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C111*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C112*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C113*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C114*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C115*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C116*/SET SCHEMA PUBLIC
+INSERT INTO MORCEAU VALUES(200,NULL,NULL,NULL,'Ballade No. 1 in G minor, Op. 23',NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(201,NULL,'Khalil')
+INSERT INTO COMMENTAIRE VALUES(199,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',200,201)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 202
+COMMIT
+DELETE FROM COMMENTAIRE WHERE ID=199
+INSERT INTO COMMENTAIRE VALUES(199,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',200,176)
+COMMIT
+/*C126*/SET SCHEMA PUBLIC
+set schema PUBLIC
+drop table COMMENTAIRE
+drop table MORCEAU
+drop table COMPOSITEUR
+drop table UTILISATEUR
+/*C127*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C116*/DISCONNECT
+/*C117*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C118*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C119*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C120*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C121*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C122*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C123*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C124*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C125*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C128*/SET SCHEMA PUBLIC
+create table commentaire (id bigint not null, contenu varchar(255), date varchar(255), morceau_id bigint, utilisateur_id bigint, primary key (id))
+create table compositeur (id bigint not null, biographie varchar(255), date_de_mort varchar(255), date_de_naissance varchar(255), mouvement varchar(255), nationalite varchar(255), nom_compositeur varchar(255), prenom_compositeur varchar(255), primary key (id))
+create table morceau (id bigint not null, date_creation varchar(255), description varchar(255), duree varchar(255), nom varchar(255), url varchar(255), compositeur_id bigint, primary key (id))
+create table utilisateur (id bigint not null, password varchar(255), username varchar(255), primary key (id))
+alter table commentaire add constraint FK479i8mptej8ftpgnle5c0128b foreign key (morceau_id) references morceau
+alter table commentaire add constraint FKfkx1pegfdsd6e3cp2wblsc5jf foreign key (utilisateur_id) references utilisateur
+alter table morceau add constraint FKpvoc6a34rwram5ejirxp4qgb1 foreign key (compositeur_id) references compositeur
+/*C138*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C128*/INSERT INTO COMPOSITEUR VALUES(202,'Fr\u00e9d\u00e9ric Chopin est un pianiste et compositeur franco-polonais du XIXe si\u00e8cle, ayant tour \u00e0 tour appartenu aux courants classiques et romantiques. ','17 Octobre 1849','1810','Romantisme','Franco-Polonaise','Chopin','Frederic')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 203
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(203,'Claude Debussy laisse l\u2019image d\u2019un cr\u00e9ateur original et profond d\u2019une musique o\u00f9 souffle le vent de la libert\u00e9. Son impact sera d\u00e9cisif dans l\u2019histoire de la musique.','25 mars 1918','22 Ao\u00fbt 1862','Romantisme','Fran\u00e7aise','Debussy','Claude')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 204
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(204,'Joe Hisaishi, est un compositeur, chef d''orchestre, pianiste et parolier. Il est notamment connu pour avoir compos\u00e9 la musique de la plupart des films du Studio Ghibli. ','','6 D\u00e9cembre 1950','Moderne','Japonaise','Hisaishi','Joe')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 205
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(205,'Pachelbel est surtout connu du grand public pour ses fameux Canon et gigue en r\u00e9 majeur pour trois violons et basse continue, couramment restreints au seul Canon de Pachelbel.','3 mars 1706','1\u1d49\u02b3 septembre 1653','Baroque','Allemande','Pachelbel','Johann')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 206
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(206,'l devient organiste et compose de tr\u00e8s nombreuses pi\u00e8ces religieuses. Bach est tr\u00e8s bien consid\u00e9r\u00e9 dans toute l\u2019Allemagne, m\u00eame si pendant longtemps sa renomm\u00e9e n\u2019a \u00e9t\u00e9 que celle d\u2019un organiste virtuose.','28 juillet 1750','21 mars 1685','Baroque','Allemande','Bach','Jean-S\u00e9bastien')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 207
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(207,'Son \u0153uvre est d''un romantisme h\u00e9rit\u00e9 de ses mod\u00e8les \u2014 Chopin, Tcha\u00efkovski et Rimski-Korsakov \u2014 et reste indiff\u00e9rente \u00e0 l''\u00e9volution de son \u00e9poque. Il est notamment connu pour ses c\u00e9l\u00e8bres concertos pour piano no 2 et no 3','28 mars 1943','1 avril 1873','Romantisme','Russe-Am\u00e9ricaine','Rachmaninoff','Sergei')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 208
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(208,'Alors qu''il est encore enfant, Ludovico Einaudi est initi\u00e9 \u00e0 la musique par sa m\u00e8re qui lui donne le go\u00fbt du piano. Il commence son apprentissage musical au conservatoire Giuseppe Verdi de Milan o\u00f9 il d\u00e9croche un dipl\u00f4me en composition.','','23 novembre 1955','Moderne','Italienne','Einaudi','Ludovico')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 209
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(210,NULL,NULL,NULL,NULL,NULL,'Debussy','Claude')
+INSERT INTO MORCEAU VALUES(209,'1890','La Suite bergamasque  compte parmi les plus c\u00e9l\u00e8bres de Debussy et est souvent consid\u00e9r\u00e9e comme la meilleure composition pianistique de sa jeunesse.','4:39','Clair de Lune','https://open.spotify.com/track/6N7JzrteJv8lsr1GWYyu0b?si=f7e86a0bc4b0419e',210)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 211
+COMMIT
+DELETE FROM MORCEAU WHERE ID=209
+INSERT INTO MORCEAU VALUES(209,'1890','La Suite bergamasque  compte parmi les plus c\u00e9l\u00e8bres de Debussy et est souvent consid\u00e9r\u00e9e comme la meilleure composition pianistique de sa jeunesse.','4:39','Clair de Lune','https://open.spotify.com/track/6N7JzrteJv8lsr1GWYyu0b?si=f7e86a0bc4b0419e',203)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=210
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(212,NULL,NULL,NULL,NULL,NULL,'Chopin','Frederic')
+INSERT INTO MORCEAU VALUES(211,'1836','Morceau embl\u00e9matique de Chopin retra\u00e7ant les p\u00e9rip\u00e9ties d''un h\u00e9ro de guerre','9:35','Ballade No. 1 in G minor, Op. 23','https://open.spotify.com/track/5Ks5ENUFNQDfaqxjZnCkVJ?si=a32418117fa743e7',212)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 213
+COMMIT
+DELETE FROM MORCEAU WHERE ID=211
+INSERT INTO MORCEAU VALUES(211,'1836','Morceau embl\u00e9matique de Chopin retra\u00e7ant les p\u00e9rip\u00e9ties d''un h\u00e9ro de guerre','9:35','Ballade No. 1 in G minor, Op. 23','https://open.spotify.com/track/5Ks5ENUFNQDfaqxjZnCkVJ?si=a32418117fa743e7',202)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=212
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(214,NULL,NULL,NULL,NULL,NULL,'Hisaishi','Joe')
+INSERT INTO MORCEAU VALUES(213,'20 juillet 2001','Bande son originale du film Le Voyage de Chihiro, lorsque celle-ci prend le train \u00e0 la station 6.','3:48','The Sixth Station','https://open.spotify.com/track/0io66Jrq47xP5l14O9347v?si=d62bfc0ccb8441d0',214)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 215
+COMMIT
+DELETE FROM MORCEAU WHERE ID=213
+INSERT INTO MORCEAU VALUES(213,'20 juillet 2001','Bande son originale du film Le Voyage de Chihiro, lorsque celle-ci prend le train \u00e0 la station 6.','3:48','The Sixth Station','https://open.spotify.com/track/0io66Jrq47xP5l14O9347v?si=d62bfc0ccb8441d0',204)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=214
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(216,NULL,NULL,NULL,NULL,NULL,'Pachelbel','Johann')
+INSERT INTO MORCEAU VALUES(215,'Vers 1680','Il est une des compositions les plus c\u00e9l\u00e8bres de Johann, d''origine inconnue, traditionnellement jou\u00e9e pour l''accompagnement de marche nuptiale de mariage','6:16','Canon in d','https://open.spotify.com/track/1c3GkbZBnyrQ1cm4TGHFrK?si=93429b0d651947dc',216)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 217
+COMMIT
+DELETE FROM MORCEAU WHERE ID=215
+INSERT INTO MORCEAU VALUES(215,'Vers 1680','Il est une des compositions les plus c\u00e9l\u00e8bres de Johann, d''origine inconnue, traditionnellement jou\u00e9e pour l''accompagnement de marche nuptiale de mariage','6:16','Canon in d','https://open.spotify.com/track/1c3GkbZBnyrQ1cm4TGHFrK?si=93429b0d651947dc',205)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=216
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(218,NULL,NULL,NULL,NULL,NULL,'Bach','Jean-S\u00e9bastien')
+INSERT INTO MORCEAU VALUES(217,'1717 \u00e0 1723','Cette suite est un \u00e9l\u00e9ment incontournable du r\u00e9pertoire pour violoncelle, d''abord en raison de leurs qualit\u00e9s musicales, ensuite pour leur int\u00e9r\u00eat p\u00e9dagogique et th\u00e9orique. Bach met en valeur toutes les possibilit\u00e9s polyphoniques de l''instrument.','2:32','Cello Suite No. 1 in G Major','https://open.spotify.com/track/17i5jLpzndlQhbS4SrTd0B?si=2995bcdf671d4962',218)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 219
+COMMIT
+DELETE FROM MORCEAU WHERE ID=217
+INSERT INTO MORCEAU VALUES(217,'1717 \u00e0 1723','Cette suite est un \u00e9l\u00e9ment incontournable du r\u00e9pertoire pour violoncelle, d''abord en raison de leurs qualit\u00e9s musicales, ensuite pour leur int\u00e9r\u00eat p\u00e9dagogique et th\u00e9orique. Bach met en valeur toutes les possibilit\u00e9s polyphoniques de l''instrument.','2:32','Cello Suite No. 1 in G Major','https://open.spotify.com/track/17i5jLpzndlQhbS4SrTd0B?si=2995bcdf671d4962',206)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=218
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(220,NULL,NULL,NULL,NULL,NULL,'Rachmaninoff','Sergei')
+INSERT INTO MORCEAU VALUES(219,'1900-1901','La composition de ce concerto intervient juste apr\u00e8s les trois ans de d\u00e9pression nerveuse dans laquelle Rachmaninov a plong\u00e9 \u00e0 la suite de l''\u00e9chec de sa premi\u00e8re symphonie, d\u00e9mont\u00e9e par des critiques impitoyables. Mouvement : Moderato.','11:27','Piano Concerto No. 2, Op. 18 in C Major, 1st Movement','https://open.spotify.com/track/6nxTsSN8iUnF758TwyTP4U?si=2bade201c5c64197',220)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 221
+COMMIT
+DELETE FROM MORCEAU WHERE ID=219
+INSERT INTO MORCEAU VALUES(219,'1900-1901','La composition de ce concerto intervient juste apr\u00e8s les trois ans de d\u00e9pression nerveuse dans laquelle Rachmaninov a plong\u00e9 \u00e0 la suite de l''\u00e9chec de sa premi\u00e8re symphonie, d\u00e9mont\u00e9e par des critiques impitoyables. Mouvement : Moderato.','11:27','Piano Concerto No. 2, Op. 18 in C Major, 1st Movement','https://open.spotify.com/track/6nxTsSN8iUnF758TwyTP4U?si=2bade201c5c64197',207)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=220
+COMMIT
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 223
+/*C126*/drop table COMMENTAIRE
+drop table MORCEAU
+drop table COMPOSITEUR
+drop table UTILISATEUR
+/*C141*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C139*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C140*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C128*/DISCONNECT
+/*C129*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C130*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C131*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C132*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C133*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C134*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C135*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C136*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C137*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C142*/SET SCHEMA PUBLIC
+create table commentaire (id bigint not null, contenu varchar(255), date varchar(255), morceau_id bigint, utilisateur_id bigint, primary key (id))
+create table compositeur (id bigint not null, biographie varchar(255), date_de_mort varchar(255), date_de_naissance varchar(255), mouvement varchar(255), nationalite varchar(255), nom_compositeur varchar(255), prenom_compositeur varchar(255), primary key (id))
+create table morceau (id bigint not null, date_creation varchar(255), description varchar(255), duree varchar(255), nom varchar(255), url varchar(255), compositeur_id bigint, primary key (id))
+create table utilisateur (id bigint not null, password varchar(255), username varchar(255), primary key (id))
+alter table commentaire add constraint FK479i8mptej8ftpgnle5c0128b foreign key (morceau_id) references morceau
+alter table commentaire add constraint FKfkx1pegfdsd6e3cp2wblsc5jf foreign key (utilisateur_id) references utilisateur
+alter table morceau add constraint FKpvoc6a34rwram5ejirxp4qgb1 foreign key (compositeur_id) references compositeur
+/*C152*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C142*/INSERT INTO COMPOSITEUR VALUES(223,'Fr\u00e9d\u00e9ric Chopin est un pianiste et compositeur franco-polonais du XIXe si\u00e8cle, ayant tour \u00e0 tour appartenu aux courants classiques et romantiques. ','17 Octobre 1849','1810','Romantisme','Franco-Polonaise','Chopin','Frederic')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 224
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(224,'Claude Debussy laisse l\u2019image d\u2019un cr\u00e9ateur original et profond d\u2019une musique o\u00f9 souffle le vent de la libert\u00e9. Son impact sera d\u00e9cisif dans l\u2019histoire de la musique.','25 mars 1918','22 Ao\u00fbt 1862','Romantisme','Fran\u00e7aise','Debussy','Claude')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 225
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(225,'Joe Hisaishi, est un compositeur, chef d''orchestre, pianiste et parolier. Il est notamment connu pour avoir compos\u00e9 la musique de la plupart des films du Studio Ghibli. ','','6 D\u00e9cembre 1950','Moderne','Japonaise','Hisaishi','Joe')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 226
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(226,'Pachelbel est surtout connu du grand public pour ses fameux Canon et gigue en r\u00e9 majeur pour trois violons et basse continue, couramment restreints au seul Canon de Pachelbel.','3 mars 1706','1\u1d49\u02b3 septembre 1653','Baroque','Allemande','Pachelbel','Johann')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 227
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(227,'l devient organiste et compose de tr\u00e8s nombreuses pi\u00e8ces religieuses. Bach est tr\u00e8s bien consid\u00e9r\u00e9 dans toute l\u2019Allemagne, m\u00eame si pendant longtemps sa renomm\u00e9e n\u2019a \u00e9t\u00e9 que celle d\u2019un organiste virtuose.','28 juillet 1750','21 mars 1685','Baroque','Allemande','Bach','Jean-S\u00e9bastien')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 228
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(228,'Son \u0153uvre est d''un romantisme h\u00e9rit\u00e9 de ses mod\u00e8les \u2014 Chopin, Tcha\u00efkovski et Rimski-Korsakov \u2014 et reste indiff\u00e9rente \u00e0 l''\u00e9volution de son \u00e9poque. Il est notamment connu pour ses c\u00e9l\u00e8bres concertos pour piano no 2 et no 3','28 mars 1943','1 avril 1873','Romantisme','Russe-Am\u00e9ricaine','Rachmaninoff','Sergei')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 229
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(229,'Alors qu''il est encore enfant, Ludovico Einaudi est initi\u00e9 \u00e0 la musique par sa m\u00e8re qui lui donne le go\u00fbt du piano. Il commence son apprentissage musical au conservatoire Giuseppe Verdi de Milan o\u00f9 il d\u00e9croche un dipl\u00f4me en composition.','','23 novembre 1955','Moderne','Italienne','Einaudi','Ludovico')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 230
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(231,NULL,NULL,NULL,NULL,NULL,'Debussy','Claude')
+INSERT INTO MORCEAU VALUES(230,'1890','La Suite bergamasque  compte parmi les plus c\u00e9l\u00e8bres de Debussy et est souvent consid\u00e9r\u00e9e comme la meilleure composition pianistique de sa jeunesse.','4:39','Clair de Lune','https://open.spotify.com/track/6N7JzrteJv8lsr1GWYyu0b?si=f7e86a0bc4b0419e',231)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 232
+COMMIT
+DELETE FROM MORCEAU WHERE ID=230
+INSERT INTO MORCEAU VALUES(230,'1890','La Suite bergamasque  compte parmi les plus c\u00e9l\u00e8bres de Debussy et est souvent consid\u00e9r\u00e9e comme la meilleure composition pianistique de sa jeunesse.','4:39','Clair de Lune','https://open.spotify.com/track/6N7JzrteJv8lsr1GWYyu0b?si=f7e86a0bc4b0419e',224)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=231
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(233,NULL,NULL,NULL,NULL,NULL,'Chopin','Frederic')
+INSERT INTO MORCEAU VALUES(232,'1836','Morceau embl\u00e9matique de Chopin retra\u00e7ant les p\u00e9rip\u00e9ties d''un h\u00e9ro de guerre','9:35','Ballade No. 1 in G minor, Op. 23','https://open.spotify.com/track/5Ks5ENUFNQDfaqxjZnCkVJ?si=a32418117fa743e7',233)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 234
+COMMIT
+DELETE FROM MORCEAU WHERE ID=232
+INSERT INTO MORCEAU VALUES(232,'1836','Morceau embl\u00e9matique de Chopin retra\u00e7ant les p\u00e9rip\u00e9ties d''un h\u00e9ro de guerre','9:35','Ballade No. 1 in G minor, Op. 23','https://open.spotify.com/track/5Ks5ENUFNQDfaqxjZnCkVJ?si=a32418117fa743e7',223)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=233
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(235,NULL,NULL,NULL,NULL,NULL,'Hisaishi','Joe')
+INSERT INTO MORCEAU VALUES(234,'20 juillet 2001','Bande son originale du film Le Voyage de Chihiro, lorsque celle-ci prend le train \u00e0 la station 6.','3:48','The Sixth Station','https://open.spotify.com/track/0io66Jrq47xP5l14O9347v?si=d62bfc0ccb8441d0',235)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 236
+COMMIT
+DELETE FROM MORCEAU WHERE ID=234
+INSERT INTO MORCEAU VALUES(234,'20 juillet 2001','Bande son originale du film Le Voyage de Chihiro, lorsque celle-ci prend le train \u00e0 la station 6.','3:48','The Sixth Station','https://open.spotify.com/track/0io66Jrq47xP5l14O9347v?si=d62bfc0ccb8441d0',225)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=235
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(237,NULL,NULL,NULL,NULL,NULL,'Pachelbel','Johann')
+INSERT INTO MORCEAU VALUES(236,'Vers 1680','Il est une des compositions les plus c\u00e9l\u00e8bres de Johann, d''origine inconnue, traditionnellement jou\u00e9e pour l''accompagnement de marche nuptiale de mariage','6:16','Canon in d','https://open.spotify.com/track/1c3GkbZBnyrQ1cm4TGHFrK?si=93429b0d651947dc',237)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 238
+COMMIT
+DELETE FROM MORCEAU WHERE ID=236
+INSERT INTO MORCEAU VALUES(236,'Vers 1680','Il est une des compositions les plus c\u00e9l\u00e8bres de Johann, d''origine inconnue, traditionnellement jou\u00e9e pour l''accompagnement de marche nuptiale de mariage','6:16','Canon in d','https://open.spotify.com/track/1c3GkbZBnyrQ1cm4TGHFrK?si=93429b0d651947dc',226)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=237
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(239,NULL,NULL,NULL,NULL,NULL,'Bach','Jean-S\u00e9bastien')
+INSERT INTO MORCEAU VALUES(238,'1717 \u00e0 1723','Cette suite est un \u00e9l\u00e9ment incontournable du r\u00e9pertoire pour violoncelle, d''abord en raison de leurs qualit\u00e9s musicales, ensuite pour leur int\u00e9r\u00eat p\u00e9dagogique et th\u00e9orique. Bach met en valeur toutes les possibilit\u00e9s polyphoniques de l''instrument.','2:32','Cello Suite No. 1 in G Major','https://open.spotify.com/track/17i5jLpzndlQhbS4SrTd0B?si=2995bcdf671d4962',239)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 240
+COMMIT
+DELETE FROM MORCEAU WHERE ID=238
+INSERT INTO MORCEAU VALUES(238,'1717 \u00e0 1723','Cette suite est un \u00e9l\u00e9ment incontournable du r\u00e9pertoire pour violoncelle, d''abord en raison de leurs qualit\u00e9s musicales, ensuite pour leur int\u00e9r\u00eat p\u00e9dagogique et th\u00e9orique. Bach met en valeur toutes les possibilit\u00e9s polyphoniques de l''instrument.','2:32','Cello Suite No. 1 in G Major','https://open.spotify.com/track/17i5jLpzndlQhbS4SrTd0B?si=2995bcdf671d4962',227)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=239
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(241,NULL,NULL,NULL,NULL,NULL,'Rachmaninoff','Sergei')
+INSERT INTO MORCEAU VALUES(240,'1900-1901','La composition de ce concerto intervient juste apr\u00e8s les trois ans de d\u00e9pression nerveuse dans laquelle Rachmaninov a plong\u00e9 \u00e0 la suite de l''\u00e9chec de sa premi\u00e8re symphonie, d\u00e9mont\u00e9e par des critiques impitoyables. Mouvement : Moderato.','11:27','Piano Concerto No. 2, Op. 18 in C Major, 1st Movement','https://open.spotify.com/track/6nxTsSN8iUnF758TwyTP4U?si=2bade201c5c64197',241)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 242
+COMMIT
+DELETE FROM MORCEAU WHERE ID=240
+INSERT INTO MORCEAU VALUES(240,'1900-1901','La composition de ce concerto intervient juste apr\u00e8s les trois ans de d\u00e9pression nerveuse dans laquelle Rachmaninov a plong\u00e9 \u00e0 la suite de l''\u00e9chec de sa premi\u00e8re symphonie, d\u00e9mont\u00e9e par des critiques impitoyables. Mouvement : Moderato.','11:27','Piano Concerto No. 2, Op. 18 in C Major, 1st Movement','https://open.spotify.com/track/6nxTsSN8iUnF758TwyTP4U?si=2bade201c5c64197',228)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=241
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(243,NULL,NULL,NULL,NULL,NULL,'Chopin','Frederic')
+INSERT INTO MORCEAU VALUES(242,'1827-1846','Les nocturnes reposent sur un mouvement lent d''expression path\u00e9tique, divers ornements m\u00e9lodiques et une partie centrale acc\u00e9l\u00e9r\u00e9e. Il est pr\u00e9sent\u00e9 avec une m\u00e9lodie tr\u00e8s souple et ornement\u00e9e, accompagn\u00e9e par une main gauche aux arp\u00e8ges ondulants.','6:13','Nocturnes, Op. 27, No. 2 in D-Flat Major','https://open.spotify.com/track/2MMm5gCJ7z9HgYGcDcuwdb?si=b907ad76a411429f',243)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 244
+COMMIT
+DELETE FROM MORCEAU WHERE ID=242
+INSERT INTO MORCEAU VALUES(242,'1827-1846','Les nocturnes reposent sur un mouvement lent d''expression path\u00e9tique, divers ornements m\u00e9lodiques et une partie centrale acc\u00e9l\u00e9r\u00e9e. Il est pr\u00e9sent\u00e9 avec une m\u00e9lodie tr\u00e8s souple et ornement\u00e9e, accompagn\u00e9e par une main gauche aux arp\u00e8ges ondulants.','6:13','Nocturnes, Op. 27, No. 2 in D-Flat Major','https://open.spotify.com/track/2MMm5gCJ7z9HgYGcDcuwdb?si=b907ad76a411429f',223)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=243
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(245,NULL,NULL,NULL,NULL,NULL,'Einaudi','Ludovico')
+INSERT INTO MORCEAU VALUES(244,'21 Janvier 2013','Experience est un morceau sublime, faisant traverser l\u2019auditeur par une gamme d\u2019\u00e9motions \u00e0 l\u2019aide de la puissance de v\u00e9ritables instruments de musique.','5:15','Experience','https://open.spotify.com/track/7sXDYdXmR2PnafjkpfdCYv?si=ac853141e74042ec',245)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 246
+COMMIT
+DELETE FROM MORCEAU WHERE ID=244
+INSERT INTO MORCEAU VALUES(244,'21 Janvier 2013','Experience est un morceau sublime, faisant traverser l\u2019auditeur par une gamme d\u2019\u00e9motions \u00e0 l\u2019aide de la puissance de v\u00e9ritables instruments de musique.','5:15','Experience','https://open.spotify.com/track/7sXDYdXmR2PnafjkpfdCYv?si=ac853141e74042ec',229)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=245
+COMMIT
+INSERT INTO UTILISATEUR VALUES(246,'1234','Khalil')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 247
+COMMIT
+INSERT INTO MORCEAU VALUES(248,NULL,NULL,NULL,'Ballade No. 1 in G minor, Op. 23',NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(249,NULL,'Khalil')
+INSERT INTO COMMENTAIRE VALUES(247,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',248,249)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 250
+COMMIT
+DELETE FROM COMMENTAIRE WHERE ID=247
+INSERT INTO COMMENTAIRE VALUES(247,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',248,246)
+COMMIT
+DISCONNECT
+/*C143*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C144*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C145*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C146*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C147*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C148*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C149*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C150*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C151*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C153*/SET SCHEMA PUBLIC
+INSERT INTO MORCEAU VALUES(251,NULL,NULL,NULL,'Ballade No. 1 in G minor, Op. 23',NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(252,NULL,'Khalil')
+INSERT INTO COMMENTAIRE VALUES(250,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',251,252)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 253
+COMMIT
+DELETE FROM COMMENTAIRE WHERE ID=250
+INSERT INTO COMMENTAIRE VALUES(250,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',251,246)
+COMMIT
+DISCONNECT
+/*C154*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C155*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C156*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C157*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C158*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C159*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C160*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C161*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C162*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C163*/SET SCHEMA PUBLIC
+INSERT INTO MORCEAU VALUES(254,NULL,NULL,NULL,'Ballade No. 1 in G minor, Op. 23',NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(255,NULL,'Khalil')
+INSERT INTO COMMENTAIRE VALUES(253,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',254,255)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 256
+COMMIT
+DELETE FROM COMMENTAIRE WHERE ID=253
+INSERT INTO COMMENTAIRE VALUES(253,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',254,246)
+COMMIT
+DELETE FROM COMMENTAIRE WHERE ID=253
+INSERT INTO COMMENTAIRE VALUES(253,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',254,249)
+COMMIT
+DELETE FROM COMMENTAIRE WHERE ID=253
+INSERT INTO COMMENTAIRE VALUES(253,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',254,252)
+COMMIT
+DELETE FROM COMMENTAIRE WHERE ID=253
+INSERT INTO COMMENTAIRE VALUES(253,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',232,252)
+COMMIT
+DISCONNECT
+/*C164*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C165*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C166*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C167*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C168*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C169*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C170*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C171*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C172*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C173*/SET SCHEMA PUBLIC
+INSERT INTO MORCEAU VALUES(257,NULL,NULL,NULL,'Ballade No. 1 in G minor, Op. 23',NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(258,NULL,'Khalil')
+INSERT INTO COMMENTAIRE VALUES(256,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',257,258)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 259
+COMMIT
+DELETE FROM COMMENTAIRE WHERE ID=256
+INSERT INTO COMMENTAIRE VALUES(256,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',257,246)
+COMMIT
+DISCONNECT
+/*C174*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C175*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C176*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C177*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C178*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C179*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C180*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C181*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C182*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C183*/SET SCHEMA PUBLIC
+INSERT INTO MORCEAU VALUES(260,NULL,NULL,NULL,'Ballade No. 1 in G minor, Op. 23',NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(261,NULL,'Khalil')
+INSERT INTO COMMENTAIRE VALUES(259,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',260,261)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 262
+COMMIT
+DELETE FROM COMMENTAIRE WHERE ID=259
+INSERT INTO COMMENTAIRE VALUES(259,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',260,246)
+COMMIT
+DELETE FROM COMMENTAIRE WHERE ID=259
+INSERT INTO COMMENTAIRE VALUES(259,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',260,249)
+COMMIT
+DELETE FROM COMMENTAIRE WHERE ID=259
+INSERT INTO COMMENTAIRE VALUES(259,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',260,252)
+COMMIT
+DELETE FROM COMMENTAIRE WHERE ID=259
+INSERT INTO COMMENTAIRE VALUES(259,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',260,255)
+COMMIT
+DELETE FROM COMMENTAIRE WHERE ID=259
+INSERT INTO COMMENTAIRE VALUES(259,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',260,258)
+COMMIT
+DELETE FROM COMMENTAIRE WHERE ID=259
+INSERT INTO COMMENTAIRE VALUES(259,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',232,258)
+COMMIT
+/*C193*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C126*/drop table COMMENTAIRE
+drop table MORCEAU
+drop table COMPOSITEUR
+drop table UTILISATEUR
+/*C194*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C183*/DISCONNECT
+/*C184*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C185*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C186*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C187*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C188*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C189*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C190*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C191*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C192*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C195*/SET SCHEMA PUBLIC
+create table commentaire (id bigint not null, contenu varchar(255), date varchar(255), morceau_id bigint, utilisateur_id bigint, primary key (id))
+create table compositeur (id bigint not null, biographie varchar(255), date_de_mort varchar(255), date_de_naissance varchar(255), mouvement varchar(255), nationalite varchar(255), nom_compositeur varchar(255), prenom_compositeur varchar(255), primary key (id))
+create table morceau (id bigint not null, date_creation varchar(255), description varchar(255), duree varchar(255), nom varchar(255), url varchar(255), compositeur_id bigint, primary key (id))
+create table utilisateur (id bigint not null, password varchar(255), username varchar(255), primary key (id))
+alter table commentaire add constraint FK479i8mptej8ftpgnle5c0128b foreign key (morceau_id) references morceau
+alter table commentaire add constraint FKfkx1pegfdsd6e3cp2wblsc5jf foreign key (utilisateur_id) references utilisateur
+alter table morceau add constraint FKpvoc6a34rwram5ejirxp4qgb1 foreign key (compositeur_id) references compositeur
+INSERT INTO COMPOSITEUR VALUES(262,'Fr\u00e9d\u00e9ric Chopin est un pianiste et compositeur franco-polonais du XIXe si\u00e8cle, ayant tour \u00e0 tour appartenu aux courants classiques et romantiques. ','17 Octobre 1849','1810','Romantisme','Franco-Polonaise','Chopin','Frederic')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 263
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(263,'Claude Debussy laisse l\u2019image d\u2019un cr\u00e9ateur original et profond d\u2019une musique o\u00f9 souffle le vent de la libert\u00e9. Son impact sera d\u00e9cisif dans l\u2019histoire de la musique.','25 mars 1918','22 Ao\u00fbt 1862','Romantisme','Fran\u00e7aise','Debussy','Claude')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 264
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(264,'Joe Hisaishi, est un compositeur, chef d''orchestre, pianiste et parolier. Il est notamment connu pour avoir compos\u00e9 la musique de la plupart des films du Studio Ghibli. ','','6 D\u00e9cembre 1950','Moderne','Japonaise','Hisaishi','Joe')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 265
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(265,'Pachelbel est surtout connu du grand public pour ses fameux Canon et gigue en r\u00e9 majeur pour trois violons et basse continue, couramment restreints au seul Canon de Pachelbel.','3 mars 1706','1\u1d49\u02b3 septembre 1653','Baroque','Allemande','Pachelbel','Johann')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 266
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(266,'l devient organiste et compose de tr\u00e8s nombreuses pi\u00e8ces religieuses. Bach est tr\u00e8s bien consid\u00e9r\u00e9 dans toute l\u2019Allemagne, m\u00eame si pendant longtemps sa renomm\u00e9e n\u2019a \u00e9t\u00e9 que celle d\u2019un organiste virtuose.','28 juillet 1750','21 mars 1685','Baroque','Allemande','Bach','Jean-S\u00e9bastien')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 267
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(267,'Son \u0153uvre est d''un romantisme h\u00e9rit\u00e9 de ses mod\u00e8les \u2014 Chopin, Tcha\u00efkovski et Rimski-Korsakov \u2014 et reste indiff\u00e9rente \u00e0 l''\u00e9volution de son \u00e9poque. Il est notamment connu pour ses c\u00e9l\u00e8bres concertos pour piano no 2 et no 3','28 mars 1943','1 avril 1873','Romantisme','Russe-Am\u00e9ricaine','Rachmaninoff','Sergei')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 268
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(268,'Alors qu''il est encore enfant, Ludovico Einaudi est initi\u00e9 \u00e0 la musique par sa m\u00e8re qui lui donne le go\u00fbt du piano. Il commence son apprentissage musical au conservatoire Giuseppe Verdi de Milan o\u00f9 il d\u00e9croche un dipl\u00f4me en composition.','','23 novembre 1955','Moderne','Italienne','Einaudi','Ludovico')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 269
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(270,NULL,NULL,NULL,NULL,NULL,'Debussy','Claude')
+INSERT INTO MORCEAU VALUES(269,'1890','La Suite bergamasque  compte parmi les plus c\u00e9l\u00e8bres de Debussy et est souvent consid\u00e9r\u00e9e comme la meilleure composition pianistique de sa jeunesse.','4:39','Clair de Lune','https://open.spotify.com/track/6N7JzrteJv8lsr1GWYyu0b?si=f7e86a0bc4b0419e',270)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 271
+COMMIT
+DELETE FROM MORCEAU WHERE ID=269
+INSERT INTO MORCEAU VALUES(269,'1890','La Suite bergamasque  compte parmi les plus c\u00e9l\u00e8bres de Debussy et est souvent consid\u00e9r\u00e9e comme la meilleure composition pianistique de sa jeunesse.','4:39','Clair de Lune','https://open.spotify.com/track/6N7JzrteJv8lsr1GWYyu0b?si=f7e86a0bc4b0419e',263)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=270
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(272,NULL,NULL,NULL,NULL,NULL,'Chopin','Frederic')
+INSERT INTO MORCEAU VALUES(271,'1836','Morceau embl\u00e9matique de Chopin retra\u00e7ant les p\u00e9rip\u00e9ties d''un h\u00e9ro de guerre','9:35','Ballade No. 1 in G minor, Op. 23','https://open.spotify.com/track/5Ks5ENUFNQDfaqxjZnCkVJ?si=a32418117fa743e7',272)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 273
+COMMIT
+DELETE FROM MORCEAU WHERE ID=271
+INSERT INTO MORCEAU VALUES(271,'1836','Morceau embl\u00e9matique de Chopin retra\u00e7ant les p\u00e9rip\u00e9ties d''un h\u00e9ro de guerre','9:35','Ballade No. 1 in G minor, Op. 23','https://open.spotify.com/track/5Ks5ENUFNQDfaqxjZnCkVJ?si=a32418117fa743e7',262)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=272
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(274,NULL,NULL,NULL,NULL,NULL,'Hisaishi','Joe')
+INSERT INTO MORCEAU VALUES(273,'20 juillet 2001','Bande son originale du film Le Voyage de Chihiro, lorsque celle-ci prend le train \u00e0 la station 6.','3:48','The Sixth Station','https://open.spotify.com/track/0io66Jrq47xP5l14O9347v?si=d62bfc0ccb8441d0',274)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 275
+COMMIT
+DELETE FROM MORCEAU WHERE ID=273
+INSERT INTO MORCEAU VALUES(273,'20 juillet 2001','Bande son originale du film Le Voyage de Chihiro, lorsque celle-ci prend le train \u00e0 la station 6.','3:48','The Sixth Station','https://open.spotify.com/track/0io66Jrq47xP5l14O9347v?si=d62bfc0ccb8441d0',264)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=274
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(276,NULL,NULL,NULL,NULL,NULL,'Pachelbel','Johann')
+INSERT INTO MORCEAU VALUES(275,'Vers 1680','Il est une des compositions les plus c\u00e9l\u00e8bres de Johann, d''origine inconnue, traditionnellement jou\u00e9e pour l''accompagnement de marche nuptiale de mariage','6:16','Canon in d','https://open.spotify.com/track/1c3GkbZBnyrQ1cm4TGHFrK?si=93429b0d651947dc',276)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 277
+COMMIT
+DELETE FROM MORCEAU WHERE ID=275
+INSERT INTO MORCEAU VALUES(275,'Vers 1680','Il est une des compositions les plus c\u00e9l\u00e8bres de Johann, d''origine inconnue, traditionnellement jou\u00e9e pour l''accompagnement de marche nuptiale de mariage','6:16','Canon in d','https://open.spotify.com/track/1c3GkbZBnyrQ1cm4TGHFrK?si=93429b0d651947dc',265)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=276
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(278,NULL,NULL,NULL,NULL,NULL,'Bach','Jean-S\u00e9bastien')
+INSERT INTO MORCEAU VALUES(277,'1717 \u00e0 1723','Cette suite est un \u00e9l\u00e9ment incontournable du r\u00e9pertoire pour violoncelle, d''abord en raison de leurs qualit\u00e9s musicales, ensuite pour leur int\u00e9r\u00eat p\u00e9dagogique et th\u00e9orique. Bach met en valeur toutes les possibilit\u00e9s polyphoniques de l''instrument.','2:32','Cello Suite No. 1 in G Major','https://open.spotify.com/track/17i5jLpzndlQhbS4SrTd0B?si=2995bcdf671d4962',278)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 279
+COMMIT
+DELETE FROM MORCEAU WHERE ID=277
+INSERT INTO MORCEAU VALUES(277,'1717 \u00e0 1723','Cette suite est un \u00e9l\u00e9ment incontournable du r\u00e9pertoire pour violoncelle, d''abord en raison de leurs qualit\u00e9s musicales, ensuite pour leur int\u00e9r\u00eat p\u00e9dagogique et th\u00e9orique. Bach met en valeur toutes les possibilit\u00e9s polyphoniques de l''instrument.','2:32','Cello Suite No. 1 in G Major','https://open.spotify.com/track/17i5jLpzndlQhbS4SrTd0B?si=2995bcdf671d4962',266)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=278
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(280,NULL,NULL,NULL,NULL,NULL,'Rachmaninoff','Sergei')
+INSERT INTO MORCEAU VALUES(279,'1900-1901','La composition de ce concerto intervient juste apr\u00e8s les trois ans de d\u00e9pression nerveuse dans laquelle Rachmaninov a plong\u00e9 \u00e0 la suite de l''\u00e9chec de sa premi\u00e8re symphonie, d\u00e9mont\u00e9e par des critiques impitoyables. Mouvement : Moderato.','11:27','Piano Concerto No. 2, Op. 18 in C Major, 1st Movement','https://open.spotify.com/track/6nxTsSN8iUnF758TwyTP4U?si=2bade201c5c64197',280)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 281
+COMMIT
+DELETE FROM MORCEAU WHERE ID=279
+INSERT INTO MORCEAU VALUES(279,'1900-1901','La composition de ce concerto intervient juste apr\u00e8s les trois ans de d\u00e9pression nerveuse dans laquelle Rachmaninov a plong\u00e9 \u00e0 la suite de l''\u00e9chec de sa premi\u00e8re symphonie, d\u00e9mont\u00e9e par des critiques impitoyables. Mouvement : Moderato.','11:27','Piano Concerto No. 2, Op. 18 in C Major, 1st Movement','https://open.spotify.com/track/6nxTsSN8iUnF758TwyTP4U?si=2bade201c5c64197',267)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=280
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(282,NULL,NULL,NULL,NULL,NULL,'Chopin','Frederic')
+INSERT INTO MORCEAU VALUES(281,'1827-1846','Les nocturnes reposent sur un mouvement lent d''expression path\u00e9tique, divers ornements m\u00e9lodiques et une partie centrale acc\u00e9l\u00e9r\u00e9e. Il est pr\u00e9sent\u00e9 avec une m\u00e9lodie tr\u00e8s souple et ornement\u00e9e, accompagn\u00e9e par une main gauche aux arp\u00e8ges ondulants.','6:13','Nocturnes, Op. 27, No. 2 in D-Flat Major','https://open.spotify.com/track/2MMm5gCJ7z9HgYGcDcuwdb?si=b907ad76a411429f',282)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 283
+COMMIT
+DELETE FROM MORCEAU WHERE ID=281
+INSERT INTO MORCEAU VALUES(281,'1827-1846','Les nocturnes reposent sur un mouvement lent d''expression path\u00e9tique, divers ornements m\u00e9lodiques et une partie centrale acc\u00e9l\u00e9r\u00e9e. Il est pr\u00e9sent\u00e9 avec une m\u00e9lodie tr\u00e8s souple et ornement\u00e9e, accompagn\u00e9e par une main gauche aux arp\u00e8ges ondulants.','6:13','Nocturnes, Op. 27, No. 2 in D-Flat Major','https://open.spotify.com/track/2MMm5gCJ7z9HgYGcDcuwdb?si=b907ad76a411429f',262)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=282
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(284,NULL,NULL,NULL,NULL,NULL,'Einaudi','Ludovico')
+INSERT INTO MORCEAU VALUES(283,'21 Janvier 2013','Experience est un morceau sublime, faisant traverser l\u2019auditeur par une gamme d\u2019\u00e9motions \u00e0 l\u2019aide de la puissance de v\u00e9ritables instruments de musique.','5:15','Experience','https://open.spotify.com/track/7sXDYdXmR2PnafjkpfdCYv?si=ac853141e74042ec',284)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 285
+COMMIT
+DELETE FROM MORCEAU WHERE ID=283
+INSERT INTO MORCEAU VALUES(283,'21 Janvier 2013','Experience est un morceau sublime, faisant traverser l\u2019auditeur par une gamme d\u2019\u00e9motions \u00e0 l\u2019aide de la puissance de v\u00e9ritables instruments de musique.','5:15','Experience','https://open.spotify.com/track/7sXDYdXmR2PnafjkpfdCYv?si=ac853141e74042ec',268)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=284
+COMMIT
+INSERT INTO UTILISATEUR VALUES(285,'1234','Khalil')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 286
+COMMIT
+INSERT INTO MORCEAU VALUES(287,NULL,NULL,NULL,'Ballade No. 1 in G minor, Op. 23',NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(288,NULL,'Khalil')
+INSERT INTO COMMENTAIRE VALUES(286,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',287,288)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 289
+COMMIT
+DELETE FROM COMMENTAIRE WHERE ID=286
+INSERT INTO COMMENTAIRE VALUES(286,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',287,285)
+COMMIT
+/*C205*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C126*/drop table COMMENTAIRE
+drop table MORCEAU
+drop table COMPOSITEUR
+drop table UTILISATEUR
+/*C206*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C195*/DISCONNECT
+/*C196*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C197*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C198*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C199*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C200*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C201*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C202*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C203*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C204*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C207*/SET SCHEMA PUBLIC
+create table commentaire (id bigint not null, contenu varchar(255), date varchar(255), morceau_id bigint, utilisateur_id bigint, primary key (id))
+create table compositeur (id bigint not null, biographie varchar(255), date_de_mort varchar(255), date_de_naissance varchar(255), mouvement varchar(255), nationalite varchar(255), nom_compositeur varchar(255), prenom_compositeur varchar(255), primary key (id))
+create table morceau (id bigint not null, date_creation varchar(255), description varchar(255), duree varchar(255), nom varchar(255), url varchar(255), compositeur_id bigint, primary key (id))
+create table utilisateur (id bigint not null, password varchar(255), username varchar(255), primary key (id))
+alter table commentaire add constraint FK479i8mptej8ftpgnle5c0128b foreign key (morceau_id) references morceau
+alter table commentaire add constraint FKfkx1pegfdsd6e3cp2wblsc5jf foreign key (utilisateur_id) references utilisateur
+alter table morceau add constraint FKpvoc6a34rwram5ejirxp4qgb1 foreign key (compositeur_id) references compositeur
+INSERT INTO COMPOSITEUR VALUES(289,'Fr\u00e9d\u00e9ric Chopin est un pianiste et compositeur franco-polonais du XIXe si\u00e8cle, ayant tour \u00e0 tour appartenu aux courants classiques et romantiques. ','17 Octobre 1849','1810','Romantisme','Franco-Polonaise','Chopin','Frederic')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 290
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(290,'Claude Debussy laisse l\u2019image d\u2019un cr\u00e9ateur original et profond d\u2019une musique o\u00f9 souffle le vent de la libert\u00e9. Son impact sera d\u00e9cisif dans l\u2019histoire de la musique.','25 mars 1918','22 Ao\u00fbt 1862','Romantisme','Fran\u00e7aise','Debussy','Claude')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 291
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(291,'Joe Hisaishi, est un compositeur, chef d''orchestre, pianiste et parolier. Il est notamment connu pour avoir compos\u00e9 la musique de la plupart des films du Studio Ghibli. ','','6 D\u00e9cembre 1950','Moderne','Japonaise','Hisaishi','Joe')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 292
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(292,'Pachelbel est surtout connu du grand public pour ses fameux Canon et gigue en r\u00e9 majeur pour trois violons et basse continue, couramment restreints au seul Canon de Pachelbel.','3 mars 1706','1\u1d49\u02b3 septembre 1653','Baroque','Allemande','Pachelbel','Johann')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 293
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(293,'l devient organiste et compose de tr\u00e8s nombreuses pi\u00e8ces religieuses. Bach est tr\u00e8s bien consid\u00e9r\u00e9 dans toute l\u2019Allemagne, m\u00eame si pendant longtemps sa renomm\u00e9e n\u2019a \u00e9t\u00e9 que celle d\u2019un organiste virtuose.','28 juillet 1750','21 mars 1685','Baroque','Allemande','Bach','Jean-S\u00e9bastien')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 294
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(294,'Son \u0153uvre est d''un romantisme h\u00e9rit\u00e9 de ses mod\u00e8les \u2014 Chopin, Tcha\u00efkovski et Rimski-Korsakov \u2014 et reste indiff\u00e9rente \u00e0 l''\u00e9volution de son \u00e9poque. Il est notamment connu pour ses c\u00e9l\u00e8bres concertos pour piano no 2 et no 3','28 mars 1943','1 avril 1873','Romantisme','Russe-Am\u00e9ricaine','Rachmaninoff','Sergei')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 295
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(295,'Alors qu''il est encore enfant, Ludovico Einaudi est initi\u00e9 \u00e0 la musique par sa m\u00e8re qui lui donne le go\u00fbt du piano. Il commence son apprentissage musical au conservatoire Giuseppe Verdi de Milan o\u00f9 il d\u00e9croche un dipl\u00f4me en composition.','','23 novembre 1955','Moderne','Italienne','Einaudi','Ludovico')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 296
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(297,NULL,NULL,NULL,NULL,NULL,'Debussy','Claude')
+INSERT INTO MORCEAU VALUES(296,'1890','La Suite bergamasque  compte parmi les plus c\u00e9l\u00e8bres de Debussy et est souvent consid\u00e9r\u00e9e comme la meilleure composition pianistique de sa jeunesse.','4:39','Clair de Lune','https://open.spotify.com/track/6N7JzrteJv8lsr1GWYyu0b?si=f7e86a0bc4b0419e',297)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 298
+COMMIT
+DELETE FROM MORCEAU WHERE ID=296
+INSERT INTO MORCEAU VALUES(296,'1890','La Suite bergamasque  compte parmi les plus c\u00e9l\u00e8bres de Debussy et est souvent consid\u00e9r\u00e9e comme la meilleure composition pianistique de sa jeunesse.','4:39','Clair de Lune','https://open.spotify.com/track/6N7JzrteJv8lsr1GWYyu0b?si=f7e86a0bc4b0419e',290)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=297
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(299,NULL,NULL,NULL,NULL,NULL,'Chopin','Frederic')
+INSERT INTO MORCEAU VALUES(298,'1836','Morceau embl\u00e9matique de Chopin retra\u00e7ant les p\u00e9rip\u00e9ties d''un h\u00e9ro de guerre','9:35','Ballade No. 1 in G minor, Op. 23','https://open.spotify.com/track/5Ks5ENUFNQDfaqxjZnCkVJ?si=a32418117fa743e7',299)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 300
+COMMIT
+DELETE FROM MORCEAU WHERE ID=298
+INSERT INTO MORCEAU VALUES(298,'1836','Morceau embl\u00e9matique de Chopin retra\u00e7ant les p\u00e9rip\u00e9ties d''un h\u00e9ro de guerre','9:35','Ballade No. 1 in G minor, Op. 23','https://open.spotify.com/track/5Ks5ENUFNQDfaqxjZnCkVJ?si=a32418117fa743e7',289)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=299
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(301,NULL,NULL,NULL,NULL,NULL,'Hisaishi','Joe')
+INSERT INTO MORCEAU VALUES(300,'20 juillet 2001','Bande son originale du film Le Voyage de Chihiro, lorsque celle-ci prend le train \u00e0 la station 6.','3:48','The Sixth Station','https://open.spotify.com/track/0io66Jrq47xP5l14O9347v?si=d62bfc0ccb8441d0',301)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 302
+COMMIT
+DELETE FROM MORCEAU WHERE ID=300
+INSERT INTO MORCEAU VALUES(300,'20 juillet 2001','Bande son originale du film Le Voyage de Chihiro, lorsque celle-ci prend le train \u00e0 la station 6.','3:48','The Sixth Station','https://open.spotify.com/track/0io66Jrq47xP5l14O9347v?si=d62bfc0ccb8441d0',291)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=301
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(303,NULL,NULL,NULL,NULL,NULL,'Pachelbel','Johann')
+INSERT INTO MORCEAU VALUES(302,'Vers 1680','Il est une des compositions les plus c\u00e9l\u00e8bres de Johann, d''origine inconnue, traditionnellement jou\u00e9e pour l''accompagnement de marche nuptiale de mariage','6:16','Canon in d','https://open.spotify.com/track/1c3GkbZBnyrQ1cm4TGHFrK?si=93429b0d651947dc',303)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 304
+COMMIT
+DELETE FROM MORCEAU WHERE ID=302
+INSERT INTO MORCEAU VALUES(302,'Vers 1680','Il est une des compositions les plus c\u00e9l\u00e8bres de Johann, d''origine inconnue, traditionnellement jou\u00e9e pour l''accompagnement de marche nuptiale de mariage','6:16','Canon in d','https://open.spotify.com/track/1c3GkbZBnyrQ1cm4TGHFrK?si=93429b0d651947dc',292)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=303
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(305,NULL,NULL,NULL,NULL,NULL,'Bach','Jean-S\u00e9bastien')
+INSERT INTO MORCEAU VALUES(304,'1717 \u00e0 1723','Cette suite est un \u00e9l\u00e9ment incontournable du r\u00e9pertoire pour violoncelle, d''abord en raison de leurs qualit\u00e9s musicales, ensuite pour leur int\u00e9r\u00eat p\u00e9dagogique et th\u00e9orique. Bach met en valeur toutes les possibilit\u00e9s polyphoniques de l''instrument.','2:32','Cello Suite No. 1 in G Major','https://open.spotify.com/track/17i5jLpzndlQhbS4SrTd0B?si=2995bcdf671d4962',305)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 306
+COMMIT
+DELETE FROM MORCEAU WHERE ID=304
+INSERT INTO MORCEAU VALUES(304,'1717 \u00e0 1723','Cette suite est un \u00e9l\u00e9ment incontournable du r\u00e9pertoire pour violoncelle, d''abord en raison de leurs qualit\u00e9s musicales, ensuite pour leur int\u00e9r\u00eat p\u00e9dagogique et th\u00e9orique. Bach met en valeur toutes les possibilit\u00e9s polyphoniques de l''instrument.','2:32','Cello Suite No. 1 in G Major','https://open.spotify.com/track/17i5jLpzndlQhbS4SrTd0B?si=2995bcdf671d4962',293)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=305
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(307,NULL,NULL,NULL,NULL,NULL,'Rachmaninoff','Sergei')
+INSERT INTO MORCEAU VALUES(306,'1900-1901','La composition de ce concerto intervient juste apr\u00e8s les trois ans de d\u00e9pression nerveuse dans laquelle Rachmaninov a plong\u00e9 \u00e0 la suite de l''\u00e9chec de sa premi\u00e8re symphonie, d\u00e9mont\u00e9e par des critiques impitoyables. Mouvement : Moderato.','11:27','Piano Concerto No. 2, Op. 18 in C Major, 1st Movement','https://open.spotify.com/track/6nxTsSN8iUnF758TwyTP4U?si=2bade201c5c64197',307)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 308
+COMMIT
+DELETE FROM MORCEAU WHERE ID=306
+INSERT INTO MORCEAU VALUES(306,'1900-1901','La composition de ce concerto intervient juste apr\u00e8s les trois ans de d\u00e9pression nerveuse dans laquelle Rachmaninov a plong\u00e9 \u00e0 la suite de l''\u00e9chec de sa premi\u00e8re symphonie, d\u00e9mont\u00e9e par des critiques impitoyables. Mouvement : Moderato.','11:27','Piano Concerto No. 2, Op. 18 in C Major, 1st Movement','https://open.spotify.com/track/6nxTsSN8iUnF758TwyTP4U?si=2bade201c5c64197',294)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=307
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(309,NULL,NULL,NULL,NULL,NULL,'Chopin','Frederic')
+INSERT INTO MORCEAU VALUES(308,'1827-1846','Les nocturnes reposent sur un mouvement lent d''expression path\u00e9tique, divers ornements m\u00e9lodiques et une partie centrale acc\u00e9l\u00e9r\u00e9e. Il est pr\u00e9sent\u00e9 avec une m\u00e9lodie tr\u00e8s souple et ornement\u00e9e, accompagn\u00e9e par une main gauche aux arp\u00e8ges ondulants.','6:13','Nocturnes, Op. 27, No. 2 in D-Flat Major','https://open.spotify.com/track/2MMm5gCJ7z9HgYGcDcuwdb?si=b907ad76a411429f',309)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 310
+COMMIT
+DELETE FROM MORCEAU WHERE ID=308
+INSERT INTO MORCEAU VALUES(308,'1827-1846','Les nocturnes reposent sur un mouvement lent d''expression path\u00e9tique, divers ornements m\u00e9lodiques et une partie centrale acc\u00e9l\u00e9r\u00e9e. Il est pr\u00e9sent\u00e9 avec une m\u00e9lodie tr\u00e8s souple et ornement\u00e9e, accompagn\u00e9e par une main gauche aux arp\u00e8ges ondulants.','6:13','Nocturnes, Op. 27, No. 2 in D-Flat Major','https://open.spotify.com/track/2MMm5gCJ7z9HgYGcDcuwdb?si=b907ad76a411429f',289)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=309
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(311,NULL,NULL,NULL,NULL,NULL,'Einaudi','Ludovico')
+INSERT INTO MORCEAU VALUES(310,'21 Janvier 2013','Experience est un morceau sublime, faisant traverser l\u2019auditeur par une gamme d\u2019\u00e9motions \u00e0 l\u2019aide de la puissance de v\u00e9ritables instruments de musique.','5:15','Experience','https://open.spotify.com/track/7sXDYdXmR2PnafjkpfdCYv?si=ac853141e74042ec',311)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 312
+COMMIT
+DELETE FROM MORCEAU WHERE ID=310
+INSERT INTO MORCEAU VALUES(310,'21 Janvier 2013','Experience est un morceau sublime, faisant traverser l\u2019auditeur par une gamme d\u2019\u00e9motions \u00e0 l\u2019aide de la puissance de v\u00e9ritables instruments de musique.','5:15','Experience','https://open.spotify.com/track/7sXDYdXmR2PnafjkpfdCYv?si=ac853141e74042ec',295)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=311
+COMMIT
+INSERT INTO UTILISATEUR VALUES(312,'1234','Khalil')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 313
+COMMIT
+INSERT INTO MORCEAU VALUES(314,NULL,NULL,NULL,'Ballade No. 1 in G minor, Op. 23',NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(315,NULL,'Khalil')
+INSERT INTO COMMENTAIRE VALUES(313,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',314,315)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 316
+COMMIT
+DELETE FROM COMMENTAIRE WHERE ID=313
+INSERT INTO COMMENTAIRE VALUES(313,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',314,312)
+COMMIT
+DELETE FROM UTILISATEUR WHERE ID=315
+COMMIT
+DELETE FROM COMMENTAIRE WHERE ID=313
+INSERT INTO COMMENTAIRE VALUES(313,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',298,312)
+COMMIT
+INSERT INTO MORCEAU VALUES(317,NULL,NULL,NULL,'Ballade No. 1 in G minor, Op. 23',NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(318,NULL,'Khalil')
+INSERT INTO COMMENTAIRE VALUES(316,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',317,318)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 319
+COMMIT
+DELETE FROM COMMENTAIRE WHERE ID=316
+INSERT INTO COMMENTAIRE VALUES(316,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',317,312)
+COMMIT
+DELETE FROM UTILISATEUR WHERE ID=318
+COMMIT
+DELETE FROM COMMENTAIRE WHERE ID=316
+INSERT INTO COMMENTAIRE VALUES(316,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',298,312)
+COMMIT
+DISCONNECT
+/*C208*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C209*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C210*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C211*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C212*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C213*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C214*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C215*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C216*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C217*/SET SCHEMA PUBLIC
+INSERT INTO MORCEAU VALUES(320,NULL,NULL,NULL,'Ballade No. 1 in G minor, Op. 23',NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(321,NULL,'Khalil')
+INSERT INTO COMMENTAIRE VALUES(319,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',320,321)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 322
+COMMIT
+DELETE FROM COMMENTAIRE WHERE ID=319
+INSERT INTO COMMENTAIRE VALUES(319,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',320,312)
+COMMIT
+DELETE FROM UTILISATEUR WHERE ID=321
+COMMIT
+DISCONNECT
+/*C218*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C219*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C220*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C221*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C222*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C223*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C224*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C225*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C226*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C227*/SET SCHEMA PUBLIC
+INSERT INTO MORCEAU VALUES(323,NULL,NULL,NULL,'Ballade No. 1 in G minor, Op. 23',NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(324,NULL,'Khalil')
+INSERT INTO COMMENTAIRE VALUES(322,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',323,324)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 325
+COMMIT
+DELETE FROM COMMENTAIRE WHERE ID=322
+INSERT INTO COMMENTAIRE VALUES(322,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',323,312)
+COMMIT
+DELETE FROM UTILISATEUR WHERE ID=324
+COMMIT
+DISCONNECT
+/*C228*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C229*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C230*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C231*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C232*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C233*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C234*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C235*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C236*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C247*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C126*/drop table COMMENTAIRE
+drop table MORCEAU
+drop table COMPOSITEUR
+drop table UTILISATEUR
+/*C248*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C237*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C238*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C239*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C240*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C241*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C242*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C243*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C244*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C245*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C246*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C249*/SET SCHEMA PUBLIC
+create table commentaire (id bigint not null, contenu varchar(255), date varchar(255), morceau_id bigint, utilisateur_id bigint, primary key (id))
+create table compositeur (id bigint not null, biographie varchar(255), date_de_mort varchar(255), date_de_naissance varchar(255), mouvement varchar(255), nationalite varchar(255), nom_compositeur varchar(255), prenom_compositeur varchar(255), primary key (id))
+create table morceau (id bigint not null, date_creation varchar(255), description varchar(255), duree varchar(255), nom varchar(255), url varchar(255), compositeur_id bigint, primary key (id))
+create table utilisateur (id bigint not null, password varchar(255), username varchar(255), primary key (id))
+alter table commentaire add constraint FK479i8mptej8ftpgnle5c0128b foreign key (morceau_id) references morceau
+alter table commentaire add constraint FKfkx1pegfdsd6e3cp2wblsc5jf foreign key (utilisateur_id) references utilisateur
+alter table morceau add constraint FKpvoc6a34rwram5ejirxp4qgb1 foreign key (compositeur_id) references compositeur
+INSERT INTO COMPOSITEUR VALUES(325,'Fr\u00e9d\u00e9ric Chopin est un pianiste et compositeur franco-polonais du XIXe si\u00e8cle, ayant tour \u00e0 tour appartenu aux courants classiques et romantiques. ','17 Octobre 1849','1810','Romantisme','Franco-Polonaise','Chopin','Frederic')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 326
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(326,'Claude Debussy laisse l\u2019image d\u2019un cr\u00e9ateur original et profond d\u2019une musique o\u00f9 souffle le vent de la libert\u00e9. Son impact sera d\u00e9cisif dans l\u2019histoire de la musique.','25 mars 1918','22 Ao\u00fbt 1862','Romantisme','Fran\u00e7aise','Debussy','Claude')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 327
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(327,'Joe Hisaishi, est un compositeur, chef d''orchestre, pianiste et parolier. Il est notamment connu pour avoir compos\u00e9 la musique de la plupart des films du Studio Ghibli. ','','6 D\u00e9cembre 1950','Moderne','Japonaise','Hisaishi','Joe')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 328
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(328,'Pachelbel est surtout connu du grand public pour ses fameux Canon et gigue en r\u00e9 majeur pour trois violons et basse continue, couramment restreints au seul Canon de Pachelbel.','3 mars 1706','1\u1d49\u02b3 septembre 1653','Baroque','Allemande','Pachelbel','Johann')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 329
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(329,'l devient organiste et compose de tr\u00e8s nombreuses pi\u00e8ces religieuses. Bach est tr\u00e8s bien consid\u00e9r\u00e9 dans toute l\u2019Allemagne, m\u00eame si pendant longtemps sa renomm\u00e9e n\u2019a \u00e9t\u00e9 que celle d\u2019un organiste virtuose.','28 juillet 1750','21 mars 1685','Baroque','Allemande','Bach','Jean-S\u00e9bastien')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 330
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(330,'Son \u0153uvre est d''un romantisme h\u00e9rit\u00e9 de ses mod\u00e8les \u2014 Chopin, Tcha\u00efkovski et Rimski-Korsakov \u2014 et reste indiff\u00e9rente \u00e0 l''\u00e9volution de son \u00e9poque. Il est notamment connu pour ses c\u00e9l\u00e8bres concertos pour piano no 2 et no 3','28 mars 1943','1 avril 1873','Romantisme','Russe-Am\u00e9ricaine','Rachmaninoff','Sergei')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 331
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(331,'Alors qu''il est encore enfant, Ludovico Einaudi est initi\u00e9 \u00e0 la musique par sa m\u00e8re qui lui donne le go\u00fbt du piano. Il commence son apprentissage musical au conservatoire Giuseppe Verdi de Milan o\u00f9 il d\u00e9croche un dipl\u00f4me en composition.','','23 novembre 1955','Moderne','Italienne','Einaudi','Ludovico')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 332
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(333,NULL,NULL,NULL,NULL,NULL,'Debussy','Claude')
+INSERT INTO MORCEAU VALUES(332,'1890','La Suite bergamasque  compte parmi les plus c\u00e9l\u00e8bres de Debussy et est souvent consid\u00e9r\u00e9e comme la meilleure composition pianistique de sa jeunesse.','4:39','Clair de Lune','https://open.spotify.com/track/6N7JzrteJv8lsr1GWYyu0b?si=f7e86a0bc4b0419e',333)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 334
+COMMIT
+DELETE FROM MORCEAU WHERE ID=332
+INSERT INTO MORCEAU VALUES(332,'1890','La Suite bergamasque  compte parmi les plus c\u00e9l\u00e8bres de Debussy et est souvent consid\u00e9r\u00e9e comme la meilleure composition pianistique de sa jeunesse.','4:39','Clair de Lune','https://open.spotify.com/track/6N7JzrteJv8lsr1GWYyu0b?si=f7e86a0bc4b0419e',326)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=333
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(335,NULL,NULL,NULL,NULL,NULL,'Chopin','Frederic')
+INSERT INTO MORCEAU VALUES(334,'1836','Morceau embl\u00e9matique de Chopin retra\u00e7ant les p\u00e9rip\u00e9ties d''un h\u00e9ro de guerre','9:35','Ballade No. 1 in G minor, Op. 23','https://open.spotify.com/track/5Ks5ENUFNQDfaqxjZnCkVJ?si=a32418117fa743e7',335)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 336
+COMMIT
+DELETE FROM MORCEAU WHERE ID=334
+INSERT INTO MORCEAU VALUES(334,'1836','Morceau embl\u00e9matique de Chopin retra\u00e7ant les p\u00e9rip\u00e9ties d''un h\u00e9ro de guerre','9:35','Ballade No. 1 in G minor, Op. 23','https://open.spotify.com/track/5Ks5ENUFNQDfaqxjZnCkVJ?si=a32418117fa743e7',325)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=335
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(337,NULL,NULL,NULL,NULL,NULL,'Hisaishi','Joe')
+INSERT INTO MORCEAU VALUES(336,'20 juillet 2001','Bande son originale du film Le Voyage de Chihiro, lorsque celle-ci prend le train \u00e0 la station 6.','3:48','The Sixth Station','https://open.spotify.com/track/0io66Jrq47xP5l14O9347v?si=d62bfc0ccb8441d0',337)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 338
+COMMIT
+DELETE FROM MORCEAU WHERE ID=336
+INSERT INTO MORCEAU VALUES(336,'20 juillet 2001','Bande son originale du film Le Voyage de Chihiro, lorsque celle-ci prend le train \u00e0 la station 6.','3:48','The Sixth Station','https://open.spotify.com/track/0io66Jrq47xP5l14O9347v?si=d62bfc0ccb8441d0',327)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=337
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(339,NULL,NULL,NULL,NULL,NULL,'Pachelbel','Johann')
+INSERT INTO MORCEAU VALUES(338,'Vers 1680','Il est une des compositions les plus c\u00e9l\u00e8bres de Johann, d''origine inconnue, traditionnellement jou\u00e9e pour l''accompagnement de marche nuptiale de mariage','6:16','Canon in d','https://open.spotify.com/track/1c3GkbZBnyrQ1cm4TGHFrK?si=93429b0d651947dc',339)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 340
+COMMIT
+DELETE FROM MORCEAU WHERE ID=338
+INSERT INTO MORCEAU VALUES(338,'Vers 1680','Il est une des compositions les plus c\u00e9l\u00e8bres de Johann, d''origine inconnue, traditionnellement jou\u00e9e pour l''accompagnement de marche nuptiale de mariage','6:16','Canon in d','https://open.spotify.com/track/1c3GkbZBnyrQ1cm4TGHFrK?si=93429b0d651947dc',328)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=339
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(341,NULL,NULL,NULL,NULL,NULL,'Bach','Jean-S\u00e9bastien')
+INSERT INTO MORCEAU VALUES(340,'1717 \u00e0 1723','Cette suite est un \u00e9l\u00e9ment incontournable du r\u00e9pertoire pour violoncelle, d''abord en raison de leurs qualit\u00e9s musicales, ensuite pour leur int\u00e9r\u00eat p\u00e9dagogique et th\u00e9orique. Bach met en valeur toutes les possibilit\u00e9s polyphoniques de l''instrument.','2:32','Cello Suite No. 1 in G Major','https://open.spotify.com/track/17i5jLpzndlQhbS4SrTd0B?si=2995bcdf671d4962',341)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 342
+COMMIT
+DELETE FROM MORCEAU WHERE ID=340
+INSERT INTO MORCEAU VALUES(340,'1717 \u00e0 1723','Cette suite est un \u00e9l\u00e9ment incontournable du r\u00e9pertoire pour violoncelle, d''abord en raison de leurs qualit\u00e9s musicales, ensuite pour leur int\u00e9r\u00eat p\u00e9dagogique et th\u00e9orique. Bach met en valeur toutes les possibilit\u00e9s polyphoniques de l''instrument.','2:32','Cello Suite No. 1 in G Major','https://open.spotify.com/track/17i5jLpzndlQhbS4SrTd0B?si=2995bcdf671d4962',329)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=341
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(343,NULL,NULL,NULL,NULL,NULL,'Rachmaninoff','Sergei')
+INSERT INTO MORCEAU VALUES(342,'1900-1901','La composition de ce concerto intervient juste apr\u00e8s les trois ans de d\u00e9pression nerveuse dans laquelle Rachmaninov a plong\u00e9 \u00e0 la suite de l''\u00e9chec de sa premi\u00e8re symphonie, d\u00e9mont\u00e9e par des critiques impitoyables. Mouvement : Moderato.','11:27','Piano Concerto No. 2, Op. 18 in C Major, 1st Movement','https://open.spotify.com/track/6nxTsSN8iUnF758TwyTP4U?si=2bade201c5c64197',343)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 344
+COMMIT
+DELETE FROM MORCEAU WHERE ID=342
+INSERT INTO MORCEAU VALUES(342,'1900-1901','La composition de ce concerto intervient juste apr\u00e8s les trois ans de d\u00e9pression nerveuse dans laquelle Rachmaninov a plong\u00e9 \u00e0 la suite de l''\u00e9chec de sa premi\u00e8re symphonie, d\u00e9mont\u00e9e par des critiques impitoyables. Mouvement : Moderato.','11:27','Piano Concerto No. 2, Op. 18 in C Major, 1st Movement','https://open.spotify.com/track/6nxTsSN8iUnF758TwyTP4U?si=2bade201c5c64197',330)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=343
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(345,NULL,NULL,NULL,NULL,NULL,'Chopin','Frederic')
+INSERT INTO MORCEAU VALUES(344,'1827-1846','Les nocturnes reposent sur un mouvement lent d''expression path\u00e9tique, divers ornements m\u00e9lodiques et une partie centrale acc\u00e9l\u00e9r\u00e9e. Il est pr\u00e9sent\u00e9 avec une m\u00e9lodie tr\u00e8s souple et ornement\u00e9e, accompagn\u00e9e par une main gauche aux arp\u00e8ges ondulants.','6:13','Nocturnes, Op. 27, No. 2 in D-Flat Major','https://open.spotify.com/track/2MMm5gCJ7z9HgYGcDcuwdb?si=b907ad76a411429f',345)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 346
+COMMIT
+DELETE FROM MORCEAU WHERE ID=344
+INSERT INTO MORCEAU VALUES(344,'1827-1846','Les nocturnes reposent sur un mouvement lent d''expression path\u00e9tique, divers ornements m\u00e9lodiques et une partie centrale acc\u00e9l\u00e9r\u00e9e. Il est pr\u00e9sent\u00e9 avec une m\u00e9lodie tr\u00e8s souple et ornement\u00e9e, accompagn\u00e9e par une main gauche aux arp\u00e8ges ondulants.','6:13','Nocturnes, Op. 27, No. 2 in D-Flat Major','https://open.spotify.com/track/2MMm5gCJ7z9HgYGcDcuwdb?si=b907ad76a411429f',325)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=345
+COMMIT
+INSERT INTO COMPOSITEUR VALUES(347,NULL,NULL,NULL,NULL,NULL,'Einaudi','Ludovico')
+INSERT INTO MORCEAU VALUES(346,'21 Janvier 2013','Experience est un morceau sublime, faisant traverser l\u2019auditeur par une gamme d\u2019\u00e9motions \u00e0 l\u2019aide de la puissance de v\u00e9ritables instruments de musique.','5:15','Experience','https://open.spotify.com/track/7sXDYdXmR2PnafjkpfdCYv?si=ac853141e74042ec',347)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 348
+COMMIT
+DELETE FROM MORCEAU WHERE ID=346
+INSERT INTO MORCEAU VALUES(346,'21 Janvier 2013','Experience est un morceau sublime, faisant traverser l\u2019auditeur par une gamme d\u2019\u00e9motions \u00e0 l\u2019aide de la puissance de v\u00e9ritables instruments de musique.','5:15','Experience','https://open.spotify.com/track/7sXDYdXmR2PnafjkpfdCYv?si=ac853141e74042ec',331)
+COMMIT
+DELETE FROM COMPOSITEUR WHERE ID=347
+COMMIT
+INSERT INTO UTILISATEUR VALUES(348,'1234','Khalil')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 349
+COMMIT
+INSERT INTO MORCEAU VALUES(350,NULL,NULL,NULL,'Ballade No. 1 in G minor, Op. 23',NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(351,NULL,'Khalil')
+INSERT INTO COMMENTAIRE VALUES(349,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',350,351)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 352
+COMMIT
+DELETE FROM COMMENTAIRE WHERE ID=349
+INSERT INTO COMMENTAIRE VALUES(349,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',350,348)
+COMMIT
+DELETE FROM UTILISATEUR WHERE ID=351
+COMMIT
+DELETE FROM COMMENTAIRE WHERE ID=349
+INSERT INTO COMMENTAIRE VALUES(349,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',334,348)
+COMMIT
+DELETE FROM MORCEAU WHERE ID=350
+COMMIT
+DISCONNECT
+/*C250*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C251*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C252*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C253*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C254*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C255*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C256*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C257*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C258*/SET SCHEMA PUBLIC
+DISCONNECT
