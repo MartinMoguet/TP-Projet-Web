@@ -45,4 +45,33 @@ public class CommentaireController {
                 commentaireRepository.deleteById(utilisateurAEnlever.getId());
             }});
     }
+
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/{id}")
+    public Optional<Commentaire> getCommentaireById(@PathParam("id") long id){return commentaireRepository.findById(id);}
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("ajoutMultipleCommentaire")
+    public void addCommentaire(List<Commentaire> commentaireList){
+        List<Utilisateur> utilisateurList = utilisateurRepository.findAll();
+        commentaireList.forEach( c -> {
+        commentaireRepository.save(c);
+        utilisateurList.forEach(utilisateur -> {
+            if (c.getUtilisateur().equals(utilisateur.getUsername())) {
+                Utilisateur utilisateurAEnlever = c.getUtilisateur();
+                c.setUtilisateur(utilisateur);
+                utilisateur.getCommentaireList().add(c.getContenu());
+                commentaireRepository.save(c);
+                commentaireRepository.deleteById(utilisateurAEnlever.getId());
+            }});
+        });
+    }
+
+    @DELETE
+    @Path("/{removeAllCommentaire}")
+    public void removeAllCommentaire(){ commentaireRepository.deleteAll();}
 }

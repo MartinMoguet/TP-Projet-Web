@@ -39,7 +39,7 @@ public class MorceauController {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Morceau> getAllMorceau(){ return (List<Morceau>) morceauRepository.findAll();}
+    public List<Morceau> getAllMorceau(){ return morceauRepository.findAll();}
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
