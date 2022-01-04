@@ -39,7 +39,7 @@ public class MorceauController {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Morceau> getAllMorceau(){ return (List<Morceau>) morceauRepository.findAll();}
+    public List<Morceau> getAllMorceau(){ return morceauRepository.findAll();}
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -65,7 +65,7 @@ public class MorceauController {
     }
 
     @DELETE
-    @Path("/{removeAllMorceau}")
+    @Path("removeAllMorceau")
     public void removeAllMorceau(){ morceauRepository.deleteAll();}
 
     @GET
@@ -106,5 +106,9 @@ public class MorceauController {
         Morceau m = morceauRepository.findMorceauByNom(nom);
         return m.getCompositeur().prenomCompositeur + " " +m.getCompositeur().getNomCompositeur();
     }
+
+    @DELETE
+    @Path("removeMorceau/{id}")
+    public void removeAllMorceau(@PathParam("id") long id){ morceauRepository.deleteById(id);}
 
 }
