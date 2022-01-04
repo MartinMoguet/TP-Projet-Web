@@ -23,10 +23,14 @@
       <li><a href="Baroque.html">Baroque</a></li>
       <li><a href="Romantisme.html">Romantisme</a></li>
       <li><a href="Moderne.html">Moderne</a></li>
+      <li><a href="Connexion.html">Se Connecter</a> </li>
+      <li><a href="Inscription.html">S'inscrire</a> </li>
+
     </ul>
   
     <div class ="rechercher">
       <input type="text" placeholder="Chercher un artiste"/>
+      <!--possibilité d'amélioration-->
       <i class="fas fa-search"></i>
     </div>
   </nav>
@@ -54,7 +58,7 @@
           contentType: "application/json",
           dataType: "json",
           success: function (data) {
-            for (i=0;i<8;i++){
+            for (i=0;i<data.length;i++){
               var nomMorceauAvecEspace = data[i];
               var nomMorceau = nomMorceauAvecEspace.replace(/ /g, "%20");
               $(".item-" + i).append(
@@ -72,6 +76,7 @@
               $("."+i).load("http://localhost:8080/classic/morceau/compositeur/" + nomMorceau)
           }}
         })
+
 
 
       $('#autoWidth').lightSlider({

@@ -49,8 +49,6 @@ public class CommentaireController {
                 utilisateurRepository.deleteById(utilisateurAEnlever.getId());
             }});
         morceauList.forEach(morceau -> {
-            //System.out.println(c.getMorceau());
-            //System.out.println(morceau.getNom());
             if (c.getMorceau().equals(morceau.getNom())) {
                 Morceau morceauAEnlever = c.getRealMorceau();
                 c.setMorceau(morceau);

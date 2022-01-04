@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <meta charset="utf-8">
     <script src="jquery-3.6.0.min.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" data-auto-replace-svg="nest"></script>
@@ -9,11 +10,9 @@
     <link rel="stylesheet" href="Style.css"/>
     <link rel="shortcut icon" href="img/Musique%20Classique.jpg"/>
     <link rel="stylesheet" href="lightslider.css">
-
-
-
 </head>
 <body>
+
 <nav>
     <a href="#" class="logo">
         <img src="img/Musique%20Classique.jpg">
@@ -24,12 +23,29 @@
         <li><a href="Baroque.html">Baroque</a></li>
         <li><a href="Romantisme.html">Romantisme</a></li>
         <li><a href="Moderne.html">Moderne</a></li>
+        <li><a href="Inscription.html">S'inscrire</a> </li>
+
     </ul>
 
     <div class ="rechercher">
         <input type="text" placeholder="Chercher un artiste"/>
         <i class="fas fa-search"></i>
     </div>
+
+
 </nav>
+
+<div class="container">
+    <b>Username</b>
+    <input type="text" placeholder="Enter Username" name="uname" required>
+
+    <b>Password</b>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <button type="submit">Login</button>
+    <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+</div>
 </body>
 </html>
