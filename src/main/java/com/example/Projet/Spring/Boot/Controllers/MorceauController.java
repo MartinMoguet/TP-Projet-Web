@@ -86,6 +86,19 @@ public class MorceauController {
     }
 
     @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("liste/{mouvement}")
+    public List<String> getAllMorceauByMouvement(@PathParam("mouvement") String mouvement){
+        List<Morceau> morceauList = morceauRepository.findAllByCompositeur_Mouvement(mouvement);
+        List<String> nomMorceauList = new ArrayList<>();
+        morceauList.forEach(morceau -> {
+            nomMorceauList.add(morceau.getNom());
+        });
+        return nomMorceauList;
+
+    }
+
+    @GET
     @Produces(MediaType.TEXT_HTML)
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("compositeur/{nom}")
