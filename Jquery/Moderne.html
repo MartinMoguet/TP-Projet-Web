@@ -23,6 +23,8 @@
     <li><a href="index.html">Menu Principal</a></li>
     <li><a href="Baroque.html">Baroque</a></li>
     <li><a href="Romantisme.html">Romantisme</a></li>
+    <li><a href="Connexion.html">Se Connecter</a> </li>
+    <li><a href="Inscription.html">S'inscrire</a> </li>
 
   </ul>
 
@@ -31,5 +33,59 @@
     <i class="fas fa-search"></i>
   </div>
 </nav>
+
+<section id="main">
+  <h1 class="Rubrique-a-la-une"> Les morceaux Modernes </h1>
+  <ul id="autoWidth" class="cs-hidden">
+
+    <li class="item-0"></li>
+    <li class="item-1"></li>
+    <li class="item-2"></li>
+    <li class="item-3"></li>
+    <li class="item-4"></li>
+    <li class="item-5"></li>
+    <li class="item-6"></li>
+    <li class="item-7"></li>
+  </ul>
+</section>
+
+<script>
+  $(document).ready(function() {
+    $.ajax({
+      type: "GET",
+      url: "http://localhost:8080/classic/morceau/liste/Moderne",
+      contentType: "application/json",
+      dataType: "json",
+      success: function (data) {
+        for (i=0;i<data.length;i++){
+          var nomMorceauAvecEspace = data[i];
+          var nomMorceau = nomMorceauAvecEspace.replace(/ /g, "%20");
+          $(".item-" + i).append(
+                  "<a href="+nomMorceau+".html>" +
+                  "<div class =Boite-a-la-une>" +
+                  "<div class=Boite-a-la-une-img>" +
+                  "<img src=img/" + nomMorceau + ".png height = 300/>" +
+                  "</div>" +
+                  "<div class=Boite-a-la-une-text>" +
+                  "<strong>" + nomMorceauAvecEspace + "</strong>" +
+                  "<p class="+i+"></p>" +
+                  "</div>" +
+                  "</div>" +
+                  "</a>");
+          $("."+i).load("http://localhost:8080/classic/morceau/compositeur/" + nomMorceau)
+        }}
+    })
+
+
+    $('#autoWidth').lightSlider({
+      autoWidth:true,
+      loop:true,
+      onSliderLoad: function() {
+        $('#autoWidth').removeClass('cS-hidden');
+      }
+    })
+  })
+
+</script>
 </body>
 </html>
