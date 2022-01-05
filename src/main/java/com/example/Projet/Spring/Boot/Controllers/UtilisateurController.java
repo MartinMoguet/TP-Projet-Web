@@ -48,4 +48,14 @@ public class UtilisateurController {
         return utilisateurRepository.findUtilisateurByUsernameAndPassword(username, password);
     }
 
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("user/{username}/{password}")
+    public void addUserPasswordAndUsername(@PathParam("username") String username, @PathParam("password") String password){
+        Utilisateur utilisateur = new Utilisateur(username, password);
+        utilisateurRepository.save(utilisateur);
+    }
+
+
+
 }

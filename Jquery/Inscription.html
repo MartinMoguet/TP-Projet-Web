@@ -34,5 +34,47 @@
     </div>
 </nav>
 
+<div class="container">
+
+    <div class="inputlogin">
+        <b>Username</b>
+        <input id="usrname" class="input" type="text" placeholder="Enter Username" name="uname" required>
+        <br>
+        <b>Password</b>
+        <input id="pssword" class="input" type="password" placeholder="Enter Password" name="psw" required>
+    </div>
+    <div class="login">
+        <button id="bttnlogin" type="submit">Sign in</button>
+    </div>
+
+</div>
+
+<script>
+    $(document).ready()
+    {
+        localStorage.setItem("username", null)
+        localStorage.setItem("password", null)
+        var username = null
+        var password = null
+        $('#bttnlogin').click(function () {
+            username = $("#usrname").val();
+            password = $("#pssword").val();
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:8080/classic/utilisateur/user/" + username + "/" + password,
+                contentType: "application/json",
+                dataType: "json",
+                success: function (data) {
+                        localStorage.setItem("username", username);
+                        window.location.href="index.html"
+                }
+            })
+        })
+    }
+
+
+
+</script>
+
 </body>
 </html>
