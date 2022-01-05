@@ -31,7 +31,7 @@ public class CommentaireController {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Commentaire> getAllCommentaire(){ return (List<Commentaire>) commentaireRepository.findAll();}
+    public List<Commentaire> getAllCommentaire(){ return commentaireRepository.findAll();}
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)

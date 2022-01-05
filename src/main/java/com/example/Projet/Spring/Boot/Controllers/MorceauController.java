@@ -70,7 +70,7 @@ public class MorceauController {
     public void removeAllMorceau(){ morceauRepository.deleteAll();}
 
     @GET
-    @Produces(MediaType.TEXT_HTML)
+    @Produces(MediaType.APPLICATION_JSON)
     @Path("nom/{nom}")
     public Morceau getMoceauByNom(@PathParam("nom") String nom){return morceauRepository.findMorceauByNom(nom);}
 

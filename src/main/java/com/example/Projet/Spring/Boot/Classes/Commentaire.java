@@ -1,8 +1,13 @@
 package com.example.Projet.Spring.Boot.Classes;
 
+import org.springframework.data.annotation.CreatedDate;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Optional;
+import java.text.SimpleDateFormat;
+
 
 @Entity
 public class Commentaire implements Serializable {
@@ -11,7 +16,9 @@ public class Commentaire implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     public long id;
     public String contenu;
-    public String date;
+
+    @CreatedDate
+    private Date date= new Date();
 
     @ManyToOne( cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Morceau morceau;
@@ -21,9 +28,8 @@ public class Commentaire implements Serializable {
 
 
 
-    public Commentaire(String contenu, String date, Morceau morceau, Utilisateur utilisateur) {
+    public Commentaire(String contenu, Morceau morceau, Utilisateur utilisateur) {
         this.contenu = contenu;
-        this.date = date;
         this.morceau = morceau;
         this.utilisateur = utilisateur;
     }
@@ -48,11 +54,11 @@ public class Commentaire implements Serializable {
         this.contenu = contenu;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

@@ -24,8 +24,8 @@
         <li><a href="Baroque.html">Baroque</a></li>
         <li><a href="Romantisme.html">Romantisme</a></li>
         <li><a href="Moderne.html">Moderne</a></li>
-        <li><a href="Connexion.html">Se Connecter</a> </li>
-        <li><a href="Inscription.html">S'inscrire</a> </li>
+        <li><a href="Connexion.html">Se Connecter</a></li>
+        <li><a href="Inscription.html">S'inscrire</a></li>
     </ul>
 
     <div class ="rechercher">
@@ -34,37 +34,39 @@
     </div>
 </nav>
 
-<div class="img-pres">
-    <img class="image-pres" src="img/Ballade%20No.%201%20in%20G%20minor,%20Op.%2023.png" height="300">
-</div>
+<section id="main2">
+    <h1 id="Morceau" class="Titre"></h1>
+    <div id="Front">
+        <div class="Boite-comm" > <iframe src="http://www.youtube.com/embed/BSFNl4roGlI" width="560" height="315" frameborder="0" allowfullscreen></iframe></div>
+        <div id="Description">
 
-<section id="main">
-    <h1 class="Rubrique-a-la-une"> Commentaires </h1>
-    <ul id="autoWidth" class="cs-hidden">
+        </div>
 
-        <li class="item-0"></li>
-        <li class="item-1"></li>
-        <li class="item-2"></li>
-        <li class="item-3"></li>
-        <li class="item-4"></li>
-        <li class="item-5"></li>
-        <li class="item-6"></li>
-        <li class="item-7"></li>
-    </ul>
+    </div>
+
+
 </section>
 
-    <div class="commentaire">
-        <button id="ajouter-commentaire">
-            ajouter un commentaire
-        </button>
-    </div>
+
+<section id="main">
+    <h1 class="Titre"> Commentaires </h1>
+    <ul id="commentaires">
+    </ul>
+    <button id="ajouter-commentaire" class="bouton-com">
+        Ajouter un commentaire
+    </button>
+</section>
+
+
+
+
 
 
 
 <script>
     $(document).ready(function (){
         $("#ajouter-commentaire").click(function () {
-            if (localStorage.getItem("username") === "null") {
+            if (localStorage.getItem("username") === null || localStorage.getItem("username") === "null") {
                 alert("Vous n'êtes pas connecté")
             } else {
                 window.location.href = "AddCommentaire.html"
@@ -80,16 +82,36 @@
                 for (i=0;i<data.length;i++){
                     var commentaire = data[i].contenu;
                     var utilisateur = data[i].utilisateur.username;
+                    var datecom = data[i].date;
                     console.log(data)
-                    $(".item-" + i).append(
+                    $("#commentaires").append("<li>"+
                         "<div class =Boite-comm>" +
                         "<div class=Boite-a-la-une-text>" +
-                        "<strong>" + commentaire + "</strong>" +
+                        "<strong>" + commentaire +  "&nbsp;-date de publication : "+ datecom +"-</strong>" +
                         "<p>"+utilisateur +"</p>" +
                         "</div>" +
-                        "</div>");
+                        "</div>"+"</li>");
+
                 }}
         })
+
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/classic/morceau/nom/Ballade%20No.%201%20in%20G%20minor,%20Op.%2023",
+            contentType: "application/json",
+            dataType: "json",
+            success: function (data) {
+                console.log(data.nom)
+                console.log(data.description)
+                $("#Morceau").append(data.nom)
+                $("#Description").append("<div class=Boite-comm Description><h5 class=Boite-a-la-une-text>Description : " + data.description+ "</h5></div>");
+                $("#Description").append("<div class=Boite-comm Description><h5 class=Boite-a-la-une-text>Date de création : " +data.dateCreation+"</h5></div>")
+                $("#Description").append("<div class=Boite-comm Description><h5 class=Boite-a-la-une-text>Biographie de l'auteur : " +data.compositeur.biographie+"</h5></div>")
+                $("#Description").append("<div class=Boite-comm Description><h5 class=Boite-a-la-une-text>Date de naissance : " +data.compositeur.dateDeNaissance+", Date de mort : "+ data.compositeur.dateDeMort+"</h5></div>")
+
+            }
+        })
+
     })
 
 </script>
