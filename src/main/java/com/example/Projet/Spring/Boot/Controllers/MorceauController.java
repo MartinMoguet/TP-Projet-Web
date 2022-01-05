@@ -72,7 +72,7 @@ public class MorceauController {
     @GET
     @Produces(MediaType.TEXT_HTML)
     @Path("nom/{nom}")
-    public String getMoceauByNom(@PathParam("nom") String nom){return morceauRepository.findMorceauByNom(nom).getNom() ;}
+    public Morceau getMoceauByNom(@PathParam("nom") String nom){return morceauRepository.findMorceauByNom(nom);}
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -89,14 +89,8 @@ public class MorceauController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("liste/{mouvement}")
-    public List<String> getAllMorceauByMouvement(@PathParam("mouvement") String mouvement){
-        List<Morceau> morceauList = morceauRepository.findAllByCompositeur_Mouvement(mouvement);
-        List<String> nomMorceauList = new ArrayList<>();
-        morceauList.forEach(morceau -> {
-            nomMorceauList.add(morceau.getNom());
-        });
-        return nomMorceauList;
-
+    public List<Morceau> getAllMorceauByMouvement(@PathParam("mouvement") String mouvement){
+        return morceauRepository.findAllByCompositeur_Mouvement(mouvement);
     }
 
     @GET

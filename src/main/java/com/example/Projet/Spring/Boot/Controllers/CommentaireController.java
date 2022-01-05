@@ -104,6 +104,7 @@ public class CommentaireController {
         commentaireRepository.deleteAllByMorceau_Nom(morceau);
     }
 
+    /*
     @GET
     @Path("liste/{morceau}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -114,5 +115,11 @@ public class CommentaireController {
              listCommentaire.add(commentaire.getContenu());
         });
         return listCommentaire;
+    }*/
+    @GET
+    @Path("liste/{morceau}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Commentaire> getAllCommentaireByMorceau(@PathParam("morceau") String morceau){
+        return commentaireRepository.findAllByMorceau_Nom(morceau);
     }
 }

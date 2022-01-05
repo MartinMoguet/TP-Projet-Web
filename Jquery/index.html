@@ -54,13 +54,15 @@
     $(document).ready(function() {
         $.ajax({
           type: "GET",
-          url: "http://localhost:8080/classic/morceau/liste",
+          url: "http://localhost:8080/classic/morceau",
           contentType: "application/json",
           dataType: "json",
           success: function (data) {
             for (i=0;i<data.length;i++){
-              var nomMorceauAvecEspace = data[i];
+              var nomMorceauAvecEspace = data[i].nom;
               var nomMorceau = nomMorceauAvecEspace.replace(/ /g, "%20");
+              var nom = data[i].compositeur.nomCompositeur;
+              var prenom = data[i].compositeur.prenomCompositeur;
               $(".item-" + i).append(
                       "<a href="+nomMorceau+".html>" +
                       "<div class =Boite-a-la-une>" +
@@ -69,11 +71,11 @@
                       "</div>" +
                       "<div class=Boite-a-la-une-text>" +
                       "<strong>" + nomMorceauAvecEspace + "</strong>" +
-                      "<p class="+i+"></p>" +
+                      "<p>"+prenom+" "+ nom+"</p>" +
                       "</div>" +
                       "</div>" +
                       "</a>");
-              $("."+i).load("http://localhost:8080/classic/morceau/compositeur/" + nomMorceau)
+
           }}
         })
 

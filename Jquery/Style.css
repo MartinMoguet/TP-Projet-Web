@@ -75,7 +75,7 @@ nav .Menu li a{
     letter-spacing: 1px;
 }
 .rechercher{
-    width: 250px;
+    width: 180px;
     height: 40px;
     background-color: white;
     display: flex;
@@ -114,7 +114,24 @@ nav .Menu li a:hover{
     color:tan;
     margin: 30px;
 }
-
+.Boite-comm{
+    width: fit-content;
+    height: fit-content;
+    box-shadow: 5px 15px 20px black;
+    border-radius: 10px;
+    margin: 0px 20px 10px 20px;
+    overflow: hidden;
+    background-color: transparent;
+}
+.img-pres{
+    width: fit-content;
+    height: fit-content;
+    box-shadow: 5px 15px 20px black;
+    border-radius: 10px;
+    margin: 150px 10px 10px 20px;
+    overflow: hidden;
+    background-color: transparent;
+}
 
 .Boite-a-la-une{
     width: fit-content;
@@ -132,6 +149,7 @@ nav .Menu li a:hover{
     object-fit: cover;
     object-position: top;
 }
+
 .Boite-a-la-une-text{
     color: bisque;
     text-align: center;
