@@ -41,4 +41,11 @@ public class UtilisateurController {
     @Path("/removeAllUtilisateur")
     public void removeAllUtilisateur(){ utilisateurRepository.deleteAll();}
 
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("user/{username}/{password}")
+    public Utilisateur getUserPasswordAndUsername(@PathParam("username") String username, @PathParam("password") String password){
+        return utilisateurRepository.findUtilisateurByUsernameAndPassword(username, password);
+    }
+
 }

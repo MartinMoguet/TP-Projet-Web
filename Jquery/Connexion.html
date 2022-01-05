@@ -36,16 +36,51 @@
 </nav>
 
 <div class="container">
-    <b>Username</b>
-    <input type="text" placeholder="Enter Username" name="uname" required>
 
-    <b>Password</b>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-
-    <button type="submit">Login</button>
-    <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
+    <div class="inputlogin">
+        <b>Username</b>
+        <input id="usrname" class="input" type="text" placeholder="Enter Username" name="uname" required>
+        <br>
+        <b>Password</b>
+        <input id="pssword" class="input" type="password" placeholder="Enter Password" name="psw" required>
 </div>
+    <div class="login">
+        <button id="bttnlogin" type="submit">Login</button>
+    </div>
+
+</div>
+
+<script>
+    $(document).ready()
+    {
+        localStorage.setItem("username", null)
+        localStorage.setItem("password", null)
+        var username = null
+        var password = null
+        $('#bttnlogin').click(function () {
+            username = $("#usrname").val();
+            password = $("#pssword").val();
+            $.ajax({
+                type: "GET",
+                url: "http://localhost:8080/classic/utilisateur/user/" + username + "/" + password,
+                contentType: "application/json",
+                dataType: "json",
+                success: function (data) {
+                    if (data !== undefined) {
+                        localStorage.setItem("username", username);
+                        localStorage.setItem("password", password);
+                        window.location.href="index.html"
+
+                    } else {
+                        alert("Identifiant ou mot de passe incorect")
+                    }
+                }
+            })
+        })
+    }
+
+
+
+</script>
 </body>
 </html>

@@ -11,6 +11,24 @@ body{
 .container {
     padding: 16px;
     position: center;
+    margin-top: 10% ;
+    width: fit-content;
+}
+
+.login{
+    text-align: center;
+}
+
+.inputlogin{
+    padding-right: 0;
+}
+
+.input{
+    margin-right: 0;
+}
+
+.commentaire{
+    margin-top: 20%;
 }
 
 ul{

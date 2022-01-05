@@ -34,6 +34,26 @@
     </div>
 </nav>
 
+    <div class="commentaire">
+        <button id="ajouter-commentaire">
+            ajouter un commentaire
+        </button>
+    </div>
+
+<script>
+    $(document).ready(function (){
+        $("#ajouter-commentaire").click(function () {
+            if (localStorage.getItem("username") === "null") {
+                alert("Vous n'êtest pas connecté")
+            } else {
+                window.location.href = "AddCommentaire.html"
+
+            }
+        })
+    })
+
+</script>
+
 
 </body>
 </html>
