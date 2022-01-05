@@ -1,5 +1,6 @@
 package com.example.Projet.Spring.Boot.Controllers;
 
+import com.example.Projet.Spring.Boot.Classes.Commentaire;
 import com.example.Projet.Spring.Boot.Classes.Compositeur;
 import com.example.Projet.Spring.Boot.Classes.Morceau;
 import com.example.Projet.Spring.Boot.Repositories.CompositeurRepository;
@@ -110,5 +111,6 @@ public class MorceauController {
     @DELETE
     @Path("removeMorceau/{id}")
     public void removeAllMorceau(@PathParam("id") long id){ morceauRepository.deleteById(id);}
+
 
 }
