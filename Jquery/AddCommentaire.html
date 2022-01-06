@@ -1,10 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" data-auto-replace-svg="nest"></script>
+    <script src="lightslider.js"></script>
+    <title>WikiClassic</title>
+    <link rel="stylesheet" href="Style.css"/>
+    <link rel="shortcut icon" href="img/Musique%20Classique.jpg"/>
+    <link rel="stylesheet" href="lightslider.css">
+
 </head>
 <body>
 
+<nav>
+    <a href="#" class="logo">
+        <img src="img/Musique%20Classique.jpg">
+    </a>
+    <ul class="Menu">
+        <li><i class="fas fa-music"></i></li>
+        <li><a href="index.html">Menu Principal</a></li>
+        <li><a href="Baroque.html">Baroque</a></li>
+        <li><a href="Romantisme.html">Romantisme</a></li>
+        <li><a href="Moderne.html">Moderne</a></li>
+        <li><a href="Connexion.html">Se Connecter</a></li>
+        <li><a href="Inscription.html">S'inscrire</a></li>
+    </ul>
+
+    <div class ="rechercher">
+        <input type="text" placeholder="Chercher un artiste"/>
+        <i class="fas fa-search"></i>
+    </div>
+</nav>
+
+<div class="addcomment">
+    <input id="morceau" placeholder="Entrez le nom du morceau">
+    <input id="contenu" placeholder="Entrez votre commentaire">
+    <button id="ajouter-commentaire" class="bouton-com">
+        Ajouter un commentaire
+    </button>
+</div>
+
+
 </body>
+
+<script>
+    $(document).ready(function (){
+        $('#ajouter-commentaire').click(function (){
+            var morceauNom = $('#morceau').val();
+            var contenuCom = $('#contenu').val();
+            var commentaire ={
+                contenu : contenuCom,
+                morceau : {nom : morceauNom},
+                utilisateur : {username : localStorage.getItem("username"),
+                    password : localStorage.getItem("password")}
+            }
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:8080/classic/commentaire", //add/" + morceauNom + "/" + contenuCom + "/" +localStorage.getItem("username") + "/" + localStorage.getItem("password"),
+                contentType: "application/json",
+                dataType: "json",
+                success: function (data) {
+                    var nomMorceau = morceauNom.replace(/ /g, "%20");
+                    window.location.href= nomMorceau +".html";
+                },
+                data: JSON.stringify(commentaire)
+            })
+        })
+    })
+</script>
 </html>

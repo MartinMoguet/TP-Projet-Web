@@ -104,22 +104,21 @@ public class CommentaireController {
         commentaireRepository.deleteAllByMorceau_Nom(morceau);
     }
 
-    /*
-    @GET
-    @Path("liste/{morceau}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<String> getAllCommentaireByMorceau(@PathParam("morceau") String morceau){
-        List<Commentaire> commentaireList = commentaireRepository.findAllByMorceau_Nom(morceau);
-        List<String> listCommentaire = new ArrayList<String>();
-        commentaireList.forEach(commentaire -> {
-             listCommentaire.add(commentaire.getContenu());
-        });
-        return listCommentaire;
-    }*/
+
     @GET
     @Path("liste/{morceau}")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Commentaire> getAllCommentaireByMorceau(@PathParam("morceau") String morceau){
         return commentaireRepository.findAllByMorceau_Nom(morceau);
+    }
+
+    @POST
+    @Path("ajouter/{morceau}/{contenu}/{user}/{password}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void addComment(@PathParam("morceau") String morceau, @PathParam("contenu") String contenu, @PathParam("user")String user, @PathParam("password") String password){
+        Utilisateur utilisateur = utilisateurRepository.findUtilisateurByUsernameAndPassword(user, password);
+        Morceau morceau1 = morceauRepository.findMorceauByNom(morceau);
+        Commentaire commentaire = new Commentaire(contenu, morceau1, utilisateur);
+        commentaireRepository.save(commentaire);
     }
 }
