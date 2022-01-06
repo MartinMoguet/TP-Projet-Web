@@ -28,13 +28,12 @@
     </ul>
 
     <div class ="rechercher">
-        <input type="text" placeholder="Chercher un artiste"/>
+        <input id="rechercher" type="text" placeholder="Chercher un morceau"/>
         <i class="fas fa-search"></i>
     </div>
 </nav>
 
 <div class="addcomment">
-    <input id="morceau" placeholder="Entrez le nom du morceau">
     <input id="contenu" placeholder="Entrez votre commentaire">
     <button id="ajouter-commentaire" class="bouton-com">
         Ajouter un commentaire
@@ -47,26 +46,48 @@
 <script>
     $(document).ready(function (){
         $('#ajouter-commentaire').click(function (){
-            var morceauNom = $('#morceau').val();
             var contenuCom = $('#contenu').val();
             var commentaire ={
                 contenu : contenuCom,
-                morceau : {nom : morceauNom},
+                morceau : {nom : localStorage.getItem("morceau")},
                 utilisateur : {username : localStorage.getItem("username"),
                     password : localStorage.getItem("password")}
             }
             $.ajax({
                 type: "POST",
-                url: "http://localhost:8080/classic/commentaire", //add/" + morceauNom + "/" + contenuCom + "/" +localStorage.getItem("username") + "/" + localStorage.getItem("password"),
+                url: "http://localhost:8080/classic/commentaire",
                 contentType: "application/json",
                 dataType: "json",
                 success: function (data) {
-                    var nomMorceau = morceauNom.replace(/ /g, "%20");
-                    window.location.href= nomMorceau +".html";
+                    window.location.href= localStorage.getItem("morceau") +".html";
                 },
                 data: JSON.stringify(commentaire)
             })
         })
+
+        $('#rechercher').bind("enterKey",function(e){
+            $.ajax({
+                type: "GET",
+                url: "http://localhost:8080/classic/morceau/nom/"+ $('#rechercher').val(),
+                contentType: "application/json",
+                dataType: "json",
+                success: function (data){
+                    if (data !== undefined){
+                        window.location.href = $("#rechercher").val() +".html"
+                    }
+                    else {
+                        alert("Morceau inconnu")
+                    }
+                }
+            })
+        });
+
+        $('#rechercher').keyup(function(e){
+            if(e.keyCode == 13)
+            {
+                $(this).trigger("enterKey");
+            }
+        });
     })
 </script>
 </html>

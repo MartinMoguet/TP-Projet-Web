@@ -29,7 +29,7 @@
     </ul>
 
     <div class ="rechercher">
-        <input type="text" placeholder="Chercher un artiste"/>
+        <input id="rechercher" type="text" placeholder="Chercher un morceau"/>
         <i class="fas fa-search"></i>
     </div>
 </nav>
@@ -37,7 +37,11 @@
 <section id="main2">
     <h1 id="Morceau" class="Titre"></h1>
     <div id="Front">
-        <div class="Boite-comm" > <iframe src="http://www.youtube.com/embed/BSFNl4roGlI" width="315" height="315" frameborder="0" allowfullscreen></iframe></div>
+
+        <div id="Youtube" class="Boite-comm">
+
+        </div>
+
         <div id="Description">
 
         </div>
@@ -104,13 +108,39 @@
                 console.log(data.nom)
                 console.log(data.description)
                 $("#Morceau").append(data.nom)
-                $("#Description").append("<div class=Boite-comm Description><h5 class=Boite-a-la-une-text>Description : " + data.description+ "</h5></div>");
-                $("#Description").append("<div class=Boite-comm Description><h5 class=Boite-a-la-une-text>Date de création : " +data.dateCreation+"</h5></div>")
-                $("#Description").append("<div class=Boite-comm Description><h5 class=Boite-a-la-une-text>Biographie de l'auteur : " +data.compositeur.biographie+"</h5></div>")
-                $("#Description").append("<div class=Boite-comm Description><h5 class=Boite-a-la-une-text>Date de naissance : " +data.compositeur.dateDeNaissance+", Date de mort : "+ data.compositeur.dateDeMort+"</h5></div>")
+                $("#Youtube").append("<iframe src=https://www.youtube.com/embed/" + data.url +" width=550 height=315 frameborder=\"0\" allowfullscreen></iframe>")
+                $("#Description").append("<div class=Boite-comm Description><h5 class=Boite-a-la-une-text>Description : " + data.description+ "</h5></div>" +
+                    "<div class=Boite-comm Description><h5 class=Boite-a-la-une-text>Date de création : " +data.dateCreation+"</h5></div>" +
+                    "<div class=Boite-comm Description><h5 class=Boite-a-la-une-text>Biographie de l'auteur : " +data.compositeur.biographie+"</h5></div>" +
+                    "<div class=Boite-comm Description><h5 class=Boite-a-la-une-text>Date de naissance : " +data.compositeur.dateDeNaissance+", Date de mort : "+ data.compositeur.dateDeMort+"</h5></div>");
+                localStorage.setItem("morceau", data.nom)
 
             }
         })
+
+        $('#rechercher').bind("enterKey",function(e){
+            $.ajax({
+                type: "GET",
+                url: "http://localhost:8080/classic/morceau/nom/"+ $('#rechercher').val(),
+                contentType: "application/json",
+                dataType: "json",
+                success: function (data){
+                    if (data !== undefined){
+                        window.location.href = $("#rechercher").val() +".html"
+                    }
+                    else {
+                        alert("Morceau inconnu")
+                    }
+                }
+            })
+        });
+
+        $('#rechercher').keyup(function(e){
+            if(e.keyCode == 13)
+            {
+                $(this).trigger("enterKey");
+            }
+        });
 
     })
 

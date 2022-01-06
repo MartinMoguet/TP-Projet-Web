@@ -5,6 +5,7 @@
   <script src="jquery-3.6.0.min.js"></script>
   <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" data-auto-replace-svg="nest"></script>
   <script src="lightslider.js"></script>
+  <script src="imagesloaded.pkgd.min.js"></script>
   <title>WikiClassic</title>
   <link rel="stylesheet" href="Style.css"/>
   <link rel="shortcut icon" href="img/Musique%20Classique.jpg"/>
@@ -28,7 +29,7 @@
   </ul>
 
   <div class ="rechercher">
-    <input type="text" placeholder="Chercher un artiste"/>
+    <input id="rechercher" type="text" placeholder="Chercher un morceau"/>
     <i class="fas fa-search"></i>
   </div>
 </nav>
@@ -50,7 +51,7 @@
 
 <script>
   $(document).ready(function() {
-    document.exitFullscreen();
+    localStorage.setItem("morceau", null)
     $.ajax({
       type: "GET",
       url: "http://localhost:8080/classic/morceau/liste/Romantisme",
@@ -78,13 +79,39 @@
     })
 
 
-    $('#autoWidth').lightSlider({
-      autoWidth:true,
-      loop:true,
-      onSliderLoad: function() {
-        $('#autoWidth').removeClass('cS-hidden');
-      }
+    $(document).imagesLoaded(function (){
+      $('#autoWidth').lightSlider({
+        autoWidth:true,
+        loop:true,
+        onSliderLoad: function() {
+          $('#autoWidth').removeClass('cS-hidden');
+        }
+      })
     })
+
+    $('#rechercher').bind("enterKey",function(e){
+      $.ajax({
+        type: "GET",
+        url: "http://localhost:8080/classic/morceau/nom/"+ $('#rechercher').val(),
+        contentType: "application/json",
+        dataType: "json",
+        success: function (data){
+          if (data !== undefined){
+            window.location.href = $("#rechercher").val() +".html"
+          }
+          else {
+            alert("Morceau inconnu")
+          }
+        }
+      })
+    });
+
+    $('#rechercher').keyup(function(e){
+      if(e.keyCode == 13)
+      {
+        $(this).trigger("enterKey");
+      }
+    });
   })
 
 </script>

@@ -24,14 +24,128 @@
     <li><a href="Baroque.html">Baroque</a></li>
     <li><a href="Romantisme.html">Romantisme</a></li>
     <li><a href="Moderne.html">Moderne</a></li>
-    <li><a href="Connexion.html">Se Connecter</a> </li>
-    <li><a href="Inscription.html">S'inscrire</a> </li>
+    <li><a href="Connexion.html">Se Connecter</a></li>
+    <li><a href="Inscription.html">S'inscrire</a></li>
   </ul>
 
   <div class ="rechercher">
-    <input type="text" placeholder="Chercher un artiste"/>
+    <input id="rechercher" type="text" placeholder="Chercher un morceau"/>
     <i class="fas fa-search"></i>
   </div>
 </nav>
+
+<section id="main2">
+  <h1 id="Morceau" class="Titre"></h1>
+  <div id="Front">
+
+    <div id="Youtube" class="Boite-comm">
+
+    </div>
+
+    <div id="Description">
+
+    </div>
+
+  </div>
+
+
+</section>
+
+
+<section id="main">
+  <h1 class="Titre"> Commentaires </h1>
+  <ul id="commentaires">
+  </ul>
+  <button id="ajouter-commentaire" class="bouton-com">
+    Ajouter un commentaire
+  </button>
+</section>
+
+
+
+
+
+
+
+<script>
+  $(document).ready(function (){
+    $("#ajouter-commentaire").click(function () {
+      if ((localStorage.getItem("username") === null || localStorage.getItem("username") === "null") && (localStorage.getItem("password") === null || localStorage.getItem("password") === "null")) {
+        alert("Vous n'êtes pas connecté")
+      } else {
+        window.location.href = "AddCommentaire.html"
+      }
+    })
+
+    $.ajax({
+      type: "GET",
+      url: "http://localhost:8080/classic/commentaire/liste/Piano%20Concerto%20No.%202,%20Op.%2018%20in%20C%20Major,%201st%20Movement",
+      contentType: "application/json",
+      dataType: "json",
+      success: function (data) {
+        for (i=0;i<data.length;i++){
+          var commentaire = data[i].contenu;
+          var utilisateur = data[i].utilisateur.username;
+          var datecom = data[i].date;
+          console.log(data)
+          $("#commentaires").append("<li>"+
+                  "<div class =Boite-comm>" +
+                  "<div class=Boite-a-la-une-text>" +
+                  "<strong>" + commentaire +  "&nbsp;-date de publication : "+ datecom +"-</strong>" +
+                  "<p>"+utilisateur +"</p>" +
+                  "</div>" +
+                  "</div>"+"</li>");
+
+        }}
+    })
+
+    $.ajax({
+      type: "GET",
+      url: "http://localhost:8080/classic/morceau/nom/Piano%20Concerto%20No.%202,%20Op.%2018%20in%20C%20Major,%201st%20Movement",
+      contentType: "application/json",
+      dataType: "json",
+      success: function (data) {
+        console.log(data.nom)
+        console.log(data.description)
+        $("#Morceau").append(data.nom)
+        $("#Youtube").append("<iframe src=https://www.youtube.com/embed/" + data.url +" width=550 height=315 frameborder=\"0\" allowfullscreen></iframe>")
+        $("#Description").append("<div class=Boite-comm Description><h5 class=Boite-a-la-une-text>Description : " + data.description+ "</h5></div>" +
+                "<div class=Boite-comm Description><h5 class=Boite-a-la-une-text>Date de création : " +data.dateCreation+"</h5></div>" +
+                "<div class=Boite-comm Description><h5 class=Boite-a-la-une-text>Biographie de l'auteur : " +data.compositeur.biographie+"</h5></div>" +
+                "<div class=Boite-comm Description><h5 class=Boite-a-la-une-text>Date de naissance : " +data.compositeur.dateDeNaissance+", Date de mort : "+ data.compositeur.dateDeMort+"</h5></div>");
+        localStorage.setItem("morceau", data.nom)
+
+      }
+    })
+
+    $('#rechercher').bind("enterKey",function(e){
+      $.ajax({
+        type: "GET",
+        url: "http://localhost:8080/classic/morceau/nom/"+ $('#rechercher').val(),
+        contentType: "application/json",
+        dataType: "json",
+        success: function (data){
+          if (data !== undefined){
+            window.location.href = $("#rechercher").val() +".html"
+          }
+          else {
+            alert("Morceau inconnu")
+          }
+        }
+      })
+    });
+
+    $('#rechercher').keyup(function(e){
+      if(e.keyCode == 13)
+      {
+        $(this).trigger("enterKey");
+      }
+    });
+
+  })
+
+</script>
+
+
 </body>
 </html>

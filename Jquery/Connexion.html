@@ -28,7 +28,7 @@
     </ul>
 
     <div class ="rechercher">
-        <input type="text" placeholder="Chercher un artiste"/>
+        <input id="rechercher" type="text" placeholder="Chercher un morceau"/>
         <i class="fas fa-search"></i>
     </div>
 
@@ -77,6 +77,30 @@
                 }
             })
         })
+
+        $('#rechercher').bind("enterKey",function(e){
+            $.ajax({
+                type: "GET",
+                url: "http://localhost:8080/classic/morceau/nom/"+ $('#rechercher').val(),
+                contentType: "application/json",
+                dataType: "json",
+                success: function (data){
+                    if (data !== undefined){
+                        window.location.href = $("#rechercher").val() +".html"
+                    }
+                    else {
+                        alert("Morceau inconnu")
+                    }
+                }
+            })
+        });
+
+        $('#rechercher').keyup(function(e){
+            if(e.keyCode == 13)
+            {
+                $(this).trigger("enterKey");
+            }
+        });
     }
 
 
