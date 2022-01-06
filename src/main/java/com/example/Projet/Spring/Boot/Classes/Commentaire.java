@@ -18,7 +18,7 @@ public class Commentaire implements Serializable {
     public String contenu;
 
     @CreatedDate
-    private Date date= new Date();
+    private java.sql.Date date= new java.sql.Date(new Date().getTime());
 
     @ManyToOne( cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Morceau morceau;
@@ -58,7 +58,7 @@ public class Commentaire implements Serializable {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(java.sql.Date date) {
         this.date = date;
     }
 

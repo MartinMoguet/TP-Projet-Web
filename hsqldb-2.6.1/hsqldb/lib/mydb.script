@@ -28,20 +28,20 @@ SET FILES NIO TRUE
 SET FILES NIO SIZE 256
 SET FILES LOG TRUE
 SET FILES LOG SIZE 50
-SET FILES CHECK 6103
+SET FILES CHECK 6920
 SET DATABASE COLLATION "SQL_TEXT" PAD SPACE
 CREATE USER SA PASSWORD DIGEST 'd41d8cd98f00b204e9800998ecf8427e'
 ALTER USER SA SET LOCAL TRUE
 CREATE SCHEMA PUBLIC AUTHORIZATION DBA
 CREATE SEQUENCE PUBLIC.HIBERNATE_SEQUENCE AS INTEGER START WITH 1
-CREATE MEMORY TABLE PUBLIC.COMMENTAIRE(ID BIGINT NOT NULL PRIMARY KEY,CONTENU VARCHAR(255),DATE VARCHAR(255),MORCEAU_ID BIGINT,UTILISATEUR_ID BIGINT)
+CREATE MEMORY TABLE PUBLIC.COMMENTAIRE(ID BIGINT NOT NULL PRIMARY KEY,CONTENU VARCHAR(255),DATE TIMESTAMP,MORCEAU_ID BIGINT,UTILISATEUR_ID BIGINT)
 CREATE MEMORY TABLE PUBLIC.COMPOSITEUR(ID BIGINT NOT NULL PRIMARY KEY,BIOGRAPHIE VARCHAR(255),DATE_DE_MORT VARCHAR(255),DATE_DE_NAISSANCE VARCHAR(255),MOUVEMENT VARCHAR(255),NATIONALITE VARCHAR(255),NOM_COMPOSITEUR VARCHAR(255),PRENOM_COMPOSITEUR VARCHAR(255))
 CREATE MEMORY TABLE PUBLIC.MORCEAU(ID BIGINT NOT NULL PRIMARY KEY,DATE_CREATION VARCHAR(255),DESCRIPTION VARCHAR(255),DUREE VARCHAR(255),NOM VARCHAR(255),URL VARCHAR(255),COMPOSITEUR_ID BIGINT,CONSTRAINT FKPVOC6A34RWRAM5EJIRXP4QGB1 FOREIGN KEY(COMPOSITEUR_ID) REFERENCES PUBLIC.COMPOSITEUR(ID))
 CREATE MEMORY TABLE PUBLIC.UTILISATEUR(ID BIGINT NOT NULL PRIMARY KEY,PASSWORD VARCHAR(255),USERNAME VARCHAR(255))
 ALTER TABLE PUBLIC.COMMENTAIRE ADD CONSTRAINT FK479I8MPTEJ8FTPGNLE5C0128B FOREIGN KEY(MORCEAU_ID) REFERENCES PUBLIC.MORCEAU(ID)
 ALTER TABLE PUBLIC.COMMENTAIRE ADD CONSTRAINT FKFKX1PEGFDSD6E3CP2WBLSC5JF FOREIGN KEY(UTILISATEUR_ID) REFERENCES PUBLIC.UTILISATEUR(ID)
 ALTER SEQUENCE SYSTEM_LOBS.LOB_ID RESTART WITH 1
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 355
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 450
 SET DATABASE DEFAULT INITIAL SCHEMA PUBLIC
 GRANT USAGE ON DOMAIN INFORMATION_SCHEMA.CARDINAL_NUMBER TO PUBLIC
 GRANT USAGE ON DOMAIN INFORMATION_SCHEMA.YES_OR_NO TO PUBLIC
@@ -52,23 +52,23 @@ GRANT DBA TO SA
 SET SCHEMA SYSTEM_LOBS
 INSERT INTO BLOCKS VALUES(0,2147483647,0)
 SET SCHEMA PUBLIC
-INSERT INTO COMMENTAIRE VALUES(349,'Tr\u00e8s complexe musicalement, mais magnifique d''un point de vu sonorit\u00e9','03/01/2022',334,348)
-INSERT INTO COMPOSITEUR VALUES(325,'Fr\u00e9d\u00e9ric Chopin est un pianiste et compositeur franco-polonais du XIXe si\u00e8cle, ayant tour \u00e0 tour appartenu aux courants classiques et romantiques. ','17 Octobre 1849','1810','Romantisme','Franco-Polonaise','Chopin','Frederic')
-INSERT INTO COMPOSITEUR VALUES(326,'Claude Debussy laisse l\u2019image d\u2019un cr\u00e9ateur original et profond d\u2019une musique o\u00f9 souffle le vent de la libert\u00e9. Son impact sera d\u00e9cisif dans l\u2019histoire de la musique.','25 mars 1918','22 Ao\u00fbt 1862','Romantisme','Fran\u00e7aise','Debussy','Claude')
-INSERT INTO COMPOSITEUR VALUES(327,'Joe Hisaishi, est un compositeur, chef d''orchestre, pianiste et parolier. Il est notamment connu pour avoir compos\u00e9 la musique de la plupart des films du Studio Ghibli. ','','6 D\u00e9cembre 1950','Moderne','Japonaise','Hisaishi','Joe')
-INSERT INTO COMPOSITEUR VALUES(328,'Pachelbel est surtout connu du grand public pour ses fameux Canon et gigue en r\u00e9 majeur pour trois violons et basse continue, couramment restreints au seul Canon de Pachelbel.','3 mars 1706','1\u1d49\u02b3 septembre 1653','Baroque','Allemande','Pachelbel','Johann')
-INSERT INTO COMPOSITEUR VALUES(329,'l devient organiste et compose de tr\u00e8s nombreuses pi\u00e8ces religieuses. Bach est tr\u00e8s bien consid\u00e9r\u00e9 dans toute l\u2019Allemagne, m\u00eame si pendant longtemps sa renomm\u00e9e n\u2019a \u00e9t\u00e9 que celle d\u2019un organiste virtuose.','28 juillet 1750','21 mars 1685','Baroque','Allemande','Bach','Jean-S\u00e9bastien')
-INSERT INTO COMPOSITEUR VALUES(330,'Son \u0153uvre est d''un romantisme h\u00e9rit\u00e9 de ses mod\u00e8les \u2014 Chopin, Tcha\u00efkovski et Rimski-Korsakov \u2014 et reste indiff\u00e9rente \u00e0 l''\u00e9volution de son \u00e9poque. Il est notamment connu pour ses c\u00e9l\u00e8bres concertos pour piano no 2 et no 3','28 mars 1943','1 avril 1873','Romantisme','Russe-Am\u00e9ricaine','Rachmaninoff','Sergei')
-INSERT INTO COMPOSITEUR VALUES(331,'Alors qu''il est encore enfant, Ludovico Einaudi est initi\u00e9 \u00e0 la musique par sa m\u00e8re qui lui donne le go\u00fbt du piano. Il commence son apprentissage musical au conservatoire Giuseppe Verdi de Milan o\u00f9 il d\u00e9croche un dipl\u00f4me en composition.','','23 novembre 1955','Moderne','Italienne','Einaudi','Ludovico')
-INSERT INTO MORCEAU VALUES(332,'1890','La Suite bergamasque  compte parmi les plus c\u00e9l\u00e8bres de Debussy et est souvent consid\u00e9r\u00e9e comme la meilleure composition pianistique de sa jeunesse.','4:39','Clair de Lune','https://open.spotify.com/track/6N7JzrteJv8lsr1GWYyu0b?si=f7e86a0bc4b0419e',326)
-INSERT INTO MORCEAU VALUES(334,'1836','Morceau embl\u00e9matique de Chopin retra\u00e7ant les p\u00e9rip\u00e9ties d''un h\u00e9ro de guerre','9:35','Ballade No. 1 in G minor, Op. 23','https://open.spotify.com/track/5Ks5ENUFNQDfaqxjZnCkVJ?si=a32418117fa743e7',325)
-INSERT INTO MORCEAU VALUES(336,'20 juillet 2001','Bande son originale du film Le Voyage de Chihiro, lorsque celle-ci prend le train \u00e0 la station 6.','3:48','The Sixth Station','https://open.spotify.com/track/0io66Jrq47xP5l14O9347v?si=d62bfc0ccb8441d0',327)
-INSERT INTO MORCEAU VALUES(338,'Vers 1680','Il est une des compositions les plus c\u00e9l\u00e8bres de Johann, d''origine inconnue, traditionnellement jou\u00e9e pour l''accompagnement de marche nuptiale de mariage','6:16','Canon in d','https://open.spotify.com/track/1c3GkbZBnyrQ1cm4TGHFrK?si=93429b0d651947dc',328)
-INSERT INTO MORCEAU VALUES(340,'1717 \u00e0 1723','Cette suite est un \u00e9l\u00e9ment incontournable du r\u00e9pertoire pour violoncelle, d''abord en raison de leurs qualit\u00e9s musicales, ensuite pour leur int\u00e9r\u00eat p\u00e9dagogique et th\u00e9orique. Bach met en valeur toutes les possibilit\u00e9s polyphoniques de l''instrument.','2:32','Cello Suite No. 1 in G Major','https://open.spotify.com/track/17i5jLpzndlQhbS4SrTd0B?si=2995bcdf671d4962',329)
-INSERT INTO MORCEAU VALUES(342,'1900-1901','La composition de ce concerto intervient juste apr\u00e8s les trois ans de d\u00e9pression nerveuse dans laquelle Rachmaninov a plong\u00e9 \u00e0 la suite de l''\u00e9chec de sa premi\u00e8re symphonie, d\u00e9mont\u00e9e par des critiques impitoyables. Mouvement : Moderato.','11:27','Piano Concerto No. 2, Op. 18 in C Major, 1st Movement','https://open.spotify.com/track/6nxTsSN8iUnF758TwyTP4U?si=2bade201c5c64197',330)
-INSERT INTO MORCEAU VALUES(344,'1827-1846','Les nocturnes reposent sur un mouvement lent d''expression path\u00e9tique, divers ornements m\u00e9lodiques et une partie centrale acc\u00e9l\u00e9r\u00e9e. Il est pr\u00e9sent\u00e9 avec une m\u00e9lodie tr\u00e8s souple et ornement\u00e9e, accompagn\u00e9e par une main gauche aux arp\u00e8ges ondulants.','6:13','Nocturnes, Op. 27, No. 2 in D-Flat Major','https://open.spotify.com/track/2MMm5gCJ7z9HgYGcDcuwdb?si=b907ad76a411429f',325)
-INSERT INTO MORCEAU VALUES(346,'21 Janvier 2013','Experience est un morceau sublime, faisant traverser l\u2019auditeur par une gamme d\u2019\u00e9motions \u00e0 l\u2019aide de la puissance de v\u00e9ritables instruments de musique.','5:15','Experience','https://open.spotify.com/track/7sXDYdXmR2PnafjkpfdCYv?si=ac853141e74042ec',331)
-INSERT INTO UTILISATEUR VALUES(348,'1234','Khalil')
-INSERT INTO UTILISATEUR VALUES(352,'khabizard2001','Khabizard')
-INSERT INTO UTILISATEUR VALUES(353,'test','Test')
-INSERT INTO UTILISATEUR VALUES(354,'test','test')
+INSERT INTO COMMENTAIRE VALUES(436,'Morceau tr\u00e8s complex, techniquement ou musicalement, j''adore.','2022-01-05 23:59:36.182000',421,435)
+INSERT INTO COMMENTAIRE VALUES(444,'J''aime bien','2022-01-06 01:01:44.349000',445,435)
+INSERT INTO COMMENTAIRE VALUES(447,'J''aime bien','2022-01-06 01:03:20.710000',421,435)
+INSERT INTO COMPOSITEUR VALUES(412,'Fr\u00e9d\u00e9ric Chopin est un pianiste et compositeur franco-polonais du XIXe si\u00e8cle, ayant tour \u00e0 tour appartenu aux courants classiques et romantiques. ','17 Octobre 1849','1810','Romantisme','Franco-Polonaise','Chopin','Frederic')
+INSERT INTO COMPOSITEUR VALUES(413,'Claude Debussy laisse l\u2019image d\u2019un cr\u00e9ateur original et profond d\u2019une musique o\u00f9 souffle le vent de la libert\u00e9. Son impact sera d\u00e9cisif dans l\u2019histoire de la musique.','25 mars 1918','22 Ao\u00fbt 1862','Romantisme','Fran\u00e7aise','Debussy','Claude')
+INSERT INTO COMPOSITEUR VALUES(414,'Joe Hisaishi, est un compositeur, chef d''orchestre, pianiste et parolier. Il est notamment connu pour avoir compos\u00e9 la musique de la plupart des films du Studio Ghibli. ','','6 D\u00e9cembre 1950','Moderne','Japonaise','Hisaishi','Joe')
+INSERT INTO COMPOSITEUR VALUES(415,'Pachelbel est surtout connu du grand public pour ses fameux Canon et gigue en r\u00e9 majeur pour trois violons et basse continue, couramment restreints au seul Canon de Pachelbel.','3 mars 1706','1\u1d49\u02b3 septembre 1653','Baroque','Allemande','Pachelbel','Johann')
+INSERT INTO COMPOSITEUR VALUES(416,'l devient organiste et compose de tr\u00e8s nombreuses pi\u00e8ces religieuses. Bach est tr\u00e8s bien consid\u00e9r\u00e9 dans toute l\u2019Allemagne, m\u00eame si pendant longtemps sa renomm\u00e9e n\u2019a \u00e9t\u00e9 que celle d\u2019un organiste virtuose.','28 juillet 1750','21 mars 1685','Baroque','Allemande','Bach','Jean-S\u00e9bastien')
+INSERT INTO COMPOSITEUR VALUES(417,'Son \u0153uvre est d''un romantisme h\u00e9rit\u00e9 de ses mod\u00e8les \u2014 Chopin, Tcha\u00efkovski et Rimski-Korsakov \u2014 et reste indiff\u00e9rente \u00e0 l''\u00e9volution de son \u00e9poque. Il est notamment connu pour ses c\u00e9l\u00e8bres concertos pour piano no 2 et no 3','28 mars 1943','1 avril 1873','Romantisme','Russe-Am\u00e9ricaine','Rachmaninoff','Sergei')
+INSERT INTO COMPOSITEUR VALUES(418,'Alors qu''il est encore enfant, Ludovico Einaudi est initi\u00e9 \u00e0 la musique par sa m\u00e8re qui lui donne le go\u00fbt du piano. Il commence son apprentissage musical au conservatoire Giuseppe Verdi de Milan o\u00f9 il d\u00e9croche un dipl\u00f4me en composition.','','23 novembre 1955','Moderne','Italienne','Einaudi','Ludovico')
+INSERT INTO MORCEAU VALUES(419,'1890','La Suite bergamasque  compte parmi les plus c\u00e9l\u00e8bres de Debussy et est souvent consid\u00e9r\u00e9e comme la meilleure composition pianistique de sa jeunesse.','4:39','Clair de Lune','https://open.spotify.com/track/6N7JzrteJv8lsr1GWYyu0b?si=f7e86a0bc4b0419e',413)
+INSERT INTO MORCEAU VALUES(421,'1836','Morceau embl\u00e9matique de Chopin retra\u00e7ant les p\u00e9rip\u00e9ties d''un h\u00e9ro de guerre','9:35','Ballade No. 1 in G minor, Op. 23','https://open.spotify.com/track/5Ks5ENUFNQDfaqxjZnCkVJ?si=a32418117fa743e7',412)
+INSERT INTO MORCEAU VALUES(423,'20 juillet 2001','Bande son originale du film Le Voyage de Chihiro, lorsque celle-ci prend le train \u00e0 la station 6.','3:48','The Sixth Station','https://open.spotify.com/track/0io66Jrq47xP5l14O9347v?si=d62bfc0ccb8441d0',414)
+INSERT INTO MORCEAU VALUES(425,'Vers 1680','Il est une des compositions les plus c\u00e9l\u00e8bres de Johann, d''origine inconnue, traditionnellement jou\u00e9e pour l''accompagnement de marche nuptiale de mariage','6:16','Canon in d','https://open.spotify.com/track/1c3GkbZBnyrQ1cm4TGHFrK?si=93429b0d651947dc',415)
+INSERT INTO MORCEAU VALUES(427,'1717 \u00e0 1723','Cette suite est un \u00e9l\u00e9ment incontournable du r\u00e9pertoire pour violoncelle, d''abord en raison de leurs qualit\u00e9s musicales, ensuite pour leur int\u00e9r\u00eat p\u00e9dagogique et th\u00e9orique. Bach met en valeur toutes les possibilit\u00e9s polyphoniques de l''instrument.','2:32','Cello Suite No. 1 in G Major','https://open.spotify.com/track/17i5jLpzndlQhbS4SrTd0B?si=2995bcdf671d4962',416)
+INSERT INTO MORCEAU VALUES(429,'1900-1901','La composition de ce concerto intervient juste apr\u00e8s les trois ans de d\u00e9pression nerveuse dans laquelle Rachmaninov a plong\u00e9 \u00e0 la suite de l''\u00e9chec de sa premi\u00e8re symphonie, d\u00e9mont\u00e9e par des critiques impitoyables. Mouvement : Moderato.','11:27','Piano Concerto No. 2, Op. 18 in C Major, 1st Movement','https://open.spotify.com/track/6nxTsSN8iUnF758TwyTP4U?si=2bade201c5c64197',417)
+INSERT INTO MORCEAU VALUES(431,'1827-1846','Les nocturnes reposent sur un mouvement lent d''expression path\u00e9tique, divers ornements m\u00e9lodiques et une partie centrale acc\u00e9l\u00e9r\u00e9e. Il est pr\u00e9sent\u00e9 avec une m\u00e9lodie tr\u00e8s souple et ornement\u00e9e, accompagn\u00e9e par une main gauche aux arp\u00e8ges ondulants.','6:13','Nocturnes, Op. 27, No. 2 in D-Flat Major','https://open.spotify.com/track/2MMm5gCJ7z9HgYGcDcuwdb?si=b907ad76a411429f',412)
+INSERT INTO MORCEAU VALUES(433,'21 Janvier 2013','Experience est un morceau sublime, faisant traverser l\u2019auditeur par une gamme d\u2019\u00e9motions \u00e0 l\u2019aide de la puissance de v\u00e9ritables instruments de musique.','5:15','Experience','https://open.spotify.com/track/7sXDYdXmR2PnafjkpfdCYv?si=ac853141e74042ec',418)
+INSERT INTO MORCEAU VALUES(445,NULL,NULL,NULL,'Ballade No.1 in G minor, Op. 23',NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(435,'1234','Khalil')

@@ -37,7 +37,7 @@
 <section id="main2">
     <h1 id="Morceau" class="Titre"></h1>
     <div id="Front">
-        <div class="Boite-comm" > <iframe src="http://www.youtube.com/embed/BSFNl4roGlI" width="560" height="315" frameborder="0" allowfullscreen></iframe></div>
+        <div class="Boite-comm" > <iframe src="http://www.youtube.com/embed/BSFNl4roGlI" width="315" height="315" frameborder="0" allowfullscreen></iframe></div>
         <div id="Description">
 
         </div>
@@ -66,7 +66,7 @@
 <script>
     $(document).ready(function (){
         $("#ajouter-commentaire").click(function () {
-            if (localStorage.getItem("username") === null || localStorage.getItem("username") === "null") {
+            if ((localStorage.getItem("username") === null || localStorage.getItem("username") === "null") && (localStorage.getItem("password") === null || localStorage.getItem("password") === "null")) {
                 alert("Vous n'êtes pas connecté")
             } else {
                 window.location.href = "AddCommentaire.html"
