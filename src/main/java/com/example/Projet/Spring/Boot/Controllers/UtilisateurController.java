@@ -32,6 +32,10 @@ public class UtilisateurController {
     @Path("/{id}")
     public Optional<Utilisateur> getUtilisateurById(@PathParam("id") long id){return utilisateurRepository.findById(id);}
 
+    @DELETE
+    @Path("/{id}")
+    public void deleteUtilisateurById(@PathParam("id") long id){utilisateurRepository.deleteById(id);}
+
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/ajoutMultipleUtilisateur")
