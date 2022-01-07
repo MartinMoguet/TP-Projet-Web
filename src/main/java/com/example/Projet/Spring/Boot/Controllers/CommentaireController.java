@@ -99,6 +99,10 @@ public class CommentaireController {
     public void removeAllCommentaire(){ commentaireRepository.deleteAll();}
 
     @DELETE
+    @Path("{id}")
+    public void removeAllCommentaire(@PathParam("id") long id){ commentaireRepository.deleteById(id);}
+
+    @DELETE
     @Path("remove/{morceau}")
     public void removeAllCommentaireByMorceau(@PathParam("morceau") String morceau){
         commentaireRepository.deleteAllByMorceau_Nom(morceau);

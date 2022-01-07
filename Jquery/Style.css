@@ -213,7 +213,7 @@ nav .Menu li a:hover{
 .container{
     text-align: center;
     margin: auto auto;
-    padding-top: 300px;
+    padding-top: 230px;
 }
 
 .com{
@@ -225,6 +225,10 @@ nav .Menu li a:hover{
     align-items: center;
     border-radius: 30px;
     padding: 0px 20px;
+    text-align: center;
+    font-family: Arial;
+    padding-top: 10px;
+
 }
 
 

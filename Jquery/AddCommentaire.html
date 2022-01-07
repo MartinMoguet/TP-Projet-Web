@@ -34,7 +34,7 @@
 </nav>
 
 <div class="container">
-    <input id="contenu" class="com" >
+    <textarea id="contenu" class="com" placeholder="Ecrivez votre commentaire"></textarea>
     <button id="ajouter-commentaire" class="bouton-com">
         Ajouter un commentaire
     </button>
@@ -53,16 +53,22 @@
                 utilisateur : {username : localStorage.getItem("username"),
                     password : localStorage.getItem("password")}
             }
-            $.ajax({
-                type: "POST",
-                url: "http://localhost:8080/classic/commentaire",
-                contentType: "application/json",
-                dataType: "json",
-                success: function (data) {
-                    window.location.href= localStorage.getItem("morceau") +".html";
-                },
-                data: JSON.stringify(commentaire)
-            })
+            if (contenuCom.length<255){
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:8080/classic/commentaire",
+                    contentType: "application/json",
+                    dataType: "json",
+                    success: function (data) {
+                        window.location.href= localStorage.getItem("morceau") +".html";
+                    },
+                    data: JSON.stringify(commentaire)
+                })
+            }
+            else {
+                alert("Votre commentaire ne peut pas dépasser les 255 caractères")
+            }
+
         })
 
         $('#rechercher').bind("enterKey",function(e){
@@ -81,6 +87,7 @@
                 }
             })
         });
+        console.log($("#contenu").length)
 
         $('#rechercher').keyup(function(e){
             if(e.keyCode == 13)

@@ -26,6 +26,7 @@
       <li><a href="Moderne.html">Moderne</a></li>
       <li><a href="Connexion.html">Se Connecter</a> </li>
       <li><a href="Inscription.html">S'inscrire</a> </li>
+      <li><p id="TEST"></p></li>
 
     </ul>
 
@@ -38,6 +39,7 @@
   <section id="main">
     <h1 class="Rubrique-a-la-une"> Nos Coups de Coeur </h1>
     <ul id="autoWidth" class="cs-hidden">
+
 
       <li class="item-0"></li>
       <li class="item-1"></li>
@@ -80,7 +82,8 @@
         })
 
 
-      $(document).imagesLoaded(function (){
+
+      setTimeout(function (){
       $('#autoWidth').lightSlider({
         autoWidth:true,
         loop:true,
@@ -88,7 +91,8 @@
             $('#autoWidth').removeClass('cS-hidden');
         }
     })
-    })
+      }, 200)
+
 
       $('#rechercher').bind("enterKey",function(e){
         $.ajax({

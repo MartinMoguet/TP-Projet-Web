@@ -60,16 +60,30 @@
             username = $("#usrname").val();
             password = $("#pssword").val();
             $.ajax({
-                type: "POST",
+                type: "GET",
                 url: "http://localhost:8080/classic/utilisateur/user/" + username + "/" + password,
                 contentType: "application/json",
                 dataType: "json",
-                success: function (data) {
-                        localStorage.setItem("username", username);
-                        localStorage.setItem("password", password);
-                        window.location.href="index.html"
+                success: function (data){
+                    if (data !== undefined){
+                        alert("Cet utilisateur existe déjà, veuillez changer de nom d'utilisateur")
+                    }
+                    else{
+                        $.ajax({
+                            type: "POST",
+                            url: "http://localhost:8080/classic/utilisateur/user/" + username + "/" + password,
+                            contentType: "application/json",
+                            dataType: "json",
+                            success: function (data) {
+                                localStorage.setItem("username", username);
+                                localStorage.setItem("password", password);
+                                window.location.href="index.html"
+                            }
+                        })
+                    }
                 }
             })
+
         })
 
         $('#rechercher').bind("enterKey",function(e){

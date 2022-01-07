@@ -79,7 +79,7 @@
     })
 
 
-    $(document).imagesLoaded(function (){
+    setTimeout(function (){
       $('#autoWidth').lightSlider({
         autoWidth:true,
         loop:true,
@@ -87,7 +87,7 @@
           $('#autoWidth').removeClass('cS-hidden');
         }
       })
-    })
+    }, 200)
 
     $('#rechercher').bind("enterKey",function(e){
       $.ajax({
