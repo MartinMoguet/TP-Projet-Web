@@ -210,5 +210,23 @@ nav .Menu li a:hover{
 }
 
 
+.container{
+    text-align: center;
+    margin: auto auto;
+    padding-top: 300px;
+}
+
+.com{
+    width: 500px;
+    height: 300px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    padding: 0px 20px;
+}
+
+
 
 
