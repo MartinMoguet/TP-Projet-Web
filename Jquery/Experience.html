@@ -91,8 +91,9 @@
           $("#commentaires").append("<li>"+
                   "<div class =Boite-comm>" +
                   "<div class=Boite-a-la-une-text>" +
-                  "<strong>" + commentaire +  ".   Date de publication : "+ datecom +"</strong>" +
+                  "<strong>" + commentaire +  "</strong>" +
                   "<p>"+utilisateur +"</p>" +
+                  "<p>Date de publication : "+ datecom +"</p>" +
                   "</div>" +
                   "</div>"+"</li>");
 
@@ -108,7 +109,7 @@
         console.log(data.nom)
         console.log(data.description)
         $("#Morceau").append(data.nom)
-        $("#Youtube").append("<iframe src=https://www.youtube.com/embed/" + data.url +" width=550 height=315 frameborder=\"0\" allowfullscreen></iframe>")
+        $("#Youtube").append("<iframe src=https://www.youtube.com/embed/" + data.url +" width=100% height=100% frameborder=\"0\" allowfullscreen></iframe>")
         $("#Description").append("<div class=Boite-comm Description><h5 class=Boite-a-la-une-text>Description : " + data.description+ "</h5></div>" +
                 "<div class=Boite-comm Description><h5 class=Boite-a-la-une-text>Date de création : " +data.dateCreation+"</h5></div>" +
                 "<div class=Boite-comm Description><h5 class=Boite-a-la-une-text>Biographie de l'auteur : " +data.compositeur.biographie+"</h5></div>" +
