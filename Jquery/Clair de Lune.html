@@ -113,7 +113,7 @@
                 $("#Description").append("<div class=Boite-comm Description><h5 class=Boite-a-la-une-text>Description : " + data.description+ "</h5></div>" +
                     "<div class=Boite-comm Description><h5 class=Boite-a-la-une-text>Date de création : " +data.dateCreation+"</h5></div>" +
                     "<div class=Boite-comm Description><h5 class=Boite-a-la-une-text>Biographie de l'auteur : " +data.compositeur.biographie+"</h5></div>" +
-                    "<div class=Boite-comm Description><h5 class=Boite-a-la-une-text>Date de naissance : " +data.compositeur.dateDeNaissance+", Date de mort : "+ data.compositeur.dateDeMort+"</h5></div>");
+                    "<div class=Boite-comm Description><h5 class=Boite-a-la-une-text>Date de naissance : " +data.compositeur.dateDeNaissance+", Date de mort : "+ data.compositeur.dateDeMort+", Nationalité : "+ data.compositeur.nationalite+ "</h5></div>");
                 localStorage.setItem("morceau", data.nom)
 
             }
