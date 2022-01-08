@@ -1,5 +1,4 @@
 package com.example.Projet.Spring.Boot.Controllers;
-import com.example.Projet.Spring.Boot.Classes.Compositeur;
 import com.example.Projet.Spring.Boot.Classes.Utilisateur;
 
 import com.example.Projet.Spring.Boot.Repositories.UtilisateurRepository;

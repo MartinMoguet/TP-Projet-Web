@@ -1,12 +1,11 @@
 package com.example.Projet.Spring.Boot.Controllers;
 
-import com.example.Projet.Spring.Boot.Classes.Commentaire;
 import com.example.Projet.Spring.Boot.Classes.Compositeur;
 import com.example.Projet.Spring.Boot.Classes.Morceau;
 import com.example.Projet.Spring.Boot.Repositories.CompositeurRepository;
 import com.example.Projet.Spring.Boot.Repositories.MorceauRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;

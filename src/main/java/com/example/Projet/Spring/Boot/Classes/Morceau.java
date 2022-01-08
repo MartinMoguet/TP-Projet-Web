@@ -1,13 +1,12 @@
 package com.example.Projet.Spring.Boot.Classes;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Optional;
+
 
 @Entity
 public class Morceau implements Serializable {

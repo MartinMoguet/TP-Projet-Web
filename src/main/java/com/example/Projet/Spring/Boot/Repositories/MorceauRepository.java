@@ -6,9 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface MorceauRepository extends JpaRepository<Morceau, Long> {
-    Morceau findMorceauByNomEquals(String nom);
     Morceau findMorceauByNom(String nom);
-    Morceau findMorceauByCompositeur_Mouvement(String mouvement);
     List<Morceau> findAllByCompositeur_Mouvement(String mouvement);
 
 

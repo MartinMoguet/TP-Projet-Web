@@ -1,19 +1,17 @@
 package com.example.Projet.Spring.Boot.Controllers;
 
 import com.example.Projet.Spring.Boot.Classes.Commentaire;
-import com.example.Projet.Spring.Boot.Classes.Compositeur;
 import com.example.Projet.Spring.Boot.Classes.Morceau;
 import com.example.Projet.Spring.Boot.Classes.Utilisateur;
 import com.example.Projet.Spring.Boot.Repositories.CommentaireRepository;
-import com.example.Projet.Spring.Boot.Repositories.CompositeurRepository;
 import com.example.Projet.Spring.Boot.Repositories.MorceauRepository;
 import com.example.Projet.Spring.Boot.Repositories.UtilisateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Optional;
 

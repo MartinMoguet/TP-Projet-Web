@@ -5,8 +5,6 @@ import org.springframework.data.annotation.CreatedDate;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Optional;
-import java.text.SimpleDateFormat;
 
 
 @Entity
