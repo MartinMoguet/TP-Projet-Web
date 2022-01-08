@@ -3,7 +3,6 @@ java -cp hsqldb.jar org.hsqldb.server.Server  --database.0 file:mydb --dbname.0 
 
 Ensuite, il faut run ProjetSpringBootApplication puis run Index.html présent dans le dossier Jquery.
 
-PS : il peut y avoir des bugs d'affichage que je n'ai pas réussi à corriger entièrement pour les pages suivantes : indext.html, romatisme.html, baroque.html et Moderne.html.
-Il faudra juste refresh la page une ou deux fois pour voir apparaître le caroussel.
+PS : il peut y avoir des bugs d'affichage pour les carrousels, notamment lors de l'ouverture de l'index.html, il faut refresh une fois la page et tout devrait s'afficher. Si il y a un bug d'affichage, il faut rafraîchir la page. 
 
 Bonne visite.
