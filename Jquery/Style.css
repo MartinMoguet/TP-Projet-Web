@@ -231,6 +231,10 @@ nav .Menu li a:hover{
 
 }
 
+.cs-hidden{
+    overflow: visible; !important;
+}
+
 
 
 
